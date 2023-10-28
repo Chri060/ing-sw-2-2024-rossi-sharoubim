@@ -19,18 +19,179 @@
 
 \chapter{Introduction}
     \section{Purpose}
+    CodeKataBattle is a platform employed by educators to challenge students on code Katas, problems meant to be tackled using a programming language selected by 
+    the organizers of the challenge.
+    
+    Specifically, educators have the capability to establish a code Kata within a particular tournament by defining the following parameters: the problem to be solved 
+    (with some test cases), the minimum and maximum number of students per group, and the deadlines for code Kata registration and solution submission.
+    
+    After the creation of the tournament, students can form groups and start their work on the solution, employing a test-first approach. When the ultimate deadline 
+    approaches, the system autonomously calculates the final rankings and unveils the winners.
+
     \section{Scope}
+    To ensure the proper development of this application, it is crucial to examine all imaginable phenomena linked to the system.
+    
+    These phenomena can be categorized into three distinct categories: world phenomena (occurring in the external environment beyond the machine's control), machine 
+    phenomena (taking place within the machine and beyond the influence of the external world), and shared phenomena (interactions and events involving both the system
+    and the external world).
+
+    Regarding CodeKataBattle, we encounter the following external phenomena: 
+    \begin{enumerate}
+        \item The educator generates a code Kata problem description.
+        \item The educator formulates a series of test cases for the code Kata problem.
+        \item The students develop a program to solve the code Kata.
+        \item The educator assigns a personal score based on code quality.
+    \end{enumerate}
+    Additionally, the following internal phenomena arise within the system: 
+    \begin{enumerate}
+        \item The system creates a GitHub repository.
+        \item The system establishes an automated workflow through GitHub Actions to notify CKB about new commits.
+        \item The system analyzes the repositories at every commit.
+        \item The system conducts automated evaluation and updates the score according to the following criteria:
+            \begin{enumerate}
+                \item Number of passed test cases.
+                \item Timeliness between the start of the challenge and the last commit on the main branch.
+                \item Static code analysis for security, reliability, and maintainability.
+            \end{enumerate}
+    \end{enumerate}    
+    Lastly, the following shared interactions and events emerge:
+    \begin{enumerate}
+        \item The educator initiates a battle on the platform, including the following steps:
+            \begin{enumerate}
+                \item Uploading the code Kata.
+                \item Specifying the minimum and maximum number of students per group.
+                \item Setting a registration deadline.
+                \item Setting a final submission deadline.
+                \item Configuring additional scoring parameters.
+            \end{enumerate}
+        \item Students submit their implementations to the platform via GitHub commits.
+        \item The educator creates a tournament.
+        \item The educator grants permissions to other educators to create code Kata within a specific tournament.
+        \item Students subscribe to specific tournaments.
+        \item The student joins an already existing group.
+        \item The student forms a new group and extends invitations to other students.
+        \item The educator concludes the tournament, and the system notifies the students.
+    \end{enumerate}
+
+    
     \section{Definitions, acronyms and abbreviations}
+    \subsection{Definitions}
+    \textbf{Code Kata}: adaptation of the concept of karate katas, where you repetitively refine a form, to the realm of software development, 
+        fostering iterative practice and improvement. 
+    \\
+    \textbf{Test-first approach}:  software development process relies on the transformation of software requirements into test cases before 
+        the software is completely developed, and it involves monitoring the entire software development by iteratively testing the software 
+        against all these test cases.
+    \subsection{Acronyms}
+    \textbf{CKB}: CodeKataBattle 
+    \\
+    \textbf{CK}: Code Kata
+    \subsection{Abbreviations}
+    
+
     \section{Revision history}
+    \textbf{Version 1.0} - Release - date TBD
+
+
     \section{Reference documents}
+    \textbf{Document 1} - Presentation about RASD structure
+    \\
+    \textbf{Website 1} - http://codekata.com
+    \\
+    \textbf{Website 2} - https://en.wikipedia.org
+
+
     \section{Document structure}
+    This document contains the following elements: 
+    \begin{enumerate}
+        \item \textbf{Introduction}: this section offers a general overview of CodeKataBattle and its objectives.
+        \item \textbf{Overall description}: this section provides comprehensive information about the system, including interfaces, constraints, domain assumptions, 
+            software dependencies, and user characteristics.
+        \item \textbf{Specific requirements}: this section outlines the system's functionalities through scenarios and use case diagrams.
+        \item \textbf{Formal analysis with alloy}: this section contains the Alloy employed to verify the platform's correctness.
+        \item \textbf{Effort spent}: this section details the amount of time (in hours) contributed by each group member.
+        \item \textbf{References}: this section lists the tools used in the document's development.
+    \end{enumerate}
 
 \newpage 
 
 \chapter{Overall description}
     \section{Product perspective}
+    \subsection{Scenarios}
+    \begin{enumerate}
+        \item \textit{Educator creates a new tournament} \\
+            Description missing
+        \item \textit{Educator adds a CK to a specific tournament} \\
+            Description missing
+        \item \textit{Educator closes the tournament} \\
+            Description missing
+        \item \textit{Student does a commit} \\
+            Description missing
+    \end{enumerate}
+
+    \subsection{Domain class diagrams}
+    The domain class diagram for CodeKataBattle is presented below, covering all the elements within the system's operational environment and illustrating their interactions.
+
+    DIAGRAM HERE
+
+    Description of the elements in the class diagram HERE.
+
+    \subsection{State diagrams}
+    Introduction to the state diagrams and why we choose to represent those scenarios. 
+    \subsubsection{First diagram}
+    DIAGRAM
+
+    Description of the diagram.
+    \subsubsection{Second diagram}
+    2 DIAGRAM
+
+    Description of the 2 diagram.
+
     \section{Product functions}
+    Introduction to functions offered and specific description of each one. 
+    \subsection{First function}
+
     \section{User characteristics}
+    The platform accommodates interaction from two user categories: students and educators. The initial user category engages in Code Kata tournaments, while educators, 
+    on the other hand, serve as the organizers of these tournaments.
+    \subsection{Student}
+    The student, as an individual aiming to secure victory in a specific tournament, may need to either join an existing team or establish one with fellow students, 
+    considering that each tournament has a predetermined group size. 
+
+    In particular, a student requires access to the following features within the system:
+    \begin{itemize}
+        \item Student login.
+        \item Personalized user interface. 
+        \item Access to the list of available tournaments.
+        \item The ability to join a desired tournament if it's open for registration.
+        \item Capability to create and join groups.
+        \item Invitation of other students to their group.
+        \item Access to the GitHub repository link for a specific tournament.
+        \item Access to both interim and final tournament rankings.
+    \end{itemize}
+
+    \subsection{Educator}
+    The educator's role encompasses the creation and management of tournaments, with the potential involvement of other educators designated by the tournament's owner, 
+    who is typically the initiating educator. All educators should possess the capability to create code Katas for the tournaments they manage and provide additional 
+    points for evaluation.
+
+    To facilitate these responsibilities, educators need access to the following features within the system:
+    \begin{itemize}
+        \item Educator login. 
+        \item Personalized user interface. 
+        \item Access to a list of tournaments under their management.
+        \item The ability to create new tournaments with customized rules. 
+        \item Within a managed tournament: 
+            \begin{itemize}
+                \item The option to invite other educators to participate. 
+                \item The capability to add new code Katas.
+                \item The authority to close the tournament.
+                \item The ability to assign extra points if specified in the tournament rules.
+            \end{itemize}
+        \item Access to the GitHub repository for every student in the active tournament.
+        \item Access to both interim and final tournament rankings.
+    \end{itemize}
+
     \section{Assumptions, dependencies and constraints}
 
 \newpage 
@@ -61,6 +222,27 @@
 \newpage 
 
 \chapter{Effort spent}
+    The table below offers a concise overview of the hours invested by each group member, along with a brief description of their contributions. 
+    Dates where the same amount of time was dedicated by all members usually indicates collaborative efforts.
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{cccc}
+            \textbf{Date}   & \textbf{Rossi}            & \textbf{Sharoubim}            & \textbf{Description}                          \\ \hline
+            22-10-2023      & 1                         & 1                             & Repository setup and file structure           \\ 
+            28-10-2023      & 3                         & 3                             & First chapter initial content                 \\ 
+            xx-xx-xxxx      & -                         & -                             &                                               \\
+            xx-xx-xxxx      & -                         & -                             &                                               \\
+            xx-xx-xxxx      & -                         & -                             &                                               \\
+            xx-xx-xxxx      & -                         & -                             &                                               \\
+            xx-xx-xxxx      & -                         & -                             &                                               \\
+            xx-xx-xxxx      & -                         & -                             &                                               \\
+            xx-xx-xxxx      & -                         & -                             &                                               \\
+            xx-xx-xxxx      & -                         & -                             &                                               \\
+            xx-xx-xxxx      & -                         & -                             &                                               \\
+            xx-xx-xxxx      & -                         & -                             &                                               \\ \hline
+            \textbf{Total}  & 4                         & 4                            & -                                             \\  
+        \end{tabular}
+    \end{table}
 
 \newpage 
 
