@@ -1,7 +1,7 @@
 \documentclass[12pt, a4paper]{report}
-\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox}
+\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry}
 \usepackage[english]{babel}
-
+\geometry{a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 
 \title{Requirement Analysis and Specification Document}
 \author{Christian Rossi \\ Kirolos Sharoubim}
@@ -119,14 +119,60 @@
     \section{Product perspective}
     \subsection{Scenarios}
     \begin{enumerate}
+        \item \textit{New user joins the platform}\\
+        Maria is a Computer science student. Maria wrote a simple program in Java for a school project a month ago,
+        and realised she really enjoys it. Thus, she is looking for a chace to improve her Java skills as she didn't feel always confident about all the code she wrote.
+        While searching online, Maria finds the CodeKataBattle platform and, as some challenges were exactly what she was looking for, she signs up: she inserts her email and a password and procedes as a Student.
+        A verification email is sent and, once the mail is verified by clicking the link in the verification email, she can start browsing the available tournaments looking for an interesting battle.
+        
         \item \textit{Educator creates a new tournament} \\
-            Description missing
+        Anne is a professor in an engineering university.
+        She teaches a course about optimization of problems' solution.
+        One day she hears from a colleague of her, who's a computer science professor, about a platform called CodeKataBattle,
+        which allows students to compete solving programming problems.
+        Anne enjoys writing some python scripts to solve simple problems of everyday life and,
+        while writing the scripts, she noticed that they required a deeper understanding of the solution.
+        Since she knows that her students enjoy programming, as herself, Anne decides to create a tournament on CodeKataBattle,
+        with the objective to make her students implement algorithms for the methods of problem solving taught in the course.
+        At first, she was not sure that she could make something so complex but the fact that the platform could assign automatically 
+        the ranking needing only some test cases and that multiple programming languages were supported made Anne change her mind.
+        Thus, Anne creates a nwe tournament by setting a name and a deadline. All the students subscribed to CodeKataBattle are notified
+        by the platform and can now subscribe.
+
         \item \textit{Educator adds a CK to a specific tournament} \\
-            Description missing
-        \item \textit{Educator closes the tournament} \\
-            Description missing
+        Jamie is a high school programming teacher; he is a Python and JavaScript expert but also knows Java.
+        Jamie has been using CodeKataBattle for a while, since it helps his students to challenge themselves 
+        and provides an interctive programming exercise.\\
+        Every year a CodeKataBattle tournament is held by the professor and based on the final ranking
+        the students get some extra points in the exam grade.\\ 
+        For this year, Jamie just found out an interesting problem that can be solved in various ways, each of them exploiting different proprieties of python.
+        Thus, he decides to upload the problem in the tournament, not allowing students to join in groups
+        since he wants to test each student individually.\\
+        Therefore Jamie creates five test cases, sets the deadline date and procedes to upload the codekata, the registration deadline, the submission deadline
+        and an additional scoring criteria on cleanliness of the code.
+
+        \item \textit{Student join a group for a specific CK in a tournament}\\
+        Donald is a carwash employe, even if things are going great his dream was to beacome a web developer.
+        Donald already learned a lot JavaScript and is always in search of new challenges.
+        Donald knows that in programming environment team working is a must.
+        Since he always studied and exercised alone on CodeKataBattle, he now wants to practice some team work.
+        So Donald opens CodeKataBattle and looks for some tournaments were battles in numerous groups are allowed.
+        Once he found some battles about topics he's interested in, where groups are allowed, he create a group and waits for other 
+        students to join.
+
         \item \textit{Student does a commit} \\
-            Description missing
+        Charlotte and Matt are working on the solution of a battle in their teacher tournament.
+        They thought every test was passed, but then, they realised there might be a particular case in wich their algorithm fails.
+        Thus, they fix the bug and, once they think the algorithm is done, the changes are committed and pushed.
+        At this point the CodeKataBattle platform performs the tests, the static analysis and the time ranking, giving the two students a new higher rank,
+        confirming that there was a bug in their code.
+
+        \item \textit{Educator closes the tournament} \\
+        Jeremiah is an Educator on CodeKataBattle, each month he creates a tournament about a simple problem, with a couple battles,
+        one is usually a simple exercise, while the second is a more complex variation of the first one.
+        As the month is coming to its end Jeremiah opens CodeKataBattle platform and checks how the partecipants are doing and decides to close the tournament.
+        The platform then procedes to assign the final ranking and score of each student subscribed to the tournament and makes them available for everyone to consult. 
+
     \end{enumerate}
 
     \subsection{Domain class diagrams}
