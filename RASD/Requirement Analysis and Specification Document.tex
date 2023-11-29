@@ -105,8 +105,7 @@
     This document contains the following elements: 
     \begin{enumerate}
         \item \textbf{Introduction}: this section offers a general overview of CodeKataBattle and its objectives.
-        \item \textbf{Overall description}: this section provides comprehensive information about the system, including interfaces, constraints, domain assumptions, 
-            software dependencies, and user characteristics.
+        \item \textbf{Overall description}: this section provides comprehensive information about the system, including interfaces, constraints, domain assumptions, software dependencies, and user characteristics.
         \item \textbf{Specific requirements}: this section outlines the system's functionalities through scenarios and use case diagrams.
         \item \textbf{Formal analysis with alloy}: this section contains the Alloy employed to verify the platform's correctness.
         \item \textbf{Effort spent}: this section details the amount of time (in hours) contributed by each group member.
@@ -120,90 +119,143 @@
     \subsection{Scenarios}
     \begin{enumerate}
         \item \textit{New user joins the platform}\\
-        Maria is a Computer science student. Maria wrote a simple program in Java for a school project a month ago,
-        and realised she really enjoys it. Thus, she is looking for a chace to improve her Java skills as she didn't feel always confident about all the code she wrote.
-        While searching online, Maria finds the CodeKataBattle platform and, as some challenges were exactly what she was looking for, she signs up: she inserts her email and a password and procedes as a Student.
-        A verification email is sent and, once the mail is verified by clicking the link in the verification email, she can start browsing the available tournaments looking for an interesting battle.
+            Maria is a Computer science student. Maria wrote a simple program in Java for a school project a month ago, and realised she really enjoys it. 
+            Thus, she is looking for a chance to improve her Java skills as she didn't feel always confident about all the code she wrote.
+            While searching online, Maria finds the CodeKataBattle platform and, as some challenges were exactly what she was looking for, she signs up: she inserts her email and a password and procedes as a student.
+            A verification email is sent and, once the mail is verified by clicking the link in the verification email, she can start browsing the available tournaments looking for an interesting battle.
         
         \item \textit{Educator creates a new tournament} \\
-        Anne is a professor in an engineering university.
-        She teaches a course about optimization of problems' solution.
-        One day she hears from a colleague of her, who's a computer science professor, about a platform called CodeKataBattle,
-        which allows students to compete solving programming problems.
-        Anne enjoys writing some python scripts to solve simple problems of everyday life and,
-        while writing the scripts, she noticed that they required a deeper understanding of the solution.
-        Since she knows that her students enjoy programming, as herself, Anne decides to create a tournament on CodeKataBattle,
-        with the objective to make her students implement algorithms for the methods of problem solving taught in the course.
-        At first, she was not sure that she could make something so complex but the fact that the platform could assign automatically 
-        the ranking needing only some test cases and that multiple programming languages were supported made Anne change her mind.
-        Thus, Anne creates a nwe tournament by setting a name and a deadline. All the students subscribed to CodeKataBattle are notified
-        by the platform and can now subscribe.
-
+            Anne is a professor in an engineering university.
+            She teaches a course about optimization of problems' solution.
+            One day she hears from a colleague of her, who's a computer science professor, about a platform called CodeKataBattle, which allows students to compete solving programming problems.
+            Anne enjoys writing some python scripts to solve simple problems of everyday life and, while writing the scripts, she noticed that they required a deeper understanding of the solution.
+            Since she knows that her students enjoy programming, as herself, Anne decides to create a tournament on CodeKataBattle, with the objective to make her students implement algorithms for the methods of problem-solving taught in the course.
+            At first, she was not sure that she could make something so complex but the fact that the platform could assign automatically the ranking needing only some test cases and that multiple programming languages were supported made Anne change her mind.
+            Thus, Anne creates a new tournament by setting a name and a deadline. All the students subscribed to CodeKataBattle are notified by the platform and can now subscribe.
         \item \textit{Educator adds a CK to a specific tournament} \\
-        Jamie is a high school programming teacher; he is a Python and JavaScript expert but also knows Java.
-        Jamie has been using CodeKataBattle for a while, since it helps his students to challenge themselves 
-        and provides an interctive programming exercise.\\
-        Every year a CodeKataBattle tournament is held by the professor and based on the final ranking
-        the students get some extra points in the exam grade.\\ 
-        For this year, Jamie just found out an interesting problem that can be solved in various ways, each of them exploiting different proprieties of python.
-        Thus, he decides to upload the problem in the tournament, not allowing students to join in groups
-        since he wants to test each student individually.\\
-        Therefore Jamie creates five test cases, sets the deadline date and procedes to upload the codekata, the registration deadline, the submission deadline
-        and an additional scoring criteria on cleanliness of the code.
-
-        \item \textit{Student join a group for a specific CK in a tournament}\\
-        Donald is a carwash employe, even if things are going great his dream was to beacome a web developer.
-        Donald already learned a lot JavaScript and is always in search of new challenges.
-        Donald knows that in programming environment team working is a must.
-        Since he always studied and exercised alone on CodeKataBattle, he now wants to practice some team work.
-        So Donald opens CodeKataBattle and looks for some tournaments were battles in numerous groups are allowed.
-        Once he found some battles about topics he's interested in, where groups are allowed, he create a group and waits for other 
-        students to join.
-
+            Jamie is a high school programming teacher; he is a Python and JavaScript expert but also knows Java.
+            Jamie has been using CodeKataBattle for a while, since it helps his students to challenge themselves and provides an interactive programming exercise.\\
+            Every year a CodeKataBattle tournament is held by the professor and based on the final ranking the students get some extra points in the exam grade.\\ 
+            For this year, Jamie just found out an interesting problem that can be solved in various ways, each of them exploiting different proprieties of python.
+            Thus, he decides to upload the problem in the tournament, not allowing students to join in groups since he wants to test each student individually.\\
+            Therefore, Jamie creates five test cases, sets the deadline date and proceeds to upload the CodeKata, the registration deadline, the submission deadline and an additional scoring criteria on cleanliness of the code.
+        \item \textit{Student joins a group for a specific CK in a tournament}\\
+            Donald is a car wash employee, even if things are going great his dream was to become a web developer.
+            Donald already learned a lot JavaScript and is always in search of new challenges.
+            Donald knows that in programming environment team working is a must.
+            Since he always studied and exercised alone on CodeKataBattle, he now wants to practice some team work.
+            So Donald opens CodeKataBattle and looks for some tournaments were battles in numerous groups are allowed.
+            Once he found some battles about topics he's interested in, where groups are allowed, he creates a group and waits for other students to join.
         \item \textit{Student does a commit} \\
-        Charlotte and Matt are working on the solution of a battle in their teacher tournament.
-        They thought every test was passed, but then, they realised there might be a particular case in wich their algorithm fails.
-        Thus, they fix the bug and, once they think the algorithm is done, the changes are committed and pushed.
-        At this point the CodeKataBattle platform performs the tests, the static analysis and the time ranking, giving the two students a new higher rank,
-        confirming that there was a bug in their code.
-
+            Charlotte and Matt are working on the solution of a battle in their teacher tournament.
+            They thought every test was passed, but then, they realised there might be a particular case in which their algorithm fails.
+            Thus, they fix the bug and, once they think the algorithm is done, the changes are committed and pushed.
+            At this point the CodeKataBattle platform performs the tests, the static analysis and the time ranking, giving the two students a new higher rank, confirming that there was a bug in their code.
         \item \textit{Educator closes the tournament} \\
-        Jeremiah is an Educator on CodeKataBattle, each month he creates a tournament about a simple problem, with a couple battles,
-        one is usually a simple exercise, while the second is a more complex variation of the first one.
-        As the month is coming to its end Jeremiah opens CodeKataBattle platform and checks how the partecipants are doing and decides to close the tournament.
-        The platform then procedes to assign the final ranking and score of each student subscribed to the tournament and makes them available for everyone to consult. 
-
+            Jeremiah is an Educator on CodeKataBattle, each month he creates a tournament about a simple problem, with a couple battles,
+            one is usually a simple exercise, while the second is a more complex variation of the first one.
+            As the month is coming to its end Jeremiah opens CodeKataBattle platform and checks how the participants are doing and decides to close the tournament.
+            The platform then proceeds to assign the final ranking and score of each student subscribed to the tournament and makes them available for everyone to consult. 
     \end{enumerate}
 
     \subsection{Domain class diagrams}
     The domain class diagram for CodeKataBattle is presented below, covering all the elements within the system's operational environment and illustrating their interactions.
-
-    DIAGRAM HERE
-
-    Description of the elements in the class diagram HERE.
+    %\begin{figure}[H]
+    %    \centering
+    %    \includegraphics[width=0.8\linewidth]{images/class.png}
+    %\end{figure}
+    The main elements of the UML Class diagram presented above are: 
+    \begin{itemize}
+        \item A
+        \item B
+        \item C
+    \end{itemize}
 
     \subsection{State diagrams}
-    Introduction to the state diagrams and why we choose to represent those scenarios. 
-    \subsubsection{First diagram}
-    DIAGRAM
+    They are now presented the UML State diagrams that defines the possible states for battle and a tournament. 
+    These two scenarios are analyzed as they are the core part of the whole application.
+    In particular, an educator can create a tournament by setting all the rules and its battles. 
+    Then the tournament has his own lifecycle shown in the diagram. 
+    In each tournament there can be multiple battles. 
+    At a certain point of the tournament there can be battles in different states. 
+    
+    \subsubsection{Battle state diagram}
+    The diagram that represents the possible states of a battle is depicted below: 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{images/battle.png}
+    \end{figure}
 
-    Description of the diagram.
-    \subsubsection{Second diagram}
-    2 DIAGRAM
+    \paragraph*{Description}
+    After the creation of a battle, the students enrolled in the battle's tournament can join alone or in groups (\textit{Joinable}). 
+    At registratione deadline there are two possibilities: there are at least one student enrolled or there are none. 
+    In the former scenario the battle starts (\textit{Started}), while in the latter the battle ends immediately without final ranking (\textit{Battle canceled0} and \textit{Final state}). 
+    When the battle starts each student or group can create commits and gain points for the battle (\textit{Disputed}).
+    However, when the deadline occours the battle is closed and both groups and student with and without commits are evaluated (\textit{End battle}). 
+    Obviously, the groups without commits will gain zero points. 
+    The solutions undergo the automated evaluation (\textit{Automated evaluation}) and then the educator's evaluation (\textit{Rankings}). 
+    After all this process the final rankings are shown and the winner is revealed. 
 
-    Description of the 2 diagram.
+    \subsubsection{Tournament state diagram}
+    The diagram that represents the possible states of a tournament is shown below: 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{images/tournament.png}
+    \end{figure}
+
+    \paragraph*{Description}
+    After the creation of a tournament, the educator can invite other educator to manage it together (\textit{Definition}). 
+    While doind this the educator has also to set up the rules for the tournament and the termination date (\textit{Joinable/leavable}).
+    Note that the educators can create battles also after the creation of the tournament.
+    When the registration deadline occours the tournament starts and students not enrolled cannot join the tournament anymore (\textit{Tournament start}). 
+    After the tournament starts, the battles can also commence. 
+    When the first battle starts (\textit{Battle phase}) the students can compete in the open battles and have to wait the opening date for the ones not yet stared. 
+    When the last battle ends (the deadline must be anterior to the tournament ending) (\textit{Battle phase end}), it is possible to compute the scores for all the students. 
+    WHen the tournament's deadline occours, the educator close the tournament itself and can finally reveal the final winner. 
 
     \section{Product functions}
-    Introduction to functions offered and specific description of each one. 
-    \subsection{First function}
+    The functionality offered by CodeKataBattle differs based on the user that is going to interact with it. 
+    Thus, the functionalities are spresented based on the user. 
+    
+    \subsection{Student's functionalities}
+    The educator is the user that partecipates to the torunaments and the battles. 
+    After the login the system must redirect the student to the page that offers the following functionalities: 
+    \begin{itemize}
+        \item \textit{Join tournaments}: the user must be able to access a list of opened tournament that can be joined. 
+            This list has also to show if the user is eligible for the opened tournaments. 
+        \item \textit{Active torunaments}: the user can view all the tournaments in which he is enrolled, with the relative termination dates and the active battles within it. 
+        \item \textit{Tournament details}: the user can view the details of a tournament. 
+            If it is enrolled and the registration is complete he can see the status of all battles and the relative rankings. 
+            If it is not enrolled it can only view the names of the battles and the tournament topics. 
+        \item \textit{Battles details}: the user can view the details of each battle. 
+            The details consist, if the battle is open, in the problem description and test files. 
+            It can check the catual ranking, the points it has received, and the details about commits it has done. 
+            If the battle is closed it can see the final ranking.
+            If the battle is not yet open he can view only the topics and the other user enrolled, but not the problem itself. 
+    \end{itemize}
+
+    \subsection{Educator's functionalities}
+    The educator is the user that manages the torunaments and the battles. 
+    After the login the system must redirect the educator to the page that offers the following functionalities: 
+    \begin{itemize}
+        \item \textit{Create tournaments}: the user can create a new tournament by setting the rules and adding other educator to help it manage the competition. 
+            After setting up collaborators and rules, it (and the collaborators) can add battles to the tournament. 
+            When this phase ends the tournament is ready to be seen by the students. 
+        \item \textit{Add battle}: the user must have the possibility to add a new battle also after the creation of the torunament. 
+            This functionality allow, by selecting a managed tournament, to create a new battle with all the rules and add it to the tournament. 
+        \item \textit{Manage tournament}: after the creation of the tournament the educator can check the status until the end and close it when the time expires. 
+        \item \textit{Manage battle}: when a battle in a certain managed tournament is active the user can see the actual rankings and the commit status of each participant. 
+            If specified by the rules, when the time expires he must check the final submissions for each group and assign points based on the quality and finally close the battle. 
+            If the manual check is not in the rules he can directly close the battle when the time expires. 
+    \end{itemize}
 
     \section{User characteristics}
     The platform accommodates interaction from two user categories: students and educators. The initial user category engages in Code Kata tournaments, while educators, 
     on the other hand, serve as the organizers of these tournaments.
+    
     \subsection{Student}
     The student, as an individual aiming to secure victory in a specific tournament, may need to either join an existing team or establish one with fellow students, 
-    considering that each tournament has a predetermined group size. 
-
+    considering that each tournament has a predetermined group size. \\
     In particular, a student requires access to the following features within the system:
     \begin{itemize}
         \item Student login.
@@ -219,8 +271,7 @@
     \subsection{Educator}
     The educator's role encompasses the creation and management of tournaments, with the potential involvement of other educators designated by the tournament's owner, 
     who is typically the initiating educator. All educators should possess the capability to create code Katas for the tournaments they manage and provide additional 
-    points for evaluation.
-
+    points for evaluation. \\
     To facilitate these responsibilities, educators need access to the following features within the system:
     \begin{itemize}
         \item Educator login. 
@@ -240,20 +291,107 @@
 
     \section{Assumptions, dependencies and constraints}
 
+    \subsection{Domain assumptions}
+    The domain assumptions that we have to make are: 
+    \begin{itemize}
+        \item A student register to a tournament before the registration deadline. 
+        \item A student submits a code that is not malicious. 
+        \item A student does not join multiple groups for the same battle. 
+        \item Every user register itself to the website with the right role (student or educator).
+        \item The educator sets the tournament end time after the termination of the last battle. 
+        \item The educator creates a tournament with at least one battle available.
+    \end{itemize}
+
+    \subsection{Dependencies}
+    The dependencies that we have to make are: 
+    \begin{itemize}
+        \item The system requires an internet connection to retrieve all the data. 
+        \item The system will use an external API to interact with GitHub to check for commits and to create the repositories.
+        \item The system will use an external API to send notifications to the user. 
+    \end{itemize}
+
+    \subsection{Constraint}
+    The system shall be compliant to local laws and regulations, in particular users data should be treated according to the GDPR. 
+    The user must be able to retrive the personal data given to the site ache time he needs them. 
+    The data collected in the registration phase must be the strictly necessary ones. \\
+    All information given from the user must be encrypted to protect them from malicious users. \\
+    The APIs used by the application must be choosen based on security and reliability.
+
 \newpage 
 
 \chapter{Specific requirements}
     \section{External interface requirements}
+        In this section are presented all the interfaces required by the system to work as intended. 
+
         \subsection{User interfaces}
+        The platform will be implemented via a website that present a different interface based on the user type. \\
+        The website interface will be modified based on the type of hardware used (mobile or personal computer). 
+
+        \paragraph*{Register page} 
+        The register page is the same for educators and students. \\
+        In this page they have to select their role. 
+
+        \paragraph*{Login page} 
+        The login page is the same for educators and students. \\
+        They have to choose if they want a student login or educator login based on their role. 
+
+        \paragraph*{Student interface} 
+        The student is able to check all the tournament and to enroll in the available ones. 
+
+        \paragraph*{Educator interface} 
+        The student is able to create and manage tournaments and battles. 
+
+
         \subsection{Hardware interfaces}
+        Both user must have a mobile device or a personal computer. 
+        Since the system will be implemented as a website the personal computer will be a better device for visualize better all the information. \\
+        Additionaly, the challenge is to solve some problems using programming language, so the personal computer is necessary to compete (it is possible also with mobile devices but certainly more difficult). 
+
         \subsection{Software interfaces}
+        The system is a web application. 
+        Thus, the only software needed for both users is a modern web browser. 
+
         \subsection{Communication interfaces}
+        To work as intendend the system requires a reliable internet connection. 
+        The backend of the application will expose a unified RESTful API. 
+        This API is used to communicate with all users using HTTPS and TCP/IP protocols. \\
+        Furthermore, the system uses other two application program interfaces to ensure all its functionalities: 
+        \begin{itemize}
+            \item Create a repository: CodeKataBattle needs to interact with GitHub in order to create a repository for each group partecipating to starting battles. 
+            \item Check repositories commits: CodeKataBattle needs to interact with the repositories linked to active battles in order to check all the new commits. 
+            \item Notification: CodeKataBattle needs to be able to send notification to the user to alert the users about important facts (e.g., the start or the end of a battle). 
+        \end{itemize}
+
     \section{Functional Requirements}
+        Initially we show the possible use cases for the interaction between the user and the application with the relative description and use case diagram. 
+        In the second part we list all the functional requirements as a mapping between the goals and the defined use cases. 
+        
+        ADD ALL THE REQUESTED DIAGRAMS
+
+
+
     \section{Performance requirements}
+        The performance requirements needed to ensure the reliability and the availability of the system are: 
+        \begin{itemize}
+            \item The backend must be scalable based on the number of active user, reactive. 
+                It must be able to magae a proper load-balancing to ensure performance also when numeorus users are conneccted togehter to the platform. 
+            \item The frontend must be modeled to be user-friendly, so that also educators and students that does not work often with technology can use the platform. 
+                The interface must also be fluid and handle asynchronous interaction to ensure a certain level of usability even when the connection is not too stable. 
+            \item The system must have a security level that ensure availability and protect the system and users' data from malicious pepole. 
+            \item Since the notifications are used to alert the unser mainly on deadlines, they must be delivered in a short time (in the order of some minutes). 
+            \item The system must also adapt when the number of user increase suddently (e.g., when the final rankings are published multiple users login into a single tournament page). 
+        \end{itemize}
+
     \section{Design constraints}
         \subsection{Standards compliance}
+        The specifications described in this document must be followed during all the development process and the final product must adhere to these. \\
+        The source code of the system must be commented to ensure that all the specifications are met. \\
+        The data used by the application must be treated accordingly to the GDPR. 
+
         \subsection{Hardware limitations}
-        \subsection{Any other constraint}
+        The application requires a device that can be a mobile one or a personal computer. \\
+        In both cases the device needs an internet connection to retrieve data from the server. 
+
     \section{Software system attributes}
         \subsection{Reliability}
         \subsection{Availability}
@@ -276,7 +414,7 @@
             \textbf{Date}   & \textbf{Rossi}            & \textbf{Sharoubim}            & \textbf{Description}                          \\ \hline
             22-10-2023      & 1                         & 1                             & Repository setup and file structure           \\ 
             28-10-2023      & 3                         & 3                             & First chapter initial content                 \\ 
-            xx-xx-xxxx      & -                         & -                             &                                               \\
+            29-11-2023      & 4                         & 4                             & Part of second and third chapters             \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
@@ -286,12 +424,18 @@
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\ \hline
-            \textbf{Total}  & 4                         & 4                            & -                                             \\  
+            \textbf{Total}  & 8                         & 8                             & -                                             \\  
         \end{tabular}
     \end{table}
 
-\newpage 
+    \newpage 
 
 \chapter{References}
+
+    \textbf{Diagrams} - https://app.diagrams.net
+    \\
+    \textbf{UI Mockup} - https://webflow.com
+
+
 
 \end{document}
