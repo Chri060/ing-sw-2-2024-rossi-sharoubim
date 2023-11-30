@@ -160,15 +160,21 @@
 
     \subsection{Domain class diagrams}
     The domain class diagram for CodeKataBattle is presented below, covering all the elements within the system's operational environment and illustrating their interactions.
-    %\begin{figure}[H]
-    %    \centering
-    %    \includegraphics[width=0.8\linewidth]{images/class.png}
-    %\end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\linewidth]{images/class.png}
+    \end{figure}
     The main elements of the UML Class diagram presented above are: 
     \begin{itemize}
-        \item A
-        \item B
-        \item C
+        \item \textit{User}: 
+        \item \textit{Student}: 
+        \item \textit{Educator}: 
+        \item \textit{Group}: 
+        \item \textit{GroupRepository}: 
+        \item \textit{Battle}: 
+        \item \textit{CodeKata}: 
+        \item \textit{Tournament}: 
+        \item \textit{Rank}: 
     \end{itemize}
 
     \subsection{State diagrams}
@@ -225,8 +231,7 @@
             This list has also to show if the user is eligible for the opened tournaments. 
         \item \textit{Active torunaments}: the user can view all the tournaments in which he is enrolled, with the relative termination dates and the active battles within it. 
         \item \textit{Tournament details}: the user can view the details of a tournament. 
-            If it is enrolled and the registration is complete he can see the status of all battles and the relative rankings. 
-            If it is not enrolled it can only view the names of the battles and the tournament topics. 
+            It can see the status of all battles and the relative rankings. 
         \item \textit{Battles details}: the user can view the details of each battle. 
             The details consist, if the battle is open, in the problem description and test files. 
             It can check the catual ranking, the points it has received, and the details about commits it has done. 
@@ -277,13 +282,14 @@
         \item Educator login. 
         \item Personalized user interface. 
         \item Access to a list of tournaments under their management.
-        \item The ability to create new tournaments with customized rules. 
+        \item The possibility to create new tournaments. 
+        \item The ability to create new battles with customized rules. 
         \item Within a managed tournament: 
             \begin{itemize}
                 \item The option to invite other educators to participate. 
                 \item The capability to add new code Katas.
                 \item The authority to close the tournament.
-                \item The ability to assign extra points if specified in the tournament rules.
+                \item The ability to assign extra points if specified in the battle rules.
             \end{itemize}
         \item Access to the GitHub repository for every student in the active tournament.
         \item Access to both interim and final tournament rankings.
@@ -294,12 +300,15 @@
     \subsection{Domain assumptions}
     The domain assumptions that we have to make are: 
     \begin{itemize}
-        \item A student register to a tournament before the registration deadline. 
+        \item All the users must regiter with an email associated with a GitHub account. 
+        \item The educators must not commit on student's repositories. 
+        \item The students do not share their code with students of other groups. 
         \item A student submits a code that is not malicious. 
-        \item A student does not join multiple groups for the same battle. 
         \item Every user register itself to the website with the right role (student or educator).
-        \item The educator sets the tournament end time after the termination of the last battle. 
-        \item The educator creates a tournament with at least one battle available.
+        \item GitHub and the API always works correctly. 
+        \item The test cases uploaded by the educators are correct. 
+        \item The CodeKata problem proposed has a solution. 
+        \item The students fork the repository and set up an automated workflow GitHub Actions. 
     \end{itemize}
 
     \subsection{Dependencies}
@@ -310,7 +319,7 @@
         \item The system will use an external API to send notifications to the user. 
     \end{itemize}
 
-    \subsection{Constraint}
+    \subsection{Constraints}
     The system shall be compliant to local laws and regulations, in particular users data should be treated according to the GDPR. 
     The user must be able to retrive the personal data given to the site ache time he needs them. 
     The data collected in the registration phase must be the strictly necessary ones. \\
@@ -415,7 +424,7 @@
             22-10-2023      & 1                         & 1                             & Repository setup and file structure           \\ 
             28-10-2023      & 3                         & 3                             & First chapter initial content                 \\ 
             29-11-2023      & 4                         & 4                             & Part of second and third chapters             \\
-            xx-xx-xxxx      & -                         & -                             &                                               \\
+            30-11-2023      & 2                         & 2                             & Initial class diagram                         \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
@@ -424,7 +433,7 @@
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\ \hline
-            \textbf{Total}  & 8                         & 8                             & -                                             \\  
+            \textbf{Total}  & 10                        & 10                            & -                                             \\  
         \end{tabular}
     \end{table}
 
