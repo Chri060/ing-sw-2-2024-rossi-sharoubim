@@ -112,8 +112,6 @@
         \item \textbf{References}: this section lists the tools used in the document's development.
     \end{enumerate}
 
-\newpage 
-
 \chapter{Overall description}
     \section{Product perspective}
     \subsection{Scenarios}
@@ -292,7 +290,6 @@
         \item Access to the list of available tournaments.
         \item The ability to join a desired tournament if it's open for registration.
         \item Capability to create and join groups.
-        \item Invitation of other students to their group.
         \item Access to the GitHub repository link for a specific tournament.
         \item Access to both interim and final tournament rankings.
     \end{itemize}
@@ -349,8 +346,6 @@
     All information given from the user must be encrypted to protect them from malicious users. \\
     The APIs used by the application must be choosen based on security and reliability.
 
-\newpage 
-
 \chapter{Specific requirements}
     \section{External interface requirements}
         In this section are presented all the interfaces required by the system to work as intended. 
@@ -397,8 +392,24 @@
     \section{Functional Requirements}
         Initially we show the possible use cases for the interaction between the user and the application with the relative description and use case diagram. 
         In the second part we list all the functional requirements as a mapping between the goals and the defined use cases. 
-        
-        ADD ALL THE REQUESTED DIAGRAMS
+
+        \subsection{Use case diagrams}
+        An unregistered user must be able to sign up. 
+        The registration phase is different according to the role of the user. 
+        If it is a student it has to get the corresponding functionalities (i.e., partecipate in tournaments). 
+        If it is an educator it has to get the corresponding functionalities (i.e., create and manage tournaments). 
+        The corresponding Use Case Diagrams are shown below: 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\linewidth]{images/unregisteredstud.png}
+            \caption{Use Case diagram for unregistered student}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\linewidth]{images/unregistereded.png}
+            \caption{Use Case diagram for unregistered educator}
+        \end{figure}
+        Now, we analyze all the functionalities needed for both the students and the educators after the registration in the fllowing two Use Case diagrams: 
 
 
 
@@ -426,16 +437,35 @@
 
     \section{Software system attributes}
         \subsection{Reliability}
+
+
         \subsection{Availability}
+
+
         \subsection{Security}
+
+
         \subsection{Maintainability}
+
+
         \subsection{Portability}
 
-\newpage 
 
 \chapter{Formal analysis with Alloy}
 
-\newpage 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \chapter{Effort spent}
     The table below offers a concise overview of the hours invested by each group member, along with a brief description of their contributions. 
@@ -461,7 +491,6 @@
         \end{tabular}
     \end{table}
 
-    \newpage 
 
 \chapter{References}
 
