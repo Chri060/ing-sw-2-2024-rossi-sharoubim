@@ -162,19 +162,44 @@
     The domain class diagram for CodeKataBattle is presented below, covering all the elements within the system's operational environment and illustrating their interactions.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1\linewidth]{images/class.png}
+        \includegraphics[width=0.9\linewidth]{images/class.png}
     \end{figure}
     The main elements of the UML Class diagram presented above are: 
     \begin{itemize}
-        \item \textit{User}: 
-        \item \textit{Student}: 
-        \item \textit{Educator}: 
-        \item \textit{Group}: 
-        \item \textit{GroupRepository}: 
-        \item \textit{Battle}: 
-        \item \textit{CodeKata}: 
-        \item \textit{Tournament}: 
-        \item \textit{Rank}: 
+        \item \textit{Educator}: every \textit{Educator} has a name, surname, username, email, and telephone. 
+            The username must be unique. 
+            The \textit{Educator} is able to manage multiple \textit{Tournament}. 
+        \item \textit{Student}: every \textit{Student} has a name, surname, username, email, and telephone. 
+            The username must be unique. 
+            The \textit{Student} is able to partecipate in multiple \textit{Battle}, that is part of a certain \textit{Tournament}. 
+            The \textit{Student} is part of a \textit{Group} for a given \textit{Battle}.     
+        \item \textit{Group}: every \textit{Student} that partecipate in a \textit{Battle} must set up a group with the number of \textit{Student} fixed by the rules. 
+            Each group is created for a specific \textit{Battle} within a \textit{Tournament}. 
+            Different \textit{Battle} within the same \textit{Tournament} may have different \textit{Group}. 
+            The \textit{Student} that creates a group have to set up a groupName. 
+            The system automatically set the groupId (univoque) and the membersNum based on the \textit{Battle}'s rule. 
+            It has a relation with \textit{Student} and \textit{Battle}, since it is formed by one or more \textit{Student} and is created in the context of a specific \textit{Battle}. 
+            It has also a relation with \textit{GroupRepository} since every \textit{Group} needs a repository to partecipate in a given \textit{Battle}. 
+        \item \textit{GroupRepository}: this class contains the URL of the repository associated to each group. 
+            This is used by the system to know every repository that is subscribed to a given \textit{Battle}. 
+            The system checks (after a notification by GitHub Actions) the repository and the code and updates the \textit{Rank} points. 
+        \item \textit{Battle}: this class contains a single \textit{Battle} within a \textit{Tournament}.
+            The \textit{Battle} has a registration and submission deadline, an univoque ID, the requested programming language, and the URL of the main repository from which users have to fork their own.
+            The \textit{Battle} is created by a single \textit{Educator}, so it specifies who created it with the creator attribute. 
+            Each \textit{Battle} may have multiple \textit{Group} and, consequently, multiple \textit{Student}. 
+            Each battle is part of a specific \textit{Tournament} and has a \textit{CodeKata} that describes the problem. 
+            Every battle has a \textit{Rank}, that updates during the \textit{Battle} itself. 
+        \item \textit{CodeKata}: is the description of a problem within a \textit{Battle}. 
+            It contains the name of the problem and a textual description of it. 
+            Each \textit{Battle} has exactly one \textit{CodeKata}. 
+        \item \textit{Tournament}: each \textit{Tournament} is created by an \textit{Educator} that becomes the owner of it. 
+            It has a unique ID, a textual description on the general topic, and the name. 
+            It also has a deadline for the whole \textit{Tournament}. 
+            The manage relation indicates the \textit{Educator}s that manage the \textit{Tournament} in cooperation with the owner of it. 
+            The \textit{Tournament} hase a relation with \textit{Battle} and \textit{Student} it is composed by some \textit{Battle}s and one or more students are enrolled. 
+            Finally, it has also a general \textit{Rank}, that specifies the rankings of all battles combined. 
+        \item \textit{Rank}: it comprises a points attributes (that ranges between 0 and 100) and the group linked to this value. 
+            Each \textit{Tournament} and \textit{Battle} has a list of \textit{Rank} that, ordered by the points attributes return the actual standings. 
     \end{itemize}
 
     \subsection{State diagrams}
@@ -259,8 +284,7 @@
     on the other hand, serve as the organizers of these tournaments.
     
     \subsection{Student}
-    The student, as an individual aiming to secure victory in a specific tournament, may need to either join an existing team or establish one with fellow students, 
-    considering that each tournament has a predetermined group size. \\
+    The student, as an individual aiming to secure victory in a specific battle, may need to either join an existing team or establish one with fellow students, considering that each battle has a predetermined group size. \\
     In particular, a student requires access to the following features within the system:
     \begin{itemize}
         \item Student login.
@@ -274,9 +298,8 @@
     \end{itemize}
 
     \subsection{Educator}
-    The educator's role encompasses the creation and management of tournaments, with the potential involvement of other educators designated by the tournament's owner, 
-    who is typically the initiating educator. All educators should possess the capability to create code Katas for the tournaments they manage and provide additional 
-    points for evaluation. \\
+    The educator's role encompasses the creation and management of tournaments, with the potential involvement of other educators designated by the tournament's owner, who is typically the initiating educator. 
+    All educators should possess the capability to create code Katas for the tournaments they manage and provide additional points for evaluation. \\
     To facilitate these responsibilities, educators need access to the following features within the system:
     \begin{itemize}
         \item Educator login. 
@@ -421,19 +444,20 @@
         \centering
         \begin{tabular}{cccc}
             \textbf{Date}   & \textbf{Rossi}            & \textbf{Sharoubim}            & \textbf{Description}                          \\ \hline
-            22-10-2023      & 1                         & 1                             & Repository setup and file structure           \\ 
-            28-10-2023      & 3                         & 3                             & First chapter initial content                 \\ 
+            22-10-2023      & 1                         & 0                             & Repository setup and file structure           \\ 
+            28-10-2023      & 3                         & 1                             & First chapter initial content                 \\ 
             29-11-2023      & 4                         & 4                             & Part of second and third chapters             \\
             30-11-2023      & 2                         & 2                             & Initial class diagram                         \\
-            xx-xx-xxxx      & -                         & -                             &                                               \\
-            xx-xx-xxxx      & -                         & -                             &                                               \\
+            05-12-2023      & 0                         & 6                             & Graphical user interfaces                     \\
+            05-12-2023      & 2                         & 2                             & Graphical user interfaces                     \\
+            06-12-2023      & 3                         & 3                             & Class diagram                                 \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\ \hline
-            \textbf{Total}  & 10                        & 10                            & -                                             \\  
+            \textbf{Total}  & 15                        & 18                            & -                                             \\  
         \end{tabular}
     \end{table}
 
