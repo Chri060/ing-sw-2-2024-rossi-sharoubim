@@ -3,6 +3,30 @@
 \usepackage[english]{babel}
 \geometry{a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 
+\newcommand{\usecase}[9]{
+    \def\arraystretch{1.5} % This adds padding to table rows (and more)
+    \subsubsection*{Use case [U#2]: #3}
+    \vspace*{0.2cm}
+    \begin{center}
+        \begin{tabular}{|l|p{12cm}|}
+            \hline
+            \textbf{Actor(s)} & #4 \\
+            \hline
+            \textbf{Entry Condition} & #5 \\
+            \hline
+            \textbf{Event Flow} & #6 \\
+            \hline
+            \textbf{Exit Condition} & #7 \\
+            \hline
+            \textbf{Exceptions} & #8 \\
+            \hline
+            \textbf{Notes} & #9 \\
+            \hline
+        \end{tabular}
+    \end{center}
+    #1
+}
+
 \title{Requirement Analysis and Specification Document}
 \author{Christian Rossi \\ Kirolos Sharoubim}
 \date{Academic Year 2023-2024}
@@ -410,7 +434,46 @@
             \caption{Use Case diagram for unregistered educator}
         \end{figure}
         Now, we analyze all the functionalities needed for both the students and the educators after the registration in the fllowing two Use Case diagrams: 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.65\linewidth]{images/stud.png}
+            \caption{Use Case diagram for unregistered educator}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.65\linewidth]{images/ed.png}
+            \caption{Use Case diagram for unregistered educator}
+        \end{figure}
 
+        \subsection{Use cases}
+
+
+        \usecase {
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{images/login.png}
+            \end{figure}
+        }
+        {1}
+        {Login}
+        {Student, educator}
+        {The actor is already registered in the system}
+        {
+            \begin{enumerate}
+                \item The actor requires the Login Page. 
+                \item The system shows the Login Page to the actor. 
+                \item The actor inserts credentials and send it to the system. 
+                \item The system processes the information and shows a success message redirecting the user to the homepage. 
+            \end{enumerate}
+        }
+        {The actor is logged, and the homepage is displayed}
+        {
+            \begin{itemize}
+                \item A wrong username or password is submitted. 
+                \item A student tries to log in as educator and viceversa. 
+            \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
 
 
     \section{Performance requirements}
@@ -480,14 +543,14 @@
             30-11-2023      & 2                         & 2                             & Initial class diagram                         \\
             05-12-2023      & 0                         & 6                             & Graphical user interfaces                     \\
             05-12-2023      & 2                         & 2                             & Graphical user interfaces                     \\
-            06-12-2023      & 3                         & 3                             & Class diagram                                 \\
-            xx-xx-xxxx      & -                         & -                             &                                               \\
+            06-12-2023      & 3                         & 3                             & Class diagrams                                 \\
+            09-12-2023      & 1                         & 1                             & Use case diagrams                             \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\ \hline
-            \textbf{Total}  & 15                        & 18                            & -                                             \\  
+            \textbf{Total}  & 16                        & 19                            & -                                             \\  
         \end{tabular}
     \end{table}
 
