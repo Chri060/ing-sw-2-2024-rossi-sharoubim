@@ -52,6 +52,17 @@
     After the creation of the tournament, students can form groups and start their work on the solution, employing a test-first approach. When the ultimate deadline 
     approaches, the system autonomously calculates the final rankings and unveils the winners.
 
+    \subsection{Goals}
+    The goals, wich are the objectives to accomplish are the following
+    \begin{enumerate}
+        \item The system should allow students to join tournaments.
+        \item The system should allow students to join battles as groups or individually in a specific tournament.
+        \item The system should allow educators to manage a tournament.
+        \item The system should allow educators to manage a battle in a specific tournament.
+        \item The system should allow students and educators to see battles and tournaments rankings.
+    \end{enumerate}
+
+
     \section{Scope}
     To ensure the proper development of this application, it is crucial to examine all imaginable phenomena linked to the system.
     
@@ -451,13 +462,13 @@
         \usecase {
             \begin{figure}[H]
                 \centering
-                \includegraphics[scale=0.4]{images/login.png}
+                \includegraphics[width=0.9\linewidth]{images/login.png}
             \end{figure}
         }
         {1}
         {Login}
         {Student, educator}
-        {The actor is already registered in the system}
+        {The actor clicks on the login button.}
         {
             \begin{enumerate}
                 \item The actor requires the Login Page. 
@@ -466,14 +477,101 @@
                 \item The system processes the information and shows a success message redirecting the user to the homepage. 
             \end{enumerate}
         }
-        {The actor is logged, and the homepage is displayed}
+        {The actor is logged, and the homepage is displayed.}
         {
             \begin{itemize}
                 \item A wrong username or password is submitted. 
                 \item A student tries to log in as educator and viceversa. 
             \end{itemize}
         }
-        {In case of exception the system will notify user with a human-readable message}
+        {In case of exception the system will notify user with a human-readable message.}
+
+        \usecase {
+            }
+            {2}
+            {Student registration}
+            {Student}
+            {The actor clicks on the register button.}
+            {
+                \begin{enumerate}
+                    \item The actor requires the Signup page. 
+                    \item The system shows the Signup page to the actor. 
+                    \item The actor inserts required personal information, including the Student choice and sends it to the system. 
+                    \item The system processes the information and shows a success message redirecting the user to the Login page. 
+                \end{enumerate}
+            }
+            {The actor is registered correctly, and the Login page is displayed.}
+            {
+                \begin{itemize}
+                    \item An already existing username, email or phone number are submitted. 
+                    \item A required registration field is missing or invalid when the form is submitted. 
+                \end{itemize}
+            }
+            {In case of exception the system will notify user with a human-readable message.
+            
+             The system is not able to check if the correct role was selected.}
+
+
+
+        \usecase {
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.9\linewidth]{images/signup.png}
+            \end{figure}
+        }        
+        {3}
+        {Educator registration}
+        {Educator}
+        {The actor clicks on the sign in button}
+        {
+            \begin{enumerate}
+                \item The actor requires the sign up page. 
+                \item The system shows the sign up page to the actor.
+                \item The actor inserts required personal information including being educator choice and sends it to the system. 
+                \item The system processes the information and shows a success message redirecting the user to the login page. 
+            \end{enumerate}
+        }
+        {The actor is registered correctly, and the login page is displayed}
+        {
+            \begin{itemize}
+                \item An already existing username, email or phone number are submitted.
+                \item An information is missing or invalid when the data is submitted. 
+            \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message
+
+        The system cannot check if the right role is select during registration.}
+
+
+
+        \usecase {
+           % \begin{figure}[H]
+            %    \centering
+             %   \includegraphics[width=0.9\linewidth]{images/signup.png}
+            %\end{figure}
+        }        
+        {4}
+        {Access to available tournaments}
+        {Student}
+        {The actor just logged in or clicked on the home button}
+        {
+            \begin{enumerate}
+                \item The actor requires the home page. 
+                \item The system shows the home page to the actor.
+                \item The actor can now freely examine the content of the page (available tournament and their details)
+            \end{enumerate}
+        }
+        {The actor is on the home page}
+        {
+            \begin{itemize}
+                \item An already existing username, email or phone number are submitted.
+                \item An information is missing or invalid when the data is submitted. 
+            \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message
+
+        The system cannot check if the right role is select during registration.}
+
 
 
     \section{Performance requirements}
@@ -498,20 +596,31 @@
         The application requires a device that can be a mobile one or a personal computer. \\
         In both cases the device needs an internet connection to retrieve data from the server. 
 
-    \section{Software system attributes}
+        \section{Software system attributes}
         \subsection{Reliability}
-
+        To ensure enhanced reliability performance, conduct all scheduled system maintenance during nighttime. 
+        Additionally, be aware that certain system functionalities depend on external APIs; however, a failure in one of them should not result in a complete system failure. 
+        Prioritize the prevention of data loss by employing redundant storage methods.
 
         \subsection{Availability}
-
+        The system must deliver its functionalities with an availability of 99.5\% or higher, meaning it should be inaccessible for less than two days each year.
+        To meet this objective, ensure high redundancy for the most crucial components of the system.
 
         \subsection{Security}
-
+        To safeguard sensitive user data, the system should gather only essential information, storing it in an encrypted database. 
+        The connection between the application must adhere to contemporary standard protocols like HTTPS.
+        We must encrypt email and passwords. 
+        The latter one also needs salt. 
 
         \subsection{Maintainability}
-
+        Source code and related documentation should have comprehensive comments and be consistently updated. 
+        Emphasize modularity, low coupling, and high cohesion between components during the design and development phases. 
+        Specifically, ensure that the modularity of the frontend and backend allows developers to update the backend seamlessly without users experiencing any disruptions.
 
         \subsection{Portability}
+        The application should be accessible on prominent mobile operating systems, targeting at least the latest releases. 
+        The web application must be compatible with the most recent browsers. 
+        Optimal efficiency can be achieved by judiciously reusing a significant portion of the codebase across both mobile and web platforms through the use of cross-platform tools.
 
 
 \chapter{Formal analysis with Alloy}
@@ -545,7 +654,7 @@
             05-12-2023      & 2                         & 2                             & Graphical user interfaces                     \\
             06-12-2023      & 3                         & 3                             & Class diagrams                                 \\
             09-12-2023      & 1                         & 1                             & Use case diagrams                             \\
-            xx-xx-xxxx      & -                         & -                             &                                               \\
+            10-12-2023      & 2                         & 2                             & Use case diagrams                                              \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
