@@ -2,9 +2,10 @@
 \usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry}
 \usepackage[english]{babel}
 \geometry{a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
-
+\newcounter{useCase}
+\stepcounter{useCase}
 \newcommand{\usecase}[9]{
-    \def\arraystretch{1.5} % This adds padding to table rows (and more)
+    \def\arraystretch{1.5} 
     \subsubsection*{Use case [U#2]: #3}
     \vspace*{0.2cm}
     \begin{center}
@@ -282,12 +283,12 @@
     Thus, the functionalities are spresented based on the user. 
     
     \subsection{Student's functionalities}
-    The educator is the user that partecipates to the torunaments and the battles. 
+    The educator is the user that partecipates to the tournaments and the battles. 
     After the login the system must redirect the student to the page that offers the following functionalities: 
     \begin{itemize}
         \item \textit{Join tournaments}: the user must be able to access a list of opened tournament that can be joined. 
             This list has also to show if the user is eligible for the opened tournaments. 
-        \item \textit{Active torunaments}: the user can view all the tournaments in which he is enrolled, with the relative termination dates and the active battles within it. 
+        \item \textit{Active tournaments}: the user can view all the tournaments in which he is enrolled, with the relative termination dates and the active battles within it. 
         \item \textit{Tournament details}: the user can view the details of a tournament. 
             It can see the status of all battles and the relative rankings. 
         \item \textit{Battles details}: the user can view the details of each battle. 
@@ -298,13 +299,13 @@
     \end{itemize}
 
     \subsection{Educator's functionalities}
-    The educator is the user that manages the torunaments and the battles. 
+    The educator is the user that manages the tournaments and the battles. 
     After the login the system must redirect the educator to the page that offers the following functionalities: 
     \begin{itemize}
         \item \textit{Create tournaments}: the user can create a new tournament by setting the rules and adding other educator to help it manage the competition. 
             After setting up collaborators and rules, it (and the collaborators) can add battles to the tournament. 
             When this phase ends the tournament is ready to be seen by the students. 
-        \item \textit{Add battle}: the user must have the possibility to add a new battle also after the creation of the torunament. 
+        \item \textit{Add battle}: the user must have the possibility to add a new battle also after the creation of the tournament. 
             This functionality allow, by selecting a managed tournament, to create a new battle with all the rules and add it to the tournament. 
         \item \textit{Manage tournament}: after the creation of the tournament the educator can check the status until the end and close it when the time expires. 
         \item \textit{Manage battle}: when a battle in a certain managed tournament is active the user can see the actual rankings and the commit status of each participant. 
@@ -457,120 +458,457 @@
         \end{figure}
 
         \subsection{Use cases}
-
-
-        \usecase {
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.9\linewidth]{images/login.png}
-            \end{figure}
-        }
-        {1}
-        {Login}
-        {Student, educator}
-        {The actor clicks on the login button.}
+        % usecase for the registration of students
+        \usecase{}
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Student registration}
+        {Student}
+        {The actor clicks on the register button.}
         {
-            \begin{enumerate}
-                \item The actor requires the Login Page. 
-                \item The system shows the Login Page to the actor. 
-                \item The actor inserts credentials and send it to the system. 
-                \item The system processes the information and shows a success message redirecting the user to the homepage. 
-            \end{enumerate}
+        \begin{enumerate}
+            \item The actor requires the Signup page
+            \item The system shows the Signup page to the actor
+            \item The actor inserts required personal information, including the Student choice and sends it to the system
+            \item The system processes the information and shows a success message redirecting the user to the Login page
+        \end{enumerate}
         }
-        {The actor is logged, and the homepage is displayed.}
+        {The actor is registered correctly, and the Login page is displayed}
         {
-            \begin{itemize}
-                \item A wrong username or password is submitted. 
-                \item A student tries to log in as educator and viceversa. 
-            \end{itemize}
+        \begin{itemize}
+            \item An already existing username, email or phone number are submitted
+            \item A required registration field is missing or invalid when the form is submitted
+        \end{itemize}
         }
-        {In case of exception the system will notify user with a human-readable message.}
+        {In case of exception the system will notify user with a human-readable message; the system is not able to check if the correct role was selected}
 
-        \usecase {
-            }
-            {2}
-            {Student registration}
-            {Student}
-            {The actor clicks on the register button.}
-            {
-                \begin{enumerate}
-                    \item The actor requires the Signup page. 
-                    \item The system shows the Signup page to the actor. 
-                    \item The actor inserts required personal information, including the Student choice and sends it to the system. 
-                    \item The system processes the information and shows a success message redirecting the user to the Login page. 
-                \end{enumerate}
-            }
-            {The actor is registered correctly, and the Login page is displayed.}
-            {
-                \begin{itemize}
-                    \item An already existing username, email or phone number are submitted. 
-                    \item A required registration field is missing or invalid when the form is submitted. 
-                \end{itemize}
-            }
-            {In case of exception the system will notify user with a human-readable message.
-            
-             The system is not able to check if the correct role was selected.}
-
-
-
-        \usecase {
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=0.9\linewidth]{images/signup.png}
-            \end{figure}
-        }        
-        {3}
+        % usecase for the registration of educators
+        \usecase 
+        {\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/signup.png}\end{figure}}        
+        {\arabic{useCase}\stepcounter{useCase}}
         {Educator registration}
         {Educator}
-        {The actor clicks on the sign in button}
+        {The actor clicks on the sign-in button}
         {
-            \begin{enumerate}
-                \item The actor requires the sign up page. 
-                \item The system shows the sign up page to the actor.
-                \item The actor inserts required personal information including being educator choice and sends it to the system. 
-                \item The system processes the information and shows a success message redirecting the user to the login page. 
-            \end{enumerate}
+        \begin{enumerate}
+            \item The actor requires the sign-in page
+            \item The system shows the sign-in page to the actor
+            \item The actor inserts required personal information including being educator choice and sends it to the system
+            \item The system processes the information and shows a success message redirecting the user to the login page
+        \end{enumerate}
         }
         {The actor is registered correctly, and the login page is displayed}
         {
-            \begin{itemize}
-                \item An already existing username, email or phone number are submitted.
-                \item An information is missing or invalid when the data is submitted. 
-            \end{itemize}
+        \begin{itemize}
+            \item An already existing username, email or phone number are submitted
+            \item An information is missing or invalid when the data is submitted
+        \end{itemize}
         }
-        {In case of exception the system will notify user with a human-readable message
+        {In case of exception the system will notify user with a human-readable message; the system cannot check if the right role is select during registration}
 
-        The system cannot check if the right role is select during registration.}
+        % usecase for the login of both students and educators 
+        \usecase
+        {\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/login.png}\end{figure}}
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Login}
+        {Student, educator}
+        {The actor clicks on the login button}
+        {
+        \begin{enumerate}
+            \item The actor requires the login page
+            \item The system shows the login Page to the actor
+            \item The actor inserts credentials and send it to the system
+            \item The system processes the information and shows a success message redirecting the user to the homepage
+        \end{enumerate}
+        }
+        {The actor is logged, and the homepage is displayed}
+        {
+        \begin{itemize}
+            \item A wrong username or password is submitted
+            \item A student tries to log in as educator and viceversa
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
 
-
-
-        \usecase {
-           % \begin{figure}[H]
-            %    \centering
-             %   \includegraphics[width=0.9\linewidth]{images/signup.png}
-            %\end{figure}
+        % usecase (Student) for visualizing all tournaments
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentstud.png}\end{figure}%
         }        
-        {4}
+        {\arabic{useCase}\stepcounter{useCase}}
         {Access to available tournaments}
         {Student}
         {The actor just logged in or clicked on the home button}
         {
-            \begin{enumerate}
-                \item The actor requires the home page. 
-                \item The system shows the home page to the actor.
-                \item The actor can now freely examine the content of the page (available tournament and their details)
-            \end{enumerate}
+        \begin{enumerate}
+            \item The actor requires the home page
+            \item The system shows the home page to the actor
+            \item The actor can now freely examine the content of the page (available tournament and their details)
+        \end{enumerate}
         }
         {The actor is on the home page}
         {
-            \begin{itemize}
-                \item An already existing username, email or phone number are submitted.
-                \item An information is missing or invalid when the data is submitted. 
-            \end{itemize}
+        \begin{itemize}
+            \item An already existing username, email or phone number are submitted
+            \item An information is missing or invalid when the data is submitted
+        \end{itemize}
         }
-        {In case of exception the system will notify user with a human-readable message
+        {In case of exception the system will notify user with a human-readable message; the system cannot check if the right role is select during registration}
 
-        The system cannot check if the right role is select during registration.}
+        % usecase (Student) for joining a specific tournament
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Join a specific tournament}
+        {Student}
+        {The actor clicks on the join tournament button}
+        {
+        \begin{enumerate}
+            \item The actor enters the home page
+            \item The system shows the home page to the actor
+            \item The actor clicks on the join button of the desired tournament
+            \item The system shows the enrolled page with the new tournament
+        \end{enumerate}
+        }
+        {The actor is on the enrolled page}
+        {
+        \begin{itemize}
+            \item The tournament selected by the actor is closed 
+            \item The user cannot join the selected tournament
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+
+
+        % usecase (Student) for the research of a tournament by the name
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Search a specific tournament}
+        {Student}
+        {The actor goes to tournament details page}
+        {
+        \begin{enumerate}
+            \item The actor enters the tournament details page
+            \item The system shows the tournament details page to the actor
+            \item The actor clicks on the desired battle in the selected tournament
+            \item The actor clicks on the create and join button 
+            \item The system shows the tournament details page
+        \end{enumerate}
+        }
+        {The actor is in the tournament details page}
+        {
+        \begin{itemize}
+            \item The actor searches a wrong string (null or invalid characters)
+            \item There are no matching active tournaments
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+        % usecase (Student) for joining a specific battle with the creation of a group
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Join a specific tournament}
+        {Student}
+        {The actor goes to tournament details page}
+        {
+        \begin{enumerate}
+            \item The actor enters the tournament details page
+            \item The system shows the tournament details page to the actor
+            \item The actor clicks on the desired battle in the selected tournament
+            \item The actor clicks on the create and join button 
+            \item The system shows the tournament details page
+        \end{enumerate}
+        }
+        {The actor is in the tournament details page}
+        {
+        \begin{itemize}
+            \item The selected battle is in a tournament where the actor is not enrolled
+            \item The battle is already closed
+            \item The educators that manages the battle does not accept the new group
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+        % usecase (Student) for joining a specific group in a battle
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Join a specific tournament}
+        {Student}
+        {The actor goes to tournament details page}
+        {
+        \begin{enumerate}
+            \item The actor enters the tournament details page
+            \item The system shows the tournament details page to the actor
+            \item The actor clicks on the desired battle in the selected tournament
+            \item The actor clicks on an already existing group
+            \item The actor requires the access to the selected group
+            \item The system shows the tournament details page 
+        \end{enumerate}
+        }
+        {The actor is in the tournament details page}
+        {
+        \begin{itemize}
+            \item The selected battle is in a tournament where the actor is not enrolled
+            \item The battle is already closed
+            \item The group does not accept the new student
+            \item The group is already at maximum capacity
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+        % usecase (Student) for accessing the battle repository
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Join a specific tournament}
+        {Student}
+        {The actor goes to tournament details page}
+        {
+        \begin{enumerate}
+            \item The actor enters the tournament details page
+            \item The system shows the tournament details page to the actor
+            \item The actor clicks on the button linked to the repository 
+            \item The actor is redirected to the GitHub repository linked to the battle selected
+        \end{enumerate}
+        }
+        {The actor is in the tournament details page and has another tab with the requestet repository}
+        {
+        \begin{itemize}
+            \item The selected battle is in a tournament where the actor is not enrolled
+            \item The battle is already closed
+            \item The group does not accept the new student
+            \item The group is already at maximum capacity
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+        % usecase (Student) for accessing all battle rankings
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Check the ranking of a specific battle}
+        {Student}
+        {The actor goes to tournament details page}
+        {
+        \begin{enumerate}
+            \item The actor enters the tournament details page
+            \item The system shows the tournament details page to the actor
+            \item The actor clicks on a battle in the selected tournament 
+            \item The actor can check the ranking in the details of the battle
+        \end{enumerate}
+        }
+        {The actor is in the tournament details page}
+        {
+        \begin{itemize}
+            \item There are no partecipants
+        \end{itemize}   
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+        % usecase (Student) for accessing all tournaments rankings
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Check the ranking of a specific tournament}
+        {Student}
+        {The actor goes to enrolled page}
+        {
+        \begin{enumerate}
+            \item The actor clicks on details of a tournament
+            \item The system shows the details of the tournament 
+            \item The actor clicks on leaderbord 
+            \item The system shows the leaderboard page
+            \item The actor can check the rankign of the selected tournament
+        \end{enumerate}
+        }
+        {The actor is in the leaderbord page of the selected tournament}
+        {
+        \begin{itemize}
+            \item There are no partecipants
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        % usecase (Educator) for creating a new tournament
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Create a tournament}
+        {Educator}
+        {The actor clicks on create on the left tab}
+        {
+        \begin{enumerate}
+            \item The actor enters the create tournament page
+            \item The system shows the manage tournament page to the actor
+            \item The actor selects the desired tournament
+            \item The system shows the possible action for the selected tournament
+        \end{enumerate}
+        }
+        {The actor is in the manage tournament page}
+        {
+        \begin{itemize}
+            \item The actor tries to access an unmanaged tournament
+            \item The actor tries to access a closed tournament
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        % usecase (Educator) for accessing all managed tournaments
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Manage a tournament}
+        {Educator}
+        {The actor goes to manage tournament page}
+        {
+        \begin{enumerate}
+            \item The actor enters the manage tournament page
+            \item The system shows the manage tournament page to the actor
+            \item The actor selects the desired tournament
+            \item The system shows the possible action for the selected tournament
+        \end{enumerate}
+        }
+        {The actor is in the manage tournament page}
+        {
+        \begin{itemize}
+            \item The actor tries to access an unmanaged tournament
+            \item The actor tries to access a closed tournament
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+        % usecase (Educator) for creating a new battle
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Add a battle to a tournament}
+        {Educator}
+        {The actor clicks on add battle in the managed tournament page}
+        {
+        \begin{enumerate}
+            \item The system shows the create battle page
+            \item The actor compiles all the elements required by the form 
+            \item The actor submits the form 
+            \item The system show the managed tournament page with the modified tournament
+        \end{enumerate}
+        }
+        {The actor is in the manage tournament page on the modified tournament with the new battle}
+        {
+        \begin{itemize}
+            \item The form is not compiled correctly 
+            \item The tournament selected is already closed 
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+        % usecase (Educator) for adding a new educator to a tournament
+        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
+        }        
+        {\arabic{useCase}\stepcounter{useCase}}
+        {Add a new educator to a tournament}
+        {Educator}
+        {The actor clicks on add collaborator in the managed tournament page}
+        {
+        \begin{enumerate}
+            \item The system shows the managed tournament page with the possibility to add collaborators
+            \item The actor insert the email in the corresponding form
+            \item The actor clicks on invite
+            \item The system show the managed tournament page with the modified tournament
+        \end{enumerate}
+        }
+        {The actor is in the manage tournament page on the modified tournament with the pending invitation}
+        {
+        \begin{itemize}
+            \item The email does not correpond to another educator 
+            \item The tournament selected is already closed 
+        \end{itemize}
+        }
+        {In case of exception the system will notify user with a human-readable message}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
