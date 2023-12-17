@@ -428,7 +428,7 @@
         The Educator has the same page (without statistics) and the tournament listed are the one who he is managing. 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.8\linewidth]{images/profile.png}
+            \includegraphics[width=0.8\linewidth]{images/profilepage.png}
         \end{figure}
 
         \subsubsection{Search page} 
@@ -547,35 +547,12 @@
         \end{figure}
 
         \subsection{Use cases}
-        % usecase for the registration of students
-        \usecase{}
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Student registration}
-        {Student}
-        {The actor clicks on the register button}
-        {
-        \begin{enumerate}
-            \item The actor requires the sign-in page by clicking the join now button in the welcome page
-            \item The system shows the sign-in page to the actor
-            \item The actor inserts required personal information and sends it to the system
-            \item The system processes the information and shows a success message redirecting the user to the login page
-        \end{enumerate}
-        }
-        {The actor is registered correctly, and the login page is displayed}
-        {
-        \begin{itemize}
-            \item An already existing username, email or phone number are submitted
-            \item A required registration field is missing or invalid when the form is submitted
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message; the system is not able to check if the correct role was selected}
-
         % usecase for the registration of educators
         \usecase 
         {\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/signup.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Educator registration}
-        {Educator}
+        {Unregistered educator, Unresgistered student}
         {The actor clicks on the sign-in button}
         {
         \begin{enumerate}
@@ -619,8 +596,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Student, Educator) for checking the profile
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/profile.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Checking the profile}
         {Educator}
@@ -641,8 +617,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Student) for visualizing all tournaments
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentstud.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/accesstournaments.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Access to available tournaments}
         {Student}
@@ -651,7 +626,7 @@
         \begin{enumerate}
             \item The actor requires the home page
             \item The system shows the home page to the actor
-            \item The actor can now check all the availabòe tournaments
+            \item The actor can now check all the available tournaments
         \end{enumerate}
         }
         {The actor is on the home page}
@@ -663,8 +638,7 @@
         {In case of exception the system will notify user with a human-readable message; the system cannot check if the right role is select during registration}
 
         % usecase (Student) for joining a specific tournament
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/jointournaments.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Join a specific tournament}
         {Student}
@@ -687,8 +661,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Student, Educator) for the research of a tournament by the name
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/searchtournament.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Search a specific tournament}
         {Student, Educator}
@@ -697,7 +670,7 @@
         \begin{enumerate}
             \item The actor clicks the search tab on the left of any page
             \item The system shows the search page to the actor
-            \item The actor fills thge form with the name of the searched tournament
+            \item The actor fills the form with the name of the searched tournament
             \item The system shows the matching tournaments
         \end{enumerate}
         }
@@ -711,10 +684,9 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Student) for joining a specific battle with the creation of a group
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/joinbattle.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
-        {Join a specific tournament}
+        {Join a specific battle}
         {Student}
         {The actor clicks on create and join battle button}
         {
@@ -722,7 +694,7 @@
             \item The actor enters the tournament details page
             \item The system shows the tournament details page to the actor
             \item The actor clicks on the desired battle in the selected tournament
-            \item The actor clicks on the create and join battle button or join on your own if it is alone
+            \item The actor clicks on the create and join battle button
             \item The system shows the tournament details page with the new group
         \end{enumerate}
         }
@@ -737,10 +709,9 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Student) for joining a specific group in a battle
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/joinbattle1.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
-        {Join a specific tournament}
+        {Join a specific battle}
         {Student}
         {The actor clicks the join button}
         {
@@ -765,10 +736,9 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Student) for accessing the battle repository
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checkrepo.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
-        {Join a specific tournament}
+        {Check a repository linked to a battle}
         {Student}
         {The actor goes to tournament details page}
         {
@@ -789,18 +759,20 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Student, Educator) for accessing all battle rankings
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checkbattleranking.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Check the ranking of a specific battle}
         {Student, Educator}
         {The actor goes to tournament details page}
         {
         \begin{enumerate}
-            \item The actor enters the tournament details page
-            \item The system shows the tournament details page to the actor
-            \item The actor clicks on a battle in the selected tournament 
-            \item The actor can check the ranking in the details of the battle
+            \item The actor requires the enrolled page 
+            \item The system shows the enrolled page
+            \item The actor clicks on details of a tournament
+            \item The system shows the details of the tournament 
+            \item The actor clicks on leaderbord button
+            \item The system shows the leaderboard page
+            \item The actor can check the ranking of the selected tournament
         \end{enumerate}
         }
         {The actor is in the tournament details page}
@@ -812,8 +784,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Student) for accessing all tournaments rankings
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checktournamentranking.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Check the ranking of a specific tournament}
         {Student}
@@ -826,7 +797,7 @@
             \item The system shows the details of the tournament 
             \item The actor clicks on leaderbord button
             \item The system shows the leaderboard page
-            \item The actor can check the ranking of the selected tournament
+            \item The actor can check the ranking of the selected battle
         \end{enumerate}
         }
         {The actor is in the leaderbord page of the selected tournament}
@@ -838,8 +809,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Educator) for accessing all tournaments rankings
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checktournamentranking1.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Check the ranking of a specific tournament}
         {Educator}
@@ -864,8 +834,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Educator) for creating a new tournament
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/createtournament.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Create a tournament}
         {Educator}
@@ -890,8 +859,7 @@
         {In case of exception the system will notify user with a human-readable message}
         
         % usecase (Educator) for accessing all managed tournaments
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/managetournament.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Manage a tournament}
         {Educator}
@@ -914,8 +882,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Educator) for creating a new battle
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/addbattle.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Add a battle to a tournament}
         {Educator}
@@ -938,8 +905,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Educator) for adding a new educator to a tournament
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/addcollaborator.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Add a new educator to a tournament}
         {Educator}
@@ -962,8 +928,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Educator) for closing a tournament 
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/closetournament.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Close a tournament}
         {Educator}
@@ -986,8 +951,7 @@
         {In case of exception the system will notify user with a human-readable message}
 
         % usecase (Educator) for evaluating a battle manually
-        \usecase{%\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/tournamentaccess.png}\end{figure}%
-        }        
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/evaluatebattle.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Evaluate a battle}
         {Educator}
@@ -1010,24 +974,6 @@
         \end{itemize}
         }
         {In case of exception the system will notify user with a human-readable message}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     \section{Performance requirements}
         The performance requirements needed to ensure the reliability and the availability of the system are: 
@@ -1107,14 +1053,14 @@
             30-11-2023      & 2                         & 2                             & Initial class diagram                         \\
             05-12-2023      & 0                         & 6                             & Graphical user interfaces                     \\
             05-12-2023      & 2                         & 2                             & Graphical user interfaces                     \\
-            06-12-2023      & 3                         & 3                             & Class diagrams                                 \\
+            06-12-2023      & 3                         & 3                             & Class diagrams                                \\
             09-12-2023      & 1                         & 1                             & Use case diagrams                             \\
-            10-12-2023      & 2                         & 2                             & Use case diagrams                                              \\
-            xx-xx-xxxx      & -                         & -                             &                                               \\
-            xx-xx-xxxx      & -                         & -                             &                                               \\
+            10-12-2023      & 2                         & 2                             & Use case diagrams                             \\
+            16-12-2023      & 3                         & -                             & Use case diagrams                             \\
+            17-12-2023      & 3                         & -                             & Use case diagrams                             \\
             xx-xx-xxxx      & -                         & -                             &                                               \\
             xx-xx-xxxx      & -                         & -                             &                                               \\ \hline
-            \textbf{Total}  & 16                        & 19                            & -                                             \\  
+            \textbf{Total}  & 22                        & 19                            & -                                             \\  
         \end{tabular}
     \end{table}
 
