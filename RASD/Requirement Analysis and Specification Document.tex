@@ -1,5 +1,5 @@
 \documentclass[12pt, a4paper]{report}
-\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings}
+\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings, hyperref}
 \usepackage[english]{babel}
 \lstdefinelanguage{alloy}{
   keywords={%
@@ -310,35 +310,33 @@
             The \textit{Educator} is able to manage multiple \textit{Tournament}. 
         \item \textit{Student}: every \textit{Student} has a name, surname, username, email, and telephone. 
             The username must be unique. 
-            The \textit{Student} is able to partecipate in multiple \textit{Battle}, that is part of a certain \textit{Tournament}. 
+            The \textit{Student} is able to partecipate in multiple \textit{Tournament}. 
             The \textit{Student} is part of a \textit{Group} for a given \textit{Battle}.     
-        \item \textit{Group}: every \textit{Student} that partecipate in a \textit{Battle} must set up a group with the number of \textit{Student} fixed by the rules. 
+        \item \textit{Group}: every \textit{Student} that partecipate in a \textit{Battle} must set up a group with the maximum number of \textit{Student} fixed by the rules. 
             Each group is created for a specific \textit{Battle} within a \textit{Tournament}. 
             Different \textit{Battle} within the same \textit{Tournament} may have different \textit{Group}. 
             The \textit{Student} that creates a group have to set up a groupName. 
-            The system automatically set the groupId (univoque) and the membersNum based on the \textit{Battle}'s rule. 
+            It has also a repositoryUrl attribute that specifies the url of the repository linked to the selected battle. 
+            The system automatically set the membersNum based on the \textit{Battle}'s rule. 
+            The attribute points consider the points associated to a group in a specific \textit{Battle}. 
             It has a relation with \textit{Student} and \textit{Battle}, since it is formed by one or more \textit{Student} and is created in the context of a specific \textit{Battle}. 
-            It has also a relation with \textit{GroupRepository} since every \textit{Group} needs a repository to partecipate in a given \textit{Battle}. 
-        \item \textit{GroupRepository}: this class contains the URL of the repository associated to each group. 
-            This is used by the system to know every repository that is subscribed to a given \textit{Battle}. 
-            The system checks (after a notification by GitHub Actions) the repository and the code and updates the \textit{Rank} points. 
+            If one \textit{Student} wants to partecipate alone the systems creates automatically a \textit{Group} with the single \textit{Student}. 
         \item \textit{Battle}: this class contains a single \textit{Battle} within a \textit{Tournament}.
-            The \textit{Battle} has a registration and submission deadline, an univoque ID, the requested programming language, and the URL of the main repository from which users have to fork their own.
+            The \textit{Battle} has a registration and submission deadline, the requested programming language, and the URL of the main repository from which users have to fork their own.
             The \textit{Battle} is created by a single \textit{Educator}, so it specifies who created it with the creator attribute. 
-            Each \textit{Battle} may have multiple \textit{Group} and, consequently, multiple \textit{Student}. 
+            Each \textit{Battle} may have multiple \textit{Group}.
             Each battle is part of a specific \textit{Tournament} and has a \textit{CodeKata} that describes the problem. 
-            Every battle has a \textit{Rank}, that updates during the \textit{Battle} itself. 
         \item \textit{CodeKata}: is the description of a problem within a \textit{Battle}. 
             It contains the name of the problem and a textual description of it. 
             Each \textit{Battle} has exactly one \textit{CodeKata}. 
         \item \textit{Tournament}: each \textit{Tournament} is created by an \textit{Educator} that becomes the owner of it. 
-            It has a unique ID, a textual description on the general topic, and the name. 
-            It also has a deadline for the whole \textit{Tournament}. 
-            The manage relation indicates the \textit{Educator}s that manage the \textit{Tournament} in cooperation with the owner of it. 
-            The \textit{Tournament} hase a relation with \textit{Battle} and \textit{Student} it is composed by some \textit{Battle}s and one or more students are enrolled. 
-            Finally, it has also a general \textit{Rank}, that specifies the rankings of all battles combined. 
-        \item \textit{Rank}: it comprises a points attributes (that ranges between 0 and 100) and the group linked to this value. 
-            Each \textit{Tournament} and \textit{Battle} has a list of \textit{Rank} that, ordered by the points attributes return the actual standings. 
+            It has a textual description on the general topic and the name. 
+            It also has a registration deadline. 
+            The manage relation indicates the \textit{Educator} that manage the \textit{Tournament} in cooperation with the owner of it. 
+            The \textit{Tournament} has a relation with \textit{Battle} and \textit{Student} because it is composed by some \textit{Battle} and one or more \textit{Student} are enrolled. 
+            Finally, it also has a relation with \textit{Rank}, that contains the points given to each \textit{Student}.
+        \item \textit{Rank}: it comprises a points attributes and the \textit{Student} linked to this value. 
+            Each \textit{Tournament} has a list of \textit{Rank} that, ordered by the points attributes return the actual standings. 
     \end{itemize}
 
     \subsection{State diagrams}
@@ -375,7 +373,7 @@
 
     \paragraph*{Description}
     After the creation of a tournament, the educator can invite other educator to manage it together (\textit{Definition}). 
-    While doind this the educator has also to set up the rules for the tournament and the termination date (\textit{Joinable/leavable}).
+    While doing this the educator has also to set up the rules for the tournament and the termination date (\textit{Joinable}).
     Note that the educators can create battles also after the creation of the tournament.
     When the registration deadline occours the tournament starts and students not enrolled cannot join the tournament anymore (\textit{Tournament start}). 
     After the tournament starts, the battles can also commence. 
@@ -1080,6 +1078,28 @@
         }
         {In case of exception the system will notify user with a human-readable message}
 
+        \subsection{Requirements}
+        The system requirements are as follows: 
+        \begin{enumerate}
+            \item The system must allow the user to register. 
+            \item The system must allow the user to login. 
+            \item The system should allow the user to search the tournaments. 
+            \item The system must allow the Student to enroll in a tournament. 
+            \item The system must be able to notify the Student under ceratain circumstances. 
+            \item The system should allow the user to access the personal profile. 
+            \item The system should be able to edit the profile. 
+            \item The system must allow the user to check all the leaderboards. 
+            \item The system must allow the user to check all the details of a certain tournament or battle. 
+            \item The system must allow the Student to join or create a group for a specific battle. 
+            \item The system must allow the Student to reach the repository linked to a specific battle. 
+            \item The system must allow the Educator to create a tournament. 
+            \item The system must allow the Educator to create a battle. 
+            \item The system must allow the Educator to invite collaborators in a specific tournament. 
+            \item The system should be able to set up a GitHub repository for each battle created. 
+            \item The system should allow the owner Educator to close the tournament. 
+            \item The system should allow the Educator to give points based on personal evaluation of the code. 
+        \end{enumerate}
+
     \section{Performance requirements}
         The performance requirements needed to ensure the reliability and the availability of the system are: 
         \begin{itemize}
@@ -1247,34 +1267,23 @@ In the following section a model of the system is presented.
     check noBattleNoPoints for 20
     
 \end{lstlisting}
-
 \newpage
-
 Here, there are two examples of the generated universe.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{images/AlloyGen2.png}
-    \caption{This universe is simple and composed by two students competing in a the only one battle of a tournament togehter}
+    \caption{This universe is simple and composed by two students competing in only one battle of a tournament togehter}
 \end{figure}
-
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{images/alloyGen1.png}
     \caption{This generation is more complex and features two tournaments with a battle each}
 \end{figure}
-
-
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{images/marta.png}
     \caption{Output of the assertion check}
 \end{figure}
-
-
-
 
 \chapter{Effort spent}
     The table below offers a concise overview of the hours invested by each group member, along with a brief description of their contributions. 
