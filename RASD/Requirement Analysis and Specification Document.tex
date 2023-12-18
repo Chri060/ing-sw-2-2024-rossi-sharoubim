@@ -1,6 +1,111 @@
 \documentclass[12pt, a4paper]{report}
-\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry}
+\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings}
 \usepackage[english]{babel}
+\lstdefinelanguage{alloy}{
+  keywords={%
+      assert, pred, all, no, lone, one, some, check, run,
+      but, let, implies, not, iff, in, and, or, set, sig, Int, int,
+      if, then, else, exactly, disj, fact, fun, module, abstract,
+      extends, open, none, univ, iden, seq,
+      for, as, sum,
+  },
+  literate=%
+    *{:}{{{\color[HTML]{2835C0}{$\colon$}}}}1
+    {>}{{{\color[HTML]{2835C0}{>}}}}1
+    {<}{{{\color[HTML]{2835C0}{<}}}}1
+    {|}{{{\color[HTML]{2835C0}{|}}}}1
+    {==}{{{\color[HTML]{2835C0}{$=$}}}}1
+    {=}{{{\color[HTML]{2835C0}{$=$}}}}1
+    {!=}{{{\color[HTML]{2835C0}{$\neq$}}}}1
+    {&&}{{{\color[HTML]{2835C0}{$\land$}}}}1
+    {||}{{{\color[HTML]{2835C0}{$\lor$}}}}1
+    {<=}{{{\color[HTML]{2835C0}{$\le$}}}}1
+    {>=}{{{\color[HTML]{2835C0}{$\ge$}}}}1
+    {!in}{{{\color[HTML]{2835C0}{$\not\in$}}}}1
+    {\\in}{{{\color[HTML]{2835C0}{$\in$}}}}1
+    {=>}{{{\color[HTML]{2835C0}{$\implies$}}}}2
+    % the following isn't actually Alloy, but it gives the option to produce nicer latex
+    {|=>}{{{\color[HTML]{2835C0}{$\Rightarrow$}}}}2
+    {<=set}{{{\color[HTML]{2835C0}{$\subseteq$}}}}1
+    {+set}{{{\color[HTML]{2835C0}{$\cup$}}}}1
+    {*set}{{{\color[HTML]{2835C0}{$\cap$}}}}1
+    {==>}{{{{\color[HTML]{2835C0}$\Longrightarrow$}}}}3
+    {<==>}{$\Longleftrightarrow$}4
+    {...}{$\ldots$}1
+    {\\hl}{$\hline$}1
+    {\\alpha}{$\alpha$}1
+    {\\beta}{$\beta$}1
+    {\\gamma}{$\gamma$}1
+    {\\delta}{$\delta$}1
+    {\\epsilon}{$\epsilon$}1
+    {\\zeta}{$\zeta$}1
+    {\\eta}{$\eta$}1
+    {\\theta}{$\theta$}1
+    {\\iota}{$\iota$}1
+    {\\kappa}{$\kappa$}1
+    {\\lambda}{$\lambda$}1
+    {\\mu}{$\mu$}1
+    {\\nu}{$\nu$}1
+    {\\xi}{$\xi$}1
+    {\\pi}{$\pi$}1
+    {\\rho}{$\rho$}1
+    {\\sigma}{$\sigma$}1
+    {\\tau}{$\tau$}1
+    {\\upsilon}{$\upsilon$}1
+    {\\phi}{$\phi$}1
+    {\\chi}{$\chi$}1
+    {\\psi}{$\psi$}1
+    {\\omega}{$\omega$}1
+    {\\Gamma}{$\Gamma$}1
+    {\\Delta}{$\Delta$}1
+    {\\Theta}{$\Theta$}1
+    {\\Lambda}{$\Lambda$}1
+    {\\Xi}{$\Xi$}1
+    {\\Pi}{$\Pi$}1
+    {\\Sigma}{$\Sigma$}1
+    {\\Upsilon}{$\Upsilon$}1
+    {\\Phi}{$\Phi$}1
+    {\\Psi}{$\Psi$}1
+    {\\Omega}{$\Omega$}1
+    {\\EOF}{\;}1
+    ,
+  sensitive=true,  % case sensitive
+  morecomment=[l]//,%
+  morecomment=[l]{--},%
+  morecomment=[s]{/*}{*/},%
+  morestring=[b]",
+  numbers=none,
+  firstnumber=1,
+  numberstyle=\tiny,
+  stepnumber=2,
+  basicstyle=\scriptsize\ttfamily,
+  commentstyle=\color[HTML]{00A108}\itshape,
+  keywordstyle=\color[HTML]{2835C0}\bfseries,
+  ndkeywordstyle=\bfseries,
+}
+
+% inline
+\def\A{%
+    \lstinline[language=alloy,basicstyle=\ttfamily,columns=fixed]}
+
+% paragraph
+\lstnewenvironment{alloy}[1][]{%
+  \lstset{language=alloy,
+    floatplacement={tbp},captionpos=b,
+    xleftmargin=8pt,xrightmargin=8pt,basicstyle=\ttfamily,#1}}{}
+
+% paragraph from file
+\newcommand{\alloyfile}[1]{
+  \lstinputlisting[language=alloy,%
+    frame=lines,xleftmargin=8pt,xrightmargin=8pt,basicstyle=\ttfamily,columns=fixed]{#1}
+}
+
+\lstset{
+    %Add this if you want to display border around your code  
+    %frame=single,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
 \geometry{a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 \newcounter{useCase}
 \stepcounter{useCase}
@@ -1025,17 +1130,148 @@
 
 
 \chapter{Formal analysis with Alloy}
+Alloy serves as a specification language utilized to articulate, devise, and authenticate the functionality of intricate systems. 
+Grounded in first-order logic, this language possesses a mathematical underpinning that facilitates automated validation of design accuracy.
+After formulating a model, it undergoes analysis through a tool compatible with Alloy, like AlloyAnalyzer.
+This tool systematically examines if the model adheres to stipulated constraints and properties.
+Additionally, it enables the exploration of potential behaviors to identify designs that align with specified criteria.
+
+The primary objective of formal analysis is to precisely articulate the domain and characteristics of the intended system.
+In the following section a model of the system is presented.
+
+
+\begin{lstlisting}[language=alloy]
+    //SIGNATURES
+
+    sig Username{}
+    sig Email{}
+    sig Telephone{}
+    
+    abstract sig User {
+        username : disj one Username,
+        email : disj one Email,
+        telephone : disj one Telephone
+    }
+    
+    sig Educator extends User{}
+    
+    sig Student extends User{}
+    
+    sig Battle {
+        registrationDate : one Int,
+        submissionDate : one Int,
+        creator : Educator,
+        tournament : one Tournament,
+        about : one CodeKata
+    } {registrationDate > 0 and 
+        submissionDate > registrationDate}
+    
+    sig Group {
+        students : some Student,
+        battle : one Battle,	
+        points : one Int
+    } {points > 0}
+    
+    sig Tournament {
+        registrationDate : Int,
+        owner : one Educator,
+        managedBy : set Educator,
+        partecipants : set Student
+    } {owner not in managedBy}
+    
+    sig Ranking {
+        student : one Student,
+        tournament : one Tournament,
+        points : one Int
+    } {points >= 0}
+    
+    sig CodeKata {
+    }
+    
+    //FUNCTIONS
+    
+    fun getStudentGroupsPerTournament [s : Student, t : Tournament] : Group {
+        {g : Group | s in g.students and t = (g.battle).tournament}
+    }
+    
+    fun getStudentRankPerTournament[s : Student, t : Tournament] : Int {
+        {i : sum[getStudentGroupsPerTournament[s, t].points]}
+    }
+    
+    
+    // FACTS
+    
+    //Every battle in a tournament is made by an educator that created it or manages it
+    fact onlyAutorazedCanCreateBattles {
+        all b : Battle | b.creator in ((b.tournament).owner + (b.tournament).managedBy)
+    }
+    
+    //Only students that partecipate in a tournament have a rank in it
+    fact onlyPartecipantsRanked {
+        all r : Ranking | r.student in (r.tournament).partecipants
+    }
+    
+    //Every partecipant in tournament gets a ranking in it
+    fact everyPartecipantIsRanked {
+        all t : Tournament | all s : t.partecipants |
+            one r : Ranking | r.student = s and r.tournament = t
+    }
+    
+    //Only partecipants in a tournament can also join its battles
+    fact onlyEnrolledCanBattle {
+        all g : Group | all s : g.students | s in ((g.battle).tournament).partecipants
+    }
+    
+    //No group referred to the same battle can contain the same student
+    fact noOverlappingStudents {
+        all disj g1, g2 : Group | g1.battle = g2.battle => no (g1.students & g2.students)}
+    
+    //Ranking of a tournament are given by the sum of the points in each battle 
+    fact rankingIsPointsSum {
+        all r : Ranking | r.points = getStudentRankPerTournament[r.student, r.tournament]
+    }
+    
+    //Every student subscribed to a tournament that haven't partecipated in any battle 
+    //has a ranking of 0
+    assert noBattleNoPoints {
+        all r : Ranking | no getStudentGroupsPerTournament[r.student, r.tournament] 
+            => r.points = 0
+    }
+    
+    run {
+        #Battle > 0
+        #Group > 2
+        some g : Group | #g.students > 1
+    } for 30
+    
+    check noBattleNoPoints for 20
+    
+\end{lstlisting}
+
+\newpage
+
+Here, there are two examples of the generated universe.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/AlloyGen2.png}
+    \caption{This universe is simple and composed by two students competing in a the only one battle of a tournament togehter}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/alloyGen1.png}
+    \caption{This generation is more complex and features two tournaments with a battle each}
+\end{figure}
 
 
 
-
-
-
-
-
-
-
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/marta.png}
+    \caption{Output of the assertion check}
+\end{figure}
 
 
 
@@ -1051,16 +1287,18 @@
             28-10-2023      & 3                         & 1                             & First chapter initial content                 \\ 
             29-11-2023      & 4                         & 4                             & Part of second and third chapters             \\
             30-11-2023      & 2                         & 2                             & Initial class diagram                         \\
-            05-12-2023      & 0                         & 6                             & Graphical user interfaces                     \\
+            05-12-2023      & 2                         & 6                             & Graphical user interfaces                     \\
             05-12-2023      & 2                         & 2                             & Graphical user interfaces                     \\
             06-12-2023      & 3                         & 3                             & Class diagrams                                \\
             09-12-2023      & 1                         & 1                             & Use case diagrams                             \\
             10-12-2023      & 2                         & 2                             & Use case diagrams                             \\
-            16-12-2023      & 3                         & -                             & Use case diagrams                             \\
-            17-12-2023      & 3                         & -                             & Use case diagrams                             \\
-            xx-xx-xxxx      & -                         & -                             &                                               \\
-            xx-xx-xxxx      & -                         & -                             &                                               \\ \hline
-            \textbf{Total}  & 22                        & 19                            & -                                             \\  
+            12-12-2023      & 2                         & 4                             & Alloy                                         \\
+            14-12-2023      & 1                         & 3                             & alloy                                         \\
+            16-12-2023      & 3                         & 0                             & Use case diagrams                             \\
+            17-12-2023      & 3                         & 1                             & Use case diagrams                             \\
+            18-12-2023      & 2                         & 2                             & Requirement Analysis                          \\
+            19-12-2023      & 3                         & 3                             & Final Revision                                \\ \hline
+            \textbf{Total}  & 34                        & 34                            & RASD                                          \\  
         \end{tabular}
     \end{table}
 
@@ -1069,7 +1307,9 @@
 
     \textbf{Diagrams} - https://app.diagrams.net
     \\
-    \textbf{UI Mockup} - https://webflow.com
+    \textbf{UI Mockup} - https://app.uizard.io/
+    \\
+    \textbf{Alloy documentation} - https://alloy.readthedocs.io/en/latest/index.html
 
 
 
