@@ -45,6 +45,17 @@ sig Ranking {
 sig CodeKata {
 }
 
+//FUNCTIONS
+
+fun getStudentGroupsPerTournament [s : Student, t : Tournament] : Group {
+	{g : Group | s in g.students and t = (g.battle).tournament}
+}
+
+fun getStudentRankPerTournament[s : Student, t : Tournament] : Int {
+	{i : sum[getStudentGroupsPerTournament[s, t].points]}
+}
+
+
 // FACTS
 
 //Every battle in a tournament is made by an educator that created it or manages it
@@ -72,7 +83,15 @@ fact onlyEnrolledCanBattle {
 fact noOverlappingStudents {
 	all disj g1, g2 : Group | g1.battle = g2.battle => no (g1.students & g2.students)}
 
+//Ranking of a tournament are given by the sum of the points in each battle 
+fact rankingIsPointsSum {
+	all r : Ranking | r.points = getStudentRankPerTournament[r.student, r.tournament]
+}
 
+//Every student subscribed to a tournament that haven't partecipated in any battle has a ranking of 0
+assert noBattleNoPoints {
+	all r : Ranking | no getStudentGroupsPerTournament[r.student, r.tournament] implies r.points = 0
+}
 
 run {
 	#Battle > 0

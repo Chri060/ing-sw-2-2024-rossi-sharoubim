@@ -1,5 +1,5 @@
 \documentclass[12pt, a4paper]{report}
-\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings, hyperref}
+\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings, hyperref, tabularx}
 \usepackage[english]{babel}
 \lstdefinelanguage{alloy}{
   keywords={%
@@ -108,6 +108,8 @@
 }
 \geometry{a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 \newcounter{useCase}
+\newcounter{Requirements}
+\stepcounter{Requirements}
 \stepcounter{useCase}
 \newcommand{\usecase}[9]{
     \def\arraystretch{1.5} 
@@ -1079,26 +1081,187 @@
         {In case of exception the system will notify user with a human-readable message}
 
         \subsection{Requirements}
-        The system requirements are as follows: 
-        \begin{enumerate}
-            \item The system must allow the user to register. 
-            \item The system must allow the user to login. 
-            \item The system should allow the user to search the tournaments. 
-            \item The system must allow the Student to enroll in a tournament. 
-            \item The system must be able to notify the Student under ceratain circumstances. 
-            \item The system should allow the user to access the personal profile. 
-            \item The system should be able to edit the profile. 
-            \item The system must allow the user to check all the leaderboards. 
-            \item The system must allow the user to check all the details of a certain tournament or battle. 
-            \item The system must allow the Student to join or create a group for a specific battle. 
-            \item The system must allow the Student to reach the repository linked to a specific battle. 
-            \item The system must allow the Educator to create a tournament. 
-            \item The system must allow the Educator to create a battle. 
-            \item The system must allow the Educator to invite collaborators in a specific tournament. 
-            \item The system should be able to set up a GitHub repository for each battle created. 
-            \item The system should allow the owner Educator to close the tournament. 
-            \item The system should allow the Educator to give points based on personal evaluation of the code. 
-        \end{enumerate}
+        The system requirements are as follows:
+        \subsection{System Functional Requirement for students}
+
+        \begin{table}[H]
+            \begin{tabularx}{\textwidth}{cXc}
+                \textbf{Rx}  & Description                                                                                                                                                  & Relevance     \\
+                \hline                                                                                                                                            
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows unregistered students to register.                                                          & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows registered students to login.                                                               & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to search the tournaments.                                                         & Must Have   \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to enroll in a tournament.                                                         & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the creation of a new tournament.                                 & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the creation of a new battle in a tournament they're enrolled in. & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the rank pubblication of a tournament they're enrolled in.        & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the rank pubblication of battle they joined.                      & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to access the personal profile.                                                    & Should Have   \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to edit their profile.                                                             & Should Have   \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all battles' leaderboards.                                                & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all tournaments' leaderboards.                                            & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all the details of a certain tournament.                                  & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all the details of a certain battle.                                      & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to join a group for a specific battle of a tournament they are enrolled in.        & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to join a specific battle of a tournament they are enrolled in on their own.       & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to create a group for a specific battle of a tournament they are enrolled in.      & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allow the Student to reach the repository linked to a specific battle.                             & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to access GitHub repositories                                                              & Must Have     \\    
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to pull updated files from a commit of a repository                                        & Must Have     \\    
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to execute the code pulled from students' repositories                                     & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to assign a ranking based on tests passed, time passed, and code static analisys           & Must Have     \\                   
+                \hline
+            \end{tabularx}
+        \end{table}
+
+        \subsection{System Functional Requirement for Educators}
+        \begin{table}[H]
+            \begin{tabularx}{\textwidth}{cXc}
+                \textbf{Rx}  & Description                                                                                                                                                  & Relevance     \\
+                \hline                                                                                                                                            
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows unregistered educators to register.                                                         & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows registered educators to login.                                                              & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to search the tournaments.                                                        & Must Have   \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to access the personal profile.                                                   & Should Have   \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to edit their profile.                                                            & Should Have   \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all battles' leaderboards.                                               & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all tournaments' leaderboards.                                           & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all the details of a certain tournament.                                 & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all the details of a certain battle.                                     & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to create a tournament.                                                           & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to create a battle in a tournament
+                                                                              they previously created or have been invited to collaborate in.                                               & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to invite collaborators in a specific tournament.                                 & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows owner educator to close the tournament.                                                     & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educator who created the battle, to give points based on personal evaluation of the code.   & Must Have     \\
+                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system should be able to set up a GitHub repository for each battle created.                              & Must Have     \\
+                \hline
+            \end{tabularx}
+        \end{table}
+
+    This requirements are necessary to fullfill the goals presented previousìly, a more exaustive mapping from goals to requirements 
+    is now presented, where the non-mandatory requirements are omitted just because not expected by the committent. 
+
+    \subsection{Requirements mapping}
+
+    \begin{table}[H]
+        \begin{tabularx}{\textwidth}{cX}
+        \textbf{G1} & The system should allow students to join tournaments.                             \\
+        \hline
+        \textbf{R1}  & The system allows unregistered students to register.                             \\
+        \textbf{R2}  & The system allows registered students to login.                                  \\
+        \textbf{R3}  & The system allows students to search the tournaments.                            \\
+        \textbf{R4}  & The system allows students to enroll in a tournament.                            \\
+        \textbf{R5}  & The system is able to notify students about the creation of a new tournament.    \\
+        \textbf{R13} & The system allows students to check all the details of a certain tournament.     \\
+        \textbf{R14} & The system allows students to check all the details of a certain battle.     \\
+        \textbf{R23} & The system allows unregistered educators to register.                            \\
+        \textbf{R24} & The system allows registered educators to login.                                 \\
+        \textbf{R32} & The system allows educators to create a tournament.                              \\
+        \textbf{R34} & The system allows educators to invite collaborators in a specific tournament.    \\
+        \end{tabularx}
+    \end{table}
+
+    \begin{table}[H]
+        \begin{tabularx}{\textwidth}{cX}
+        \textbf{G2} & The system should allow students to join battles as groups or individually in a specific tournament.  \\
+        \hline
+        \textbf{R1}  & The system allows unregistered students to register.                             \\
+        \textbf{R2}  & The system allows registered students to login.                                  \\
+        \textbf{R3}  & The system allows students to search the tournaments.                            \\
+        \textbf{R4}  & The system allows students to enroll in a tournament.                            \\
+        \textbf{R5}  & The system is able to notify students about the creation of a new tournament.    \\
+        \textbf{R6}  & The system is able to notify students about the creation of a new battle
+                        in a tournament they’re enrolled in.                                            \\
+        \textbf{R13} & The system allows students to check all the details of a certain tournament.     \\
+        \textbf{R14} & The system allows students to check all the details of a certain battle.     \\
+        \textbf{R15} & The system allows students to join a group for a specific battle of a
+                        tournament they are enrolled in.     \\
+        \textbf{R16} & The system allows students to join a specific battle of a tournament
+                        they are enrolled in on their own.\\
+        \textbf{R17} & The system allows students to create a group for a specific battle of a
+                        tournament they are enrolled in. \\
+        \textbf{R18} & The system allow the Student to reach the repository linked to a specific
+                        battle.\\
+        \textbf{R23} & The system allows unregistered educators to register.                            \\
+        \textbf{R24} & The system allows registered educators to login.                                 \\
+        \textbf{R32} & The system allows educators to create a tournament.                              \\
+        \textbf{R33} & The system allows educators to create a battle in a tournament they
+                        previously created or have been invited to collaborate in.\\
+        \textbf{R34} & The system allows educators to invite collaborators in a specific tournament.    \\
+        \textbf{R37} & The system should be able to set up a GitHub repository for each battle
+                        created.\\                                              
+        \end{tabularx}
+    \end{table}
+
+    \begin{table}[H]
+        \begin{tabularx}{\textwidth}{cX}
+        \textbf{G3} & The system should allow educators to manage a tournament.                         \\
+        \hline
+        \textbf{R23} & The system allows unregistered educators to register. \\
+        \textbf{R24} & The system allows registered educators to login. \\
+        \textbf{R25} & The system allows educators to search the tournaments. \\
+        \textbf{R29} & The system allows educators to check all tournaments’ leaderboards. \\
+        \textbf{R30} & The system allows educators to check all the details of a certain tournament.\\
+        \textbf{R32} & The system allows educators to create a tournament.\\
+        \textbf{R33} & The system allows educators to create a battle in a tournament they previously created or have been invited to collaborate in.\\
+        \textbf{R34} & The system allows educators to invite collaborators in a specific tournament.\\
+        \textbf{R35} & The system allows owner educator to close the tournament. \\
+    \end{tabularx}
+    \end{table}
+
+    \begin{table}[H]
+        \begin{tabularx}{\textwidth}{cX}
+        \textbf{G4} & The system should allow educators to manage a battle in a specific tournament.    \\
+        \hline
+        \textbf{R23} & The system allows unregistered educators to register. \\
+        \textbf{R24} & The system allows registered educators to login. \\
+        \textbf{R25} & The system allows educators to search the tournaments.\\
+        \textbf{R28} & The system allows educators to check all battles’ leaderboards.\\
+        \textbf{R30} & The system allows educators to check all the details of a certain tournament.\\
+        \textbf{R31} & The system allows educators to check all the details of a certain battle.\\
+        \textbf{R32} & The system allows educators to create a tournament.\\
+        \textbf{R33} & The system allows educators to create a battle in a tournament they previously created or have been invited to collaborate in.\\
+        \textbf{R36} & The system allows educator who created the battle, to give points based on personal evaluation of the code.\\
+        \textbf{R37} & The system should be able to set up a GitHub repository for each battle created.\\
+        \end{tabularx}
+    \end{table}
+
+    \begin{table}[H]
+        \begin{tabularx}{\textwidth}{cX}
+        \textbf{G5} & The system should allow students and educators to see battles and tournaments rankings.   \\
+        \hline
+        \textbf{R1}  & The system allows unregistered students to register.\\
+        \textbf{R2}  & The system allows registered students to login.\\
+        \textbf{R3}  & The system allows students to search the tournaments.\\
+        \textbf{R7}  & The system is able to notify students about the rank pubblication of a tournament they’re enrolled in.\\
+        \textbf{R8}  & The system is able to notify students about the rank pubblication of battle they joined.\\
+        \textbf{R11}  & The system allows students to check all battles’ leaderboards.\\
+        \textbf{R12}  & The system allows students to check all tournaments’ leaderboards.\\
+        \textbf{R13}  & The system allows students to check all the details of a certain tournament.\\
+        \textbf{R14}  & The system allows students to check all the details of a certain battle.\\
+        \textbf{R19}  & The system is able to access GitHub repositories\\
+        \textbf{R20}  & The system is able to pull updated files from a commit of a repository\\
+        \textbf{R21}  & The system is able to execute the code pulled from students’ repositories\\
+        \textbf{R22}  & The system is able to assign a ranking based on tests passed, time passed, and code static analisys\\
+        \textbf{R23}  & The system allows unregistered educators to register.\\
+        \textbf{R24}  & The system allows registered educators to login.\\
+        \textbf{R25}  & The system allows educators to search the tournaments.\\
+        \textbf{R28}  & The system allows educators to check all battles’ leaderboards. \\
+        \textbf{R29}  & The system allows educators to check all tournaments’ leaderboards.\\
+        \textbf{R30}  & The system allows educators to check all the details of a certain tournament.\\
+        \textbf{R31}  & The system allows educators to check all the details of a certain battle.\\
+        \textbf{R32}  & The system allows educators to create a tournament.\\
+        \textbf{R33}  & The system allows educators to create a battle in a tournament they previously created or have been invited to collaborate in.\\
+        \textbf{R35}  & The system allows owner educator to close the tournament. \\
+        \textbf{R36}  & The system allows educator who created the battle, to give points based on personal evaluation of the code.\\
+        \textbf{R37}  & The system should be able to set up a GitHub repository for each battle created.\\
+    \end{tabularx}
+    \end{table}
+
+
+    
+
 
     \section{Performance requirements}
         The performance requirements needed to ensure the reliability and the availability of the system are: 
@@ -1310,6 +1473,7 @@ Here, there are two examples of the generated universe.
             \textbf{Total}  & 34                        & 34                            & RASD                                          \\  
         \end{tabular}
     \end{table}
+
 
 
 \chapter{References}
