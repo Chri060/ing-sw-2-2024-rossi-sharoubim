@@ -1,5 +1,5 @@
 \documentclass[12pt, a4paper]{report}
-\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings, hyperref, tabularx}
+\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings, hyperref, tabularx, titling}
 \usepackage[english]{babel}
 \lstdefinelanguage{alloy}{
   keywords={%
@@ -141,7 +141,27 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlingpage} 
+    \begin{center}
+        \includegraphics[height=5cm]{images/polimi.png}\\
+        \vspace{4cm}
+        \begin{huge} 
+            \textbf{\thetitle} \\
+        \end{huge}
+        \vspace{0.3cm}
+        \begin{Large}
+            \textit{Software Engineering 2 \\CodeKataBattle} \\
+        \end{Large}
+    \end{center}
+    \vspace{9cm}
+        \begin{center}      
+            \textbf{Authors}    
+
+            Christian Rossi - 10736464   
+
+            Kirolos Sharoubim - 10719510
+    \end{center}
+\end{titlingpage}
 
 \newpage
 
