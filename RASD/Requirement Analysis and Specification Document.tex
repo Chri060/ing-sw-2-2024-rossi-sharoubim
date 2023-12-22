@@ -676,7 +676,7 @@
         \usecase 
         {\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/signup.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
-        {Educator registration}
+        {User registration}
         {Unregistered educator, Unresgistered student}
         {The actor clicks on the sign-in button}
         {
@@ -724,7 +724,7 @@
         \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/profile.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
         {Checking the profile}
-        {Educator}
+        {Educator, Student}
         {The actor clicks on profile button}
         {
         \begin{enumerate}
@@ -811,7 +811,7 @@
         % usecase (Student) for joining a specific battle with the creation of a group
         \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/joinbattle.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
-        {Join a specific battle}
+        {Join a specific battle creating a new group}
         {Student}
         {The actor clicks on create and join battle button}
         {
@@ -836,7 +836,7 @@
         % usecase (Student) for joining a specific group in a battle
         \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/joinbattle1.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
-        {Join a specific battle}
+        {Join a specific battle with an already exisisting group}
         {Student}
         {The actor clicks the join button}
         {
@@ -870,7 +870,7 @@
         \begin{enumerate}
             \item The actor enters the tournament details page
             \item The system shows the tournament details page to the actor
-            \item The actor clicks on the repository button linked to the repository 
+            \item The actor clicks on the repository button linked to the repository of a specific battle
             \item The actor is redirected to the GitHub repository linked to the battle selected
         \end{enumerate}
         }
@@ -883,10 +883,10 @@
         }
         {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student, Educator) for accessing all battle rankings
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checkbattleranking.png}\end{figure}}        
+        % usecase (Student, Educator) for accessing all tournament rankings
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checktournamentranking.png}\end{figure}}
         {\arabic{useCase}\stepcounter{useCase}}
-        {Check the ranking of a specific battle}
+        {Check the ranking of a specific tournament}
         {Student, Educator}
         {The actor goes to tournament details page}
         {
@@ -908,10 +908,10 @@
         }
         {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student) for accessing all tournaments rankings
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checktournamentranking.png}\end{figure}}        
+        % usecase (Student) for accessing all battle rankings
+        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checkbattleranking.png}\end{figure}} 
         {\arabic{useCase}\stepcounter{useCase}}
-        {Check the ranking of a specific tournament}
+        {Check the ranking of a specific battle}
         {Student}
         {The actor clicks leaderboard button}
         {
@@ -936,8 +936,8 @@
         % usecase (Educator) for accessing all tournaments rankings
         \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checktournamentranking1.png}\end{figure}}        
         {\arabic{useCase}\stepcounter{useCase}}
-        {Check the ranking of a specific tournament}
-        {Educator}
+        {User checks the ranking of a specific searched tournament}
+        {Educator, Student}
         {The actor clicks leaderboard button}
         {
         \begin{enumerate}
@@ -1159,7 +1159,7 @@
             \end{tabularx}
         \end{table}
 
-    These requirements are necessary to fullfill the goals presented previousìly, a more exaustive mapping from goals to requirements 
+    These requirements are necessary to fullfill the goals presented previousily, a more exaustive mapping from goals to requirements 
     is now presented, where the non-mandatory requirements are omitted just because not expected by the committent. 
 
     \subsection{Requirements mapping}
