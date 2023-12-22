@@ -1,8 +1,7 @@
 \documentclass[12pt, a4paper]{report}
-\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings, hyperref, tabularx}
+\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, titling}
 \usepackage[english]{babel}
 
-\geometry{a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 
 \title{Design Document}
 \author{Christian Rossi \\ Kirolos Sharoubim}
@@ -10,7 +9,27 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlingpage} 
+    \begin{center}
+        \includegraphics[height=5cm]{images/polimi.png}\\
+        \vspace{4cm}
+        \begin{huge} 
+            \textbf{\thetitle} \\
+        \end{huge}
+        \vspace{0.3cm}
+        \begin{Large}
+            \textit{Software Engineering 2 \\ CodeKataBattle} \\
+        \end{Large}
+    \end{center}
+    \vspace{6.9cm}
+        \begin{center}      
+            \textbf{Authors}    
+
+            Christian Rossi - 10736464   
+
+            Kirolos Sharoubim - 10719510
+    \end{center}
+\end{titlingpage}
 
 \newpage
 
@@ -31,15 +50,14 @@
     Educators possess the capability to establish a code Kata within a particular tournament, defining essential parameters such as the problem statement (inclusive of test cases), 
     the minimum and maximum number of students allowed per group, and the deadlines for both code Kata registration and solution submission.
     Following the tournament creation, students are empowered to create groups and commence their collaborative efforts on the solution, following a test-first approach. 
-    As the ultimate deadline approaches, the system autonomously computes the final rankings, ultimately revealing the victorious participants.For a more comprehensive overview of the features accessible to end users, please consult the RASD. 
+    As the ultimate deadline approaches, the system autonomously computes the final rankings, ultimately revealing the victorious participants.
+    For a more comprehensive overview of the features accessible to end users, please consult the RASD. 
     The architecture of the S2B is structured into three physically separated layers, each installed on distinct tiers. These layers are:
-    \\
-    
-        \begin{enumerate}
-            \item \textit{Presentation Layer}: Responsible for overseeing the presentation logic and handling all interactions with end users.
-            \item \textit{Business Logic Layer}: Manages the application functions provided by the S2B, ensuring seamless operation and functionality.
-            \item \textit{Data Layer}: Handles secure storage and facilitates access to data, ensuring the integrity and reliability of information.
-        \end{enumerate}
+    \begin{enumerate}
+        \item \textit{Presentation Layer}: Responsible for overseeing the presentation logic and handling all interactions with end users.
+        \item \textit{Business Logic Layer}: Manages the application functions provided by the S2B, ensuring seamless operation and functionality.
+        \item \textit{Data Layer}: Handles secure storage and facilitates access to data, ensuring the integrity and reliability of information.
+    \end{enumerate}
 
     \section{Definitions, acronyms and abbreviations}
     \subsection{Definitions}
@@ -83,25 +101,8 @@
 \newpage 
 
 \chapter{Architectural design}
-    The purpose of this section is to systematically present and assess the architecture of the S2B system in a top-down approach. 
-    We first introduce the comprehensive architecture and then provide a diagram illustrating the system's components, with a specific emphasis on the Educators and students subcomponents. 
-    Subsequently, we employ an Entity-Relationship (ER) diagram to articulate the system's logical data and present the system's deployment view, encompassing layers and tiers. 
-    We also use sequence diagrams to illustrate crucial runtime perspectives, while class diagrams are employed to scrutinize the interfaces of the components. 
-    Ultimately, we engage in a discussion on the architectural design choices and the rationale behind them.
     \section{Overview}
-    The diagram below provides a high-level depiction of the components that form the System. 
-    In this document, we will use the term "Frontend" to encompass both the presentation layer and the Client 
-    (e.g., the Browser), while the term "Backend" will encompass both the Application Layer and the Data Layer.
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=1.0\linewidth]{images/high_level_architecture.png}
-    \end{figure}
     \section{Component view}
-    The service will be accessed through a web interface, utilizing a single page application (SPA) that proves advantageous for this application type, 
-    enabling extensive interaction without frequent page reloads, thereby ensuring a faster and smoother user experience. 
-    The system's architecture is structured three into distinct layers, with application servers interacting 
-    with a database management system and utilizing APIs for data retrieval and storage. Adhering to REST standards, 
-    the application servers are designed to be stateless, and the system incorporates firewalls to bolster security.
     \section{Deployment view}
     \section{Runtime view}
     \section{Component interfaces}

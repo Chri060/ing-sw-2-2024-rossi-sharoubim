@@ -1,5 +1,5 @@
 \documentclass[12pt, a4paper]{report}
-\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings, hyperref, tabularx}
+\usepackage{graphicx, array, amsthm, amssymb, amsmath, float, xcolor, thmtools, thmbox, geometry, listings, hyperref, tabularx, titling}
 \usepackage[english]{babel}
 \lstdefinelanguage{alloy}{
   keywords={%
@@ -140,8 +140,27 @@
 \date{Academic Year 2023-2024}
 
 \begin{document}
+\begin{titlingpage} 
+    \begin{center}
+        \includegraphics[height=5cm]{images/polimi.png}\\
+        \vspace{4cm}
+        \begin{huge} 
+            \textbf{\thetitle} \\
+        \end{huge}
+        \vspace{0.3cm}
+        \begin{Large}
+            \textit{Software Engineering 2 \\ CodeKataBattle} \\
+        \end{Large}
+    \end{center}
+    \vspace{6.9cm}
+        \begin{center}
+            \textbf{Authors}
 
-\maketitle
+            Christian Rossi - 10736464
+
+            Kirolos Sharoubim - 10719510
+    \end{center}
+\end{titlingpage}
 
 \newpage
 
@@ -1140,7 +1159,7 @@
             \end{tabularx}
         \end{table}
 
-    This requirements are necessary to fullfill the goals presented previousìly, a more exaustive mapping from goals to requirements 
+    These requirements are necessary to fullfill the goals presented previousìly, a more exaustive mapping from goals to requirements 
     is now presented, where the non-mandatory requirements are omitted just because not expected by the committent. 
 
     \subsection{Requirements mapping}
