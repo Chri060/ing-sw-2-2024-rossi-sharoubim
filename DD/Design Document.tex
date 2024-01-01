@@ -500,7 +500,32 @@
 
     \section{Component interfaces}
     \section{Selected architectural styles and patterns}
+    \begin{itemize}
+        \item \textit{Three layers}: The system is divided in three distinct layers,
+        each of them accomplishes a specific task.
+        In particular there are the presentation layer, the business logic layer and the data storage layer.
+        The use of a three layers architecture makes the system more modular and easier to implement, modify and maintain
+        even between different teams.
+        Another advantage is that this modularization allows the use of load balancers between the various servers.
+        One last big advantage is that this architecture grants a high data security level, since the data can be accessed only by
+        the application server.
+        \item \textit{Adapter Pattern}: In order to retrieve data in a simplified way, a query manager will be implemented.
+        The choice of implementing an adapter pattern alloys to keep the application logic independent from the DBMS provider,
+        hiding uncessary and complex parts. 
+        The pattern, lastly, also grants a higher level of security since only a preset of operations is available.
+    \end{itemize}
+
+\newpage 
     \section{Other design decisions}
+        \subsection{Database choices}
+        Previously, an Entity-Relationship (ER) model for the database was introduced, along with a deployment perspective.
+        The decision has been made to host the database on a single node.
+        This choice stems from the fact that the majority of the data is essential for all users.
+        For instance, tournament and battle details are accessible to all users, rendering the utilization of separate databases unnecessary.
+        \subsection{RESTful APIs}
+        We opted for a REST API as the backend for the frontend application due to its various advantages.
+        This API is built on standard web technologies, facilitating seamless consumption and integration with other systems, such as GitHub.
+    \newpage 
 
 \newpage 
 
