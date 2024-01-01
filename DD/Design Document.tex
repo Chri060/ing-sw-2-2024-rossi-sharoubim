@@ -195,7 +195,6 @@
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\linewidth]{images/db.png}
-        \caption{Detailed component diagram for the Student}
     \end{figure}
     Students and educators are stored in different tables to have better performance when searching the user in the database.
     The attributes of both tables are the same, and comprises: name, surname, username, email, and telephone. 
@@ -233,7 +232,7 @@
     It is imperative that the chosen cloud provider offers comprehensive support for scalability, security, and cost-efficiency to align with our specific requirements.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1.0\linewidth]{images/deployment_view.png}
+        \includegraphics[width=0.9\linewidth]{images/deployment_view.png}
         \caption{Deployment views}
     \end{figure}
     The devices called PC and Mobile are any device with a moder browser capable of running JavaScript. 
@@ -258,164 +257,220 @@
 
     \section{Runtime view}
     \subsection{Student's runtime view}
+    In this section we list all possible actions for the student along with the runtime view associated with each one. 
+    
     \paragraph*{Student signup}
+    In this case the actor is an unregistered student that is trying to sign up in the system.
+    After accessing the corresponding page the student submits all the required information to the student account manager component that cheks the data. 
+    If the user is not already register it creates a new student after the email verification. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/ssrv.png}
-        \caption{Student signup's runtime views}
     \end{figure}
 
     \paragraph*{Student log in}
+    In this case the actor is a registered student that wants to log in into the system. 
+    After accessing the corresponding page the student submits all the required information to the student account manager component that cheks the data. 
+    If the inserted data are correct the student can access all his possible actions. 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1.0\linewidth]{images/slirv.png}
-        \caption{Student log in's runtime views}
+        \includegraphics[width=1.0\linewidth]{images/slrv.png}
     \end{figure}
 
     \paragraph*{Student profile}
+    In this case the actor is a registered student that wants to check his own profile. 
+    The student profile manager retrieves all the data linked to the student and returns the complete page to the student. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/sprv.png}
-        \caption{Student profile's runtime views}
     \end{figure}
 
     \paragraph*{Student home page}
+    In this case the actor is a registered student that wants to access the home page. 
+    The student research manager retrieves all the active tournaments from the database and return the home page with some tournaments. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/shprv.png}
-        \caption{Student home page's runtime views}
     \end{figure}
 
     \paragraph*{Student join tournament}
+    In this case the actor is a registered student that wants to join a tournament. 
+    The student requests the home page and then select the desired tournament. 
+    After clicking the join button the system return the consequence of the action (enrolled or not). 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/sjtrv.png}
-        \caption{Student join tournament's runtime views}
     \end{figure}
 
     \paragraph*{Student search tournament}
+    In this case the actor is a registered student that wants to search for a specific tournament based on a keyword. 
+    After accessing the search page the student can finally search the desired tournament. 
+    The system returns all the tournaments linked with the searched keyword or a null list if no tournament match the requirements. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/sstrv.png}
-        \caption{Student search tournament's runtime views}
     \end{figure}
 
     \paragraph*{Student join battle}
+    In this case the actor is a registered student that wants to join a battle within a tournament in which he is enrolled. 
+    After accessing the tournament details page the user clicks on the button to join the battle alone or in a team. 
+    If the user is allowed to do the desired enrollment he can finally join the battle. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/sjbrv.png}
-        \caption{Student join battle's runtime views}
     \end{figure}
 
+    \paragraph*{User checks tournament leaderboard}
+    In this case the user is a registered student that wants to check the leaderboard of a tournament. 
+    After accessing the enrolled page and consequently the tournament details page the student can access the leaderboard page of the selected tournament. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\linewidth]{images/stlrv.png}
+    \end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
-
+    \paragraph*{User checks battle leaderboard}
+    In this case the user is a registered student that wants to check the leaderboard of a tournament. 
+    After accessing the enrolled page and consequently the tournament details page the student can access the leaderboard page of the selected tournament. 
+    After this he can click on the button linked to the desired battle within the selected tournament. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1.0\linewidth]{images/sblrv.png}
+    \end{figure}
 
     \subsection{Educator's runtime view}
+    In this section we list all possible actions for the educator along with the runtime view associated with each one. 
     \paragraph*{Educator signup}
+    In this case the actor is an unregistered educator that is trying to sign up in the system.
+    After accessing the corresponding page the educator submits all the required information to the educator account manager component that cheks the data. 
+    If the user is not already register it creates a new educator after the email verification. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/esrv.png}
-        \caption{Educator signup's runtime views}
     \end{figure}
 
     \paragraph*{Educator log in}
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/elirv.png}
-        \caption{Educator log in's runtime views}
     \end{figure}
+    In this case the actor is a registered educator that wants to log in into the system. 
+    After accessing the corresponding page the educator submits all the required information to the educator account manager component that cheks the data. 
+    If the inserted data are correct the educator can access all his possible actions. 
 
     \paragraph*{Educator profile}
+    In this case the actor is a registered educator that wants to check his own profile. 
+    The educator profile manager retrieves all the data linked to the educator and returns the complete page to the educator. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/eprv.png}
-        \caption{Educator profile's runtime views}
     \end{figure}
 
     \paragraph*{Educator home page}
+    In this case the actor is a registered educator that wants to access the home page. 
+    The educator research manager retrieves all the active tournaments from the database and return the home page with some tournaments. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/ehprv.png}
-        \caption{Educator profile's runtime views}
     \end{figure}
 
     \paragraph*{Educator search tournament}
+    In this case the actor is a registered educator that wants to search for a specific tournament based on a keyword. 
+    After accessing the search page the educator can finally search the desired tournament. 
+    The system returns all the tournaments linked with the searched keyword or a null list if no tournament match the requirements. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/estrv.png}
-        \caption{Educator search tournament's runtime views}
     \end{figure}
 
     \paragraph*{Educator create tournament}
+    In this case the actor is an educator that wants to create a new tournament. 
+    After accessing the create tournament page and compiling all the requested information he sumbits the data. 
+    The system check all information and returns the state of the requested action (the creation of the tournament). 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/ectrv.png}
-        \caption{Educator create tournament's runtime views}
     \end{figure}
 
     \paragraph*{Educator manage tournament}
+    In this case the actor is an educator that wants to manage an already existing tournament. 
+    After accessing the manage tournament page he clicks on the desired tournament. 
+    The system check if the user is allowed to check the tournament and returns the same page with all the details. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/emtrv.png}
-        \caption{Educator manage tournament's runtime views}
     \end{figure}
 
     \paragraph*{Educator add battle}
+    In this case the actor is an educator that wants to manage an already existing tournament by adding a battle. 
+    After accessing the manage tournament page he clicks on the desired tournament. 
+    The system check if the user is allowed to check the tournament and returns the same page with all the details. 
+    Now the educator can finally click on the add button to create a new battle within the tournament. 
+    The system return the create battle page, and the educator can finally insert all the information regarding the battle. 
+    If all data arre correct the system adds the new battle and notifies the educator. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/eabrv.png}
-        \caption{Educator add battle's runtime views}
     \end{figure}
 
     \paragraph*{Educator add collaborator}
+    In this case the actor is an educator that wants to manage an already existing tournament by adding a collaborator. 
+    After accessing the manage tournament page he clicks on the desired tournament. 
+    The system check if the user is allowed to check the tournament and returns the same page with all the details. 
+    Now the educator can finally click on the add collaborator button to invite other educators. 
+    The educator sumbits the email and the system let him know if the collaborator is invited or not. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/eacrv.png}
-        \caption{Educator add collaborator's runtime views}
     \end{figure}
 
     \paragraph*{Educator close tournament}
+    In this case the actor is an educator that wants to manage an already existing tournament by closing it. 
+    After accessing the manage tournament page he clicks on the desired tournament. 
+    The system check if the user is allowed to check the tournament and returns the same page with all the details. 
+    Now the educator can finally click on the close button. 
+    The system nbotifies the educator on the status of the action. 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/ectrv1.png}
-        \caption{Educator close tournament's runtime views}
     \end{figure}
 
     \paragraph*{Educator personal evaluation}
+    In this case the actor is an educato that wants to add the personal evaluation to a managed tournament. 
+    After accessing the manage battle page and selecting the desired battle he can finally fill out the form with the evaluations.
+    If all submitted values are correct the system insert these into the database and notifies the user with a message.
     \begin{figure}[H]
         \centering
         \includegraphics[width=1.0\linewidth]{images/eperv.png}
-        \caption{Educator personal evaluation's runtime views}
     \end{figure}
 
-
-    \subsection{Both users runtime view}
     \paragraph*{User checks tournament leaderboard}
+    In this case the user is a registered student that wants to check the leaderboard of a tournament. 
+    After accessing the search page and consequently the tournament details page the student can access the leaderboard page of the selected tournament. 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1.0\linewidth]{images/utlrv.png}
-        \caption{User checks tournament leaderboard's runtime views}
+        \includegraphics[width=1.0\linewidth]{images/etlrv.png}
     \end{figure}
 
     \paragraph*{User checks battle leaderboard}
+    In this case the user is a registered student that wants to check the leaderboard of a tournament. 
+    After accessing the search page and consequently the tournament details page the student can access the leaderboard page of the selected tournament. 
+    After this he can click on the button linked to the desired battle within the selected tournament. 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=1.0\linewidth]{images/ublrv.png}
-        \caption{User checks battle leaderboard's runtime views}
+        \includegraphics[width=1.0\linewidth]{images/eblrv.png}
     \end{figure}
 
-    \subsection{API endpoints}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
