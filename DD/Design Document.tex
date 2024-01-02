@@ -462,44 +462,9 @@
         \includegraphics[width=1.0\linewidth]{images/eblrv.png}
     \end{figure}
 
-
     \section{Component interfaces}
     All components described in the prevoius sections utilizes some interfaces to interacti with each other. 
     In the following we list all useful interfaces to implemented by considering each component separately. 
-
-    \subsection{Educator manager components}
-    The educator manager employs five components to enable educators to access all functionalities. 
-    These components will be examined in detail below.
-    
-    \paragraph*{Educator account manager}
-    This component comprises the following interfaces: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-
-    \paragraph*{Tournament manager}
-    This component comprises the following interfaces: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-
-    \paragraph*{Battle manager}
-    This component comprises the following interfaces: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-
-    \paragraph*{Educator profile manager}
-    This component comprises the following interfaces: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
-
-    \paragraph*{Educator research manager}
-    This component comprises the following interfaces: 
-    \begin{itemize}
-        \item 
-    \end{itemize}
 
     \subsection{Student manager components}
     The student manager employs five components to enable students to access all functionalities. 
@@ -508,38 +473,148 @@
     \paragraph*{Student account manager}
     This component comprises the following interfaces: 
     \begin{itemize}
-        \item 
+        \item checkForm(data): checks if all the information sumbitted by the student are consistent. 
+        \item checkUnivoque(username, email, telephone): checks if all these variables are not already in the database. 
+        \item createStudent(username, email, telephone, password): create a new student upon verification of the fields. 
+        \item createStudentVerificationCode(email, code): add a temporary verification code to the database linked to a email to be verified. 
+        \item sendEmail(): send the email with the verification code to the email inserted by the student. 
+        \item checkVerificationCode(email,code): checks if the combination of email and code is in the database. 
+        \item checkStudentCredentials(email, password): checks if the email and password inserted are in the database. 
+        \item createStudentToken(studentID, token): add a new log in token linked to a student. 
     \end{itemize}
 
     \paragraph*{Tournament subscription manager}
     This component comprises the following interfaces: 
     \begin{itemize}
-        \item 
+        \item checkTournament(userID, tournamentID): send a request to the query manager to enroll the student in the given tournament. 
+        \item searchTournament (keyword): returns a list of tournaments matching the searched keyword. 
     \end{itemize}
 
     \paragraph*{Battle subscription manager}
     This component comprises the following interfaces: 
     \begin{itemize}
-        \item 
+        \item joinBattle(studentID, battleID): let a student join a certain battle specified by the battleID.
     \end{itemize}
 
     \paragraph*{Student profile manager}
     This component comprises the following interfaces: 
     \begin{itemize}
-        \item 
+        \item getStudentData(username): returns all the information linked to a certain student specified by the username. 
+        \item getEnrolledTournament(studentID): returns all the tournaments in which the student is enrolled. 
     \end{itemize}
 
     \paragraph*{Student research manager}
     This component comprises the following interfaces: 
     \begin{itemize}
-        \item 
+        \item getTournaments(): returns a list of active tournament that the student can join. 
+        \item getTournamentDetails(tournamentID): returns the details of a tournament given its tournamentID. 
+        \item getEnrolledTournaments(studentID): return a list of tournaments in which the student is enrolled.
+        \item getTournamentRanking(tournamentID): returns a list of students organized by number of points earned. 
+        \item getBattleRanking(battleID): returns a list of groups organized by number of points earned. 
+    \end{itemize}
+
+    \paragraph*{Student notification manager}
+    This component comprises the following interfaces: 
+    \begin{itemize}
+        \item searchStudentsPhone(): returns the list of all phone number linked to the students registered in the system. 
+        \item notifyStudents(StudentsPhone): notifies all the students with the phone number in the StudentsPhone list. 
+        \item searchStudents(tournamentID): searches all student's phone numbers enrolled in the tournament given.
+        \item notifyStudents(StudentsPhone, battle): notifies all the students with the phone number in the StudentsPhone list with the identifier of the new battle. 
+    \end{itemize}
+
+    \subsection{Educator manager components}
+    The educator manager employs five components to enable educators to access all functionalities. 
+    These components will be examined in detail below.
+    
+    \paragraph*{Educator account manager}
+    This component comprises the following interfaces: 
+    \begin{itemize}
+        \item checkForm(data): checks if all the information sumbitted by the educator are consistent. 
+        \item checkUnivoque(username, email, telephone): checks if all these variables are not already in the database. 
+        \item createEducator(username, email, telephone, password): create a new educator upon verification of the fields. 
+        \item createEducatorVerificationCode(email, code): add a temporary verification code to the database linked to a email to be verified. 
+        \item sendEmail(): send the email with the verification code to the email inserted by the educator. 
+        \item checkVerificationCode(email,code): checks if the combination of email and code is in the database. 
+        \item checkEducatorCredentials(email, password): checks if the email and password inserted are in the database. 
+        \item createEducatorToken(educatorID, token): add a new log in token linked to a educator. 
+    \end{itemize}
+
+    \paragraph*{Tournament manager}
+    This component comprises the following interfaces: 
+    \begin{itemize}
+        \item getActiveTournaments(): returns a list of all active tournaments. 
+        \item searchTournament(keyword): search a tournament which contains the keyword in the name or description. 
+        \item createTournament(data): creates a new tournament with the submitted information. 
+        \item notifyStudent(): notifies the students.
+        \item notifyStudent(tournamentID): notifies the students that are enrolled about the closure of the tournament.
+        \item inviteCollaborator(email): invite a new collaborator to manage the tournament. 
+        \item closeTournament(tournamentID): closes a tournament with the given tournamentID. 
+    \end{itemize}
+
+    \paragraph*{Battle manager}
+    This component comprises the following interfaces: 
+    \begin{itemize}
+        \item createRepository(): creates a new repository and return the URL. 
+        \item createBattle(data): creates a new battle within a managed tournament. 
+        \item notifyStudents(tournamentID, battleID): notifies all students that are enrolled in the tournament in which the new battle is created. 
+        \item addEvaluations(evaluations, battleID): adds the evaluations for each group in a certain battle. 
+    \end{itemize}
+
+    \paragraph*{Educator profile manager}
+    This component comprises the following interfaces: 
+    \begin{itemize}
+        \item getEducatorData(username): returns all the information linked to a certain educator specified by the username. 
+        \item getEnrolledTournament(educatorID): returns all the tournaments in which the educator is enrolled. 
+    \end{itemize}
+
+    \paragraph*{Educator research manager}
+    This component comprises the following interfaces: 
+    \begin{itemize}
+        \item getTournaments(): returns a list of active tournament that the educator can view. 
+        \item getTournamentDetails(eduatorID): returns a list of tournament managed by the educator with the given educatorID. 
+        \item getTournamentDetails(tournamentID): returns all the details of the given tournament. 
+        \item getBattles(tournamentID): returns all battles within a given tournament. 
+        \item getBattleDetails(battleID): returns all the details of the given battle. 
+        \item getActiveTournaments(): returns a list of all active tournaments.
+        \item getTournamentRanking(tournamentID): returns a list of students organized by number of points earned. 
+        \item getBattleRanking(battleID): returns a list of groups organized by number of points earned. 
     \end{itemize}
 
     \subsection{Query manager}
     The schema of the database is described in the component view section. 
     The system interacts with these tables with the following interfaces: 
     \begin{itemize}
-        \item 
+        \item selectStudent(username): search a student with a certain username. 
+        \item insertStudent(query): add a student with query data (username, email, telephone, and password).
+        \item insertStudentVerificationCode(query): add a verification code to a certain student with query data (studentID and code). 
+        \item selectVerificationcode(query): search the student through the studentID and the code; if they match the code is correct. 
+        \item selectStudent(email, password): search a student with the combination of email and password given. 
+        \item insertStudentToken(studentID, token): associate a student with a certain token used to mantain the session active client side. 
+        \item selectEnrolledTournament(studentID): returns all the tournaments where the student is enrolled. 
+        \item selectActiveTournaments(): returns all the active tournaments. 
+        \item joinTournament(userID, tournamentID): let a student with a certain studentID enroll in a tournament with tournamentID. 
+        \item selectTournament(keyword): search all the tournaments with the name or description that matches a given keyword. 
+        \item selectTournament(tournamentID): search the tournament with the given tournamentID. 
+        \item enrollInBattle(battleID): checks if the student is enrolled in the battle's tournament and if so it enroll the student in the battle. 
+        \item selectTournament (studentID): returns all the tournament in which the student with studentID is enrolled. 
+        \item selectTournamentRanking(tournamentID): returns the ranking of the tournament with a certain tournamentID. 
+        \item selectBattleRanking(battleID): returns the ranking of a battle in a tournament with a certain battleID. 
+        \item selectEducator(username): search an educator with a certain username. 
+        \item insertEducator(query): add a educator with query data (username, email, telephone, and password). 
+        \item insertEducatorVerificationCode(query): add a verification code to a certain educator with query data (educatorID and code). 
+        \item selectEducator(email, password): search an educator with the combination of email and password given. 
+        \item insertEducatorToken(educatorID, token): associate an educator with a certain token used to mantain the session active client side. 
+        \item selectEducator(username): returns all the data linked with the educator with the given username. 
+        \item selectManagedTournament(educatorID): returns all the tournament managed by an educator with a certain educatoID. 
+        \item addTournament(data): when the educator submits all the information about a new tournament this interface adds it to the database. 
+        \item searchAllStudentsPhone(): returns all the phone numbers in the database regarding the students. 
+        \item managedTournaments(educatorID): returns a list of managed tournaments by a given educator. 
+        \item addBattle(data): when the educator submits all the information about a new battle this interface adds it to the database. 
+        \item searchTelephoneByTournamentID(tournamentID): returns all the telephon numbers of the students enrolled in a given tournament. 
+        \item checkExistence(email): checks if the given email is in the educators' table. 
+        \item checkOpened(tournamentID): checks the value of the opened attribute for a given tournament. 
+        \item selectBattle(battleID): returns all the details of a certain battle. 
+        \item addEvaluations(evaluations, battleID): given a list of evaluations and groupID add the personal evaluation in a certain battle for the seleceted groups. 
     \end{itemize}
 
     \section{Selected architectural styles and patterns}
