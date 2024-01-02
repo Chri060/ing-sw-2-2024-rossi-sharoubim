@@ -140,7 +140,7 @@
     \end{figure}
     The educator manager component is expandend in five component as follows: 
     \begin{itemize}
-        \item \textit{Account Manager}: this component allows the educators to log in and register to the system.
+        \item \textit{Educator Account Manager}: this component allows the educators to log in and register to the system.
             It has an authentication interfaces that allows all other components to check if the educator is logged in and is allowd to do certain actions. 
             The account manager is also linked to the database through the query manager interface, that allows it to manage data in the tables dedicated to the educator.
             The only external API used by it is the email service that is utilized to verify the email whenever a new eduator tries to register. 
@@ -152,10 +152,10 @@
             It has a connection to the authentication manager since it needs to verify the user that is tring to modify the battle. 
             The battle manager is also linked to the database through the query manager interface, that allows it to gather and add data to the tables dedicated to the battle.
             The external APIs used by this component are: GitHub API to create the repository linked to the battle, SMS service to notify the user on the event of the newly created battle, and calendar API to check the main deadlines and notify the educators that manage the battle.
-        \item \textit{Profile Manager}: this component allows the educators to check the personal profile with personal information and tournaments information. 
+        \item \textit{Educator Profile Manager}: this component allows the educators to check the personal profile with personal information and tournaments information. 
             It has an authentication interfaces that allows all other components to check if the educator is logged in and is allowed to check the desired profile. 
             The profile manager is also linked to the database through the query manager interface, that allows it to manage data in the tables dedicated to the educator's profile.
-        \item \textit{Research Manager}: this component allows the educators to search all the active tournament in the system and to check all the leaderboards and rankings. 
+        \item \textit{Educator Research Manager}: this component allows the educators to search all the active tournament in the system and to check all the leaderboards and rankings. 
             It has an authentication interfaces that allows all other components to check if the educator is logged in.
             The research manager is also linked to the database through the query manager interface, that allows it to manage data in the tables dedicated to the tournaments.
     \end{itemize}
@@ -169,7 +169,7 @@
     \end{figure}
     The student manager component is expandend in five component as follows: 
     \begin{itemize}
-        \item \textit{Account Manager}: this component allows the students to log in and register to the system.
+        \item \textit{Student Account Manager}: this component allows the students to log in and register to the system.
             It has an authentication interfaces that allows all other components to check if the student is logged in and is allowed to do certain actions. 
             The account manager is also linked to the database through the query manager interface, that allows it to manage data in the tables dedicated to the student.
             The only external API used by it is the email service that is utilized to verify the email whenever a new student tries to register. 
@@ -181,12 +181,14 @@
             It has a connection to the authentication manager since it needs to verify the user that is tring to enroll in the battle. 
             The battle subscription manager is also linked to the database through the query manager interface, that allows it to gather and add data to the tables dedicated to the battle.
             The external APIs used by this component are the SMS service to notify the user on the event of the newly created battle, and the calendar API to check the main deadlines and notify the students that are enrolled in the battle.
-        \item \textit{Profile Manager}: this component allows the students to check the personal profile with personal information and enrolled tournaments information. 
+        \item \textit{Student Profile Manager}: this component allows the students to check the personal profile with personal information and enrolled tournaments information. 
             It has an authentication interfaces that allows all other components to check if the student is logged in and is allowed to check the desired profile. 
             The profile manager is also linked to the database through the query manager interface, that allows it to manage data in the tables dedicated to the student's profile.
-        \item \textit{Research Manager}: this component allows the students to search all the active tournament in the system and to check all the leaderboards and rankings. 
+        \item \textit{Student Research Manager}: this component allows the students to search all the active tournament in the system and to check all the leaderboards and rankings. 
             It has an authentication interfaces that allows all other components to check if the student is logged in.
             The research manager is also linked to the database through the query manager interface, that allows it to manage data in the tables dedicated to the tournaments.
+        \item \textit{Student Notification Manager}: this component allow the user to be notified when a tournament is created or modified and when new battles are added. 
+            It has an interface with the Educator Manager since it needs to be used when some Educators create new battles or tournaments.
     \end{itemize}
 
     \newpage
