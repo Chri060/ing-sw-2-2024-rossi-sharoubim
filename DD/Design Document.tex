@@ -187,7 +187,7 @@
         \item \textit{Student Research Manager}: this component allows the students to search all the active tournament in the system and to check all the leaderboards and rankings. 
             It has an authentication interfaces that allows all other components to check if the student is logged in.
             The research manager is also linked to the database through the query manager interface, that allows it to manage data in the tables dedicated to the tournaments.
-        \item \textit{Student Notification Manager}: this component allow the user to be notified when a tournament is created or modified and when new battles are added. 
+        \item \textit{Student Notification Manager}: this component allows the user to be notified when a tournament is created or modified and when new battles are added. 
             It has an interface with the Educator Manager since it needs to be used when some Educators create new battles or tournaments.
     \end{itemize}
 
@@ -476,7 +476,7 @@
         \item checkForm(data): checks if all the information sumbitted by the student are consistent. 
         \item checkUnivoque(username, email, telephone): checks if all these variables are not already in the database. 
         \item createStudent(username, email, telephone, password): create a new student upon verification of the fields. 
-        \item createStudentVerificationCode(email, code): add a temporary verification code to the database linked to a email to be verified. 
+        \item createStudentVerificationCode(email, code): add a temporary verification code to the database linked to an email to be verified. 
         \item sendEmail(): send the email with the verification code to the email inserted by the student. 
         \item checkVerificationCode(email,code): checks if the combination of email and code is in the database. 
         \item checkStudentCredentials(email, password): checks if the email and password inserted are in the database. 
@@ -532,11 +532,11 @@
         \item checkForm(data): checks if all the information sumbitted by the educator are consistent. 
         \item checkUnivoque(username, email, telephone): checks if all these variables are not already in the database. 
         \item createEducator(username, email, telephone, password): create a new educator upon verification of the fields. 
-        \item createEducatorVerificationCode(email, code): add a temporary verification code to the database linked to a email to be verified. 
+        \item createEducatorVerificationCode(email, code): add a temporary verification code to the database linked to an email to be verified. 
         \item sendEmail(): send the email with the verification code to the email inserted by the educator. 
         \item checkVerificationCode(email,code): checks if the combination of email and code is in the database. 
         \item checkEducatorCredentials(email, password): checks if the email and password inserted are in the database. 
-        \item createEducatorToken(educatorID, token): add a new log in token linked to a educator. 
+        \item createEducatorToken(educatorID, token): add a new log in token linked to an educator. 
     \end{itemize}
 
     \paragraph*{Tournament manager}
@@ -595,12 +595,12 @@
         \item joinTournament(userID, tournamentID): let a student with a certain studentID enroll in a tournament with tournamentID. 
         \item selectTournament(keyword): search all the tournaments with the name or description that matches a given keyword. 
         \item selectTournament(tournamentID): search the tournament with the given tournamentID. 
-        \item enrollInBattle(battleID): checks if the student is enrolled in the battle's tournament and if so it enroll the student in the battle. 
+        \item enrollInBattle(battleID): checks if the student is enrolled in the battle's tournament and if so it enrolls the student in the battle. 
         \item selectTournament (studentID): returns all the tournament in which the student with studentID is enrolled. 
         \item selectTournamentRanking(tournamentID): returns the ranking of the tournament with a certain tournamentID. 
         \item selectBattleRanking(battleID): returns the ranking of a battle in a tournament with a certain battleID. 
         \item selectEducator(username): search an educator with a certain username. 
-        \item insertEducator(query): add a educator with query data (username, email, telephone, and password). 
+        \item insertEducator(query): add an educator with query data (username, email, telephone, and password). 
         \item insertEducatorVerificationCode(query): add a verification code to a certain educator with query data (educatorID and code). 
         \item selectEducator(email, password): search an educator with the combination of email and password given. 
         \item insertEducatorToken(educatorID, token): associate an educator with a certain token used to mantain the session active client side. 
@@ -619,62 +619,192 @@
 
     \section{Selected architectural styles and patterns}
     \begin{itemize}
-        \item \textit{Three layers}: The system is divided in three distinct layers,
-        each of them accomplishes a specific task.
-        In particular there are the presentation layer, the business logic layer and the data storage layer.
-        The use of a three layers architecture makes the system more modular and easier to implement, modify and maintain
-        even between different teams.
-        Another advantage is that this modularization allows the use of load balancers between the various servers.
-        One last big advantage is that this architecture grants a high data security level, since the data can be accessed only by
-        the application server.
-        \item \textit{Adapter Pattern}: In order to retrieve data in a simplified way, a query manager will be implemented.
-        The choice of implementing an adapter pattern alloys to keep the application logic independent from the DBMS provider,
-        hiding uncessary and complex parts. 
-        The pattern, lastly, also grants a higher level of security since only a preset of operations is available.
+        \item \textit{Three layers}: the system is divided in three distinct layers, each of them accomplishes a specific task.
+            In particular there are the presentation layers, the business logic layer and the data storage layer.
+            The use of a three layers architecture makes the system more modular and easier to implement, modify and maintain even between different teams.
+            Another advantage is that this modularization allows the use of load balancers between the various servers.
+            One last big advantage is that this architecture grants a high data security level, since the data can be accessed only by the application server.
+        \item \textit{Adapter Pattern}: in order to retrieve data in a simplified way, a query manager will be implemented.
+            The choice of implementing an adapter pattern alloys to keep the application logic independent of the DBMS provider, hiding uncessary and complex parts. 
+            The pattern, lastly, also grants a higher level of security since only a preset of operations is available.
     \end{itemize}
 
-\newpage 
     \section{Other design decisions}
         \subsection{Database choices}
         Previously, an Entity-Relationship (ER) model for the database was introduced, along with a deployment perspective.
         The decision has been made to host the database on a single node.
         This choice stems from the fact that the majority of the data is essential for all users.
         For instance, tournament and battle details are accessible to all users, rendering the utilization of separate databases unnecessary.
+        
         \subsection{RESTful APIs}
-        We opted for a REST API as the backend for the frontend application due to its various advantages.
+        We opted for a REST API as the means of communication between backend and frontend.
         This API is built on standard web technologies, facilitating seamless consumption and integration with other systems, such as GitHub.
-    \newpage 
-
-\newpage 
 
 \chapter{User interface design}
     The user interface is the visual representation of how the application appears to the end user.
     It should be intuitive and straightforward, ensuring easy access to all features.
     Mockups were introduced in the RASD document, and now flowcharts for both students and educators will be presented.
     Flowcharts offer a concise and clear overview of the interactions and steps involved in utilizing the web app.
+
     \section{Flowchart for students UI}
     \begin{figure}[H]
-        \centering\includegraphics[width=0.9\linewidth]{images/students_UI.png}
-    \end{figure}
-    \section{Flowchart for educators UI}
-    \begin{figure}[H]
-        \centering\includegraphics[width=0.9\linewidth]{images/educators_UI.png}
+        \centering
+        \includegraphics[width=0.9\linewidth]{images/students_UI.png}
     \end{figure}
 
-    \newpage 
+    \section{Flowchart for educators UI}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\linewidth]{images/educators_UI.png}
+    \end{figure}
 
 \chapter{Requirements traceability}
 
-\newpage 
+
 
 \chapter{Implementation, integration and test plan}
+    In this chapter we focus on analyzing the planned implementation of the components and sumbomponents and the test designed to assess whether the system behaves as desired.
 
-\newpage 
+    \section{Development process and approach}
+    As mentioned before the application comprises the following layers: client, business, and data. 
+    These three layers can be implemented simultaneously and the integrated. 
+    After the implementation of each layer it is possible to use unit testing on each of them. 
+    After the integration we can finally perform comprehensive testing on the complete system. 
+
+    The layers will be developed, integrated, and tested using a bottom-up approach. 
+    This approach is chosen due to the ability to incrementally build the system and allow parallelized implementation of both components and layers. 
+    Additionally, components are tested and integrated with other components to assess dependencies within the subsystem.
+
+    \subsection{Frontend}
+    The frontend consists of the presentation logic layer. 
+    The logic layer is composed by the web application for the students and the educators. 
+    These two interfaces are similar in most parts and, as a consequence, can be implemented for one user and then adapted for the other. 
+    Both components depend on REST APIs to communicate with the business logic, and they can undergo unit testing by simulating or mocking the REST APIs.
+
+    \subsection{Backend}
+    The backend consists of the business and data logic layers. 
+    The application server of the business logic layer is composed by three components: educator manager, student manager, and query manager. 
+    The development can be conducted separately for all three components and then the final testing can be conducted with the integrated system. 
+    As previously mentioned, the business logic layer can be implemented indipendently from the client logic. 
+    All the required components to be implemented are: 
+    \begin{table}[H]
+        \begin{tabular}{lccc}
+        \hline
+        \textbf{Component}              & \textbf{User}     & \textbf{Importance} & \textbf{Complexity} \\ \hline
+        Query Manager                   & Student, Educator & High                & Low                 \\
+        Student Account Manager         & Student           & High                & Medium              \\
+        Tournament Subscription Manager & Student           & High                & Medium              \\
+        Battle Subscription Manager     & Student           & High                & Medium              \\
+        Student Profile Manager         & Student           & Low                 & Medium              \\
+        Student Research Manager        & Student           & High                & Medium              \\
+        Student Notification Manager    & Student           & Low                 & Medium              \\
+        Educator Account Manager        & Educator          & High                & Medium              \\
+        Tournament Manager              & Educator          & High                & Medium              \\
+        Battle Manager                  & Educator          & High                & Medium              \\
+        Educator Profile Manager        & Educator          & Low                 & Medium              \\
+        Educator Research Manager       & Educator          & High                & Medium              \\ \hline
+        \end{tabular}
+    \end{table}
+
+    \subsection{External components}
+    All external APIs are sourced from third-party providers and are expected to be dependable and compliant with their respective specifications.
+
+    \section{Implementation plan}
+    The implementation will necessarily start from the query manager. 
+    This component is the core part of the system because all other components rely on the data that are managed by it. 
+    After this component we can finally start the implementation of both students and educators in parallel. 
+    
+    \paragraph*{Student}
+    The components to be developed for the students are: 
+    \begin{enumerate}
+        \item \textit{Student Account Manager}: this component is used to let the student log in and register to the website. 
+        \item \textit{Student Research Manager}: this component is used to retrieve all the pages completed with the relative data. 
+        \item \textit{Tournament Subscription Manager}: this component is used to let the student enroll in a tournament.  
+        \item \textit{Battle Subscription Manager}: this component is used to let the student enroll in a battle.  
+        \item \textit{Student Profile Manager}: this component is used to let the student view and edit the personal profile.
+        \item \textit{Student Notification Manager}: this component is used to notify the user. 
+    \end{enumerate}
+    The first four component have a high level of importance and as a result they are the first components that needs to be implemented. 
+    The best order of implementation is: student account manager, student research manager, tournament subscription manager, and battle subscription manager. 
+    The student profile manager can be implemented later since it has a lower importance. 
+    The student notification manager should be implemented before the battle and tournament managers of the educator to test those component correctly. 
+
+    \paragraph*{Educator}
+    The components to be developed for the educators are: 
+    \begin{enumerate}
+        \item \textit{Educator Account Manager}: this component is used to let the educator log in and register to the website. 
+        \item \textit{Educator Research Manager}: this component is used to retrieve all the pages completed with the relative data. 
+        \item \textit{Tournament Manager}: this component is used to let the educator create and manage a tournament.  
+        \item \textit{Battle Manager}: this component is used to let the educator create and manage a battle.  
+        \item \textit{Educator Profile Manager}: this component is used to let the educator view and edit the personal profile.
+    \end{enumerate}
+    The first four component have a high level of importance and as a result they are the first components that needs to be implemented. 
+    The best order of implementation is: educator account manager, educator research manager, tournament manager, and battle manager. 
+    The eductor profile manager can be implemented later since it has a lower importance. 
+
+    \section{Integration plan}
+    The initial components undergoing testing are the Query Manager and the Database Management System (DBMS), as they serve as essential components for all others when managing data.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/data.png}
+        \caption{Representation of the database and query manager}
+    \end{figure}
+    Now, we can start implementing the components for each user separately. 
+
+    \subsection{Student}
+    Due to dependencies between battle and tournament managers of the educator and the notification manager of the student it is better to start the implementation from this last component.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/notifications.png}
+        \caption{Representation of the components that interact to notify the students}
+    \end{figure}
+    The next component to be developed is the student account manager. 
+    The subsequent components to be implemented will be the student research manager with the battle subscription manager and tournament subscription manager. 
+    After all these we can finally implement the student profile manager obtaining the complete component that hanles all educator functionalities. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/student_impl.png}
+        \caption{Implementation order for student manager subcomponents}
+    \end{figure}
+
+    \subsection{Educator}
+    The educator's component have to be implemented in the same order of the student ones. 
+    A diagram that shows the implementation order is shown in the following image
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/educator_impl.png}
+        \caption{Implementation order for student manager subcomponents}
+    \end{figure}
+
+
+
+    \section{System testing}
+    After performing the unit testing on each component the system can be finally integrated. 
+    After the integration the testing of the whole system must take place. 
+    The objective of this final testing is to chekc wether the functional and non-functional requirements are met. 
+    This testing must be done in a testing environment that is as close as possible to the production environment.
+    The CodeKataBattle system needs to undergo the following tests: 
+    \begin{itemize}
+        \item \textit{Functional testing}: this involves testing the system against the functional requirements and specifications outlined in the Requirements and Specifications Document (RASD).
+        \item \textit{Performance testing}: this aims to verify whether a software application remains functional under increased demand and various environmental conditions.
+    \end{itemize}
 
 \chapter{Effort spent}
-
-\newpage 
+    The table below offers a concise overview of the hours invested by each group member, along with a brief description of their contributions. 
+    Dates where the same amount of time was dedicated by all members usually indicates collaborative efforts.
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{cccc}
+            \textbf{Date}   & \textbf{Rossi}            & \textbf{Sharoubim}            & \textbf{Description}                          \\ \hline
+            xx-xx-xxxx      & -                         & -                             &                                               \\ 
+            xx-xx-xxxx      & -                         & -                             &                                               \\ \hline
+            \textbf{Total}  & -                         & -                             & DD                                            \\  
+        \end{tabular}
+    \end{table}
 
 \chapter{References}
+
+
+
 
 \end{document}
