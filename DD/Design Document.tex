@@ -159,6 +159,8 @@
             It has an authentication interfaces that allows all other components to check if the educator is logged in.
             The research manager is also linked to the database through the query manager interface, that allows it to manage data in the tables dedicated to the tournaments.
     \end{itemize}
+    
+    \newpage
 
     \subsection{Student manager}
     The student manager component is responsible for interacting with students.
@@ -626,7 +628,7 @@
             One last big advantage is that this architecture grants a high data security level, since the data can be accessed only by the application server.
         \item \textit{Adapter Pattern}: in order to retrieve data in a simplified way, a query manager will be implemented.
             The choice of implementing an adapter pattern alloys to keep the application logic independent of the DBMS provider, hiding uncessary and complex parts. 
-            The pattern, lastly, also grants a higher level of security since only a preset of operations is available.
+            The pattern, lastly, also grants a higher level of security since only a preset of operations is available. 
     \end{itemize}
 
     \section{Other design decisions}
@@ -660,7 +662,313 @@
 
 \chapter{Requirements traceability}
 
+In the RASD document the requirements of the system to be, needed in order to accomplish the system's purpose,
+were presented and in this section those will be mapped to the elements presented in this document.
 
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R1} The system allows unregistered students to register.\\
+    \hline 
+    \textbf{Student Account Manger}
+\end{tabularx}
+\end{table}
+
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R2} The system allows registered students to login.\\
+    \hline 
+    \textbf{Student Account Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R3} The system allows students to search the tournaments.\\
+    \hline 
+    \textbf{Student Research Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R4} The system allows students to enroll in a tournament.\\
+    \hline 
+    \textbf{Tournament Subscription Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R5} The system is able to notify students about the creation of a new tournament.\\
+    \hline 
+    \textbf{Student Notification Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R6} The system is able to notify students about the creation of a new battle in a tournament they’re enrolled in.\\
+    \hline 
+    \textbf{Student Notification Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R7} The system is able to notify students about the rank pubblication of a tournament they’re enrolled in.\\
+    \hline 
+    \textbf{Student Notification Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R8} The system is able to notify students about the rank pubblication of
+    battle they joined.\\
+    \hline 
+    \textbf{Student Notification Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R9} The system allows students to access the personal profile.\\
+    \hline 
+    \textbf{Student Profile Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R10} The system allows students to edit their profile.\\
+    \hline 
+    \textbf{Student Notification Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R11} The system allows students to check all battles’ leaderboards.\\
+    \hline 
+    \textbf{Student Research Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R12} The system allows students to check all tournaments’ leaderboards.\\
+    \hline 
+    \textbf{Student Research Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R13} The system allows students to check all the details of a certain tour-
+    nament.\\
+    \hline 
+    \textbf{Student Research Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R14} The system allows students to check all the details of a certain battle.\\
+    \hline 
+    \textbf{Student Research Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R15} The system allows students to join a group for a specific battle of a
+    tournament they are enrolled in.\\
+    \hline 
+    \textbf{Battle Subscription Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R16} The system allows students to join a specific battle of a tournament
+    they are enrolled in on their own.\\
+    \hline 
+    \textbf{Battle Subscription Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R17} The system allows students to create a group for a specific battle of a
+    tournament they are enrolled in.\\
+    \hline 
+    \textbf{Battle Subscription Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R18} The system allow the Student to reach the repository linked to a specific
+    battle.\\
+    \hline 
+    \textbf{Student Search Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R19} The system is able to access GitHub repositories\\
+    \hline 
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R20} The system is able to pull updated files from a commit of a repository\\
+    \hline 
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R21} The system is able to execute the code pulled from students’ reposito-
+    ries\\
+    \hline 
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R22} The system is able to assign a ranking based on tests passed, time
+    passed, and code static analisys\\
+    \hline 
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R23} The system allows unregistered educators to register.\\
+    \hline 
+    \textbf{Educator Account Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R24} The system allows registered educators to login.\\
+    \hline 
+    \textbf{Educator Account Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R25} The system allows educators to search the tournaments.\\
+    \hline 
+    \textbf{Educator Research Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R26} The system allows educators to access the personal profile.\\
+    \hline 
+    \textbf{Educator Profile Manger}
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R27} The system allows educators to edit their profile.\\
+    \hline 
+    \textbf{Educator Research Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R28} The system allows educators to check all battles’ leaderboards.\\
+    \hline 
+    \textbf{Educator Research Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R29} The system allows educators to check all tournaments’ leaderboards.\\
+    \hline 
+    \textbf{Educator Research Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R30} The system allows educators to check all the details of a certain tour-
+    nament.\\
+    \hline 
+    \textbf{Educator Research Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R31} The system allows educators to check all the details of a certain battle.\\
+    \hline 
+    \textbf{Educator Research Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R32} The system allows educators to create a tournament. \\
+    \hline 
+    \textbf{Tournament Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R33} The system allows educators to create a battle in a tournament they
+    previously created or have been invited to collaborate in.\\
+    \hline 
+    \textbf{Tournament Manger}, \textbf{Battle Manger} 
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R34} The system allows educators to invite collaborators in a specific tour-
+    nament.\\
+    \hline 
+    \textbf{Tournament Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R35} The system allows owner educator to close the tournament.\\
+    \hline 
+    \textbf{Tournament Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R36} The system allows educator who created the battle, to give points based
+    on personal evaluation of the code.\\
+    \hline 
+    \textbf{Battle Manger}
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \begin{tabularx}{\textwidth}{X}
+    \textbf{R37} The system should be able to set up a GitHub repository for each battle
+    created.\\
+    \hline 
+    \end{tabularx}
+\end{table}
 
 \chapter{Implementation, integration and test plan}
     In this chapter we focus on analyzing the planned implementation of the components and sumbomponents and the test designed to assess whether the system behaves as desired.
