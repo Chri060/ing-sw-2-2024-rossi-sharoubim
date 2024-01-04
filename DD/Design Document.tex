@@ -31,11 +31,7 @@
     \end{center}
 \end{titlingpage}
 
-\newpage
-
 \tableofcontents
-
-\newpage
 
 \chapter{Introduction}
     \section{Purpose}
@@ -74,7 +70,7 @@
     
 
     \section{Revision history}
-    \textbf{Version 1.0} - Release - TBD
+    \textbf{Version 1.0} - Release - 04-01-2024
 
 
     \section{Reference documents}
@@ -620,7 +616,9 @@
         \item testPass(repositoryCode): computes how many test cases are passed and returns a certain amount of points. 
         \item searchGroup(repositoryURL): returns the groupID related to the give repository URL. 
         \item addEvaluation(groupID, points): adds the points to the group specified. 
-    \end{itemize}
+        \item notifiesCommit(repositoryUrl): is called by GitHub, through an automated workflow, in order to trigger the CKB platform,
+              pull the latest committed code and evaluate it. 
+        \end{itemize}
 
     \subsection{Query manager}
     The schema of the database is described in the component view section. 
@@ -675,6 +673,8 @@
         \item \textit{Adapter Pattern}: in order to retrieve data in a simplified way, a query manager will be implemented.
             The choice of implementing an adapter pattern alloys to keep the application logic independent of the DBMS provider, hiding un necessary and complex parts. 
             The pattern, lastly, also grants a higher level of security since only a preset of operations is available. 
+        \item \textit{Separation between Educators and Students}: Educators and Students have completely separated modules, this choice allows for a better modularization,
+            enhances the system maintainability and, for future updates, allows to implement features more easily. 
     \end{itemize}
 
     \section{Other design decisions}
@@ -710,6 +710,7 @@
 
 In the RASD document the requirements of the system to be, needed in order to accomplish the system's purpose,
 were presented and in this section those will be mapped to the elements presented in this document.
+As the Query Manager is needed for every operation it will be not reported in the mapping below.
 
 \begin{table}[H]
     \begin{tabularx}{\textwidth}{X}
@@ -1021,7 +1022,7 @@ were presented and in this section those will be mapped to the elements presente
 
     \section{Development process and approach}
     As mentioned before the application comprises the following layers: client, business, and data. 
-    These three layers can be implemented simultaneously and the integrated. 
+    These three layers can be implemented simultaneously and then integrated. 
     After the implementation of each layer it is possible to use unit testing on each of them. 
     After the integration we can finally perform comprehensive testing on the complete system. 
 
@@ -1051,12 +1052,13 @@ were presented and in this section those will be mapped to the elements presente
         Battle Subscription Manager     & Student           & High                & Medium              \\
         Student Profile Manager         & Student           & Low                 & Medium              \\
         Student Research Manager        & Student           & High                & Medium              \\
-        Student Notification Manager    & Student           & Low                 & Medium              \\
+        Student Notification Manager    & Student           & Medium              & Medium              \\
         Educator Account Manager        & Educator          & High                & Medium              \\
         Tournament Manager              & Educator          & High                & Medium              \\
         Battle Manager                  & Educator          & High                & Medium              \\
         Educator Profile Manager        & Educator          & Low                 & Medium              \\
-        Educator Research Manager       & Educator          & High                & Medium              \\ \hline
+        Educator Research Manager       & Educator          & High                & Medium              \\ 
+        Testing Manager                 & Educator          & High                & Medium              \\ \hline
         \end{tabular}
     \end{table}
 
@@ -1081,7 +1083,7 @@ were presented and in this section those will be mapped to the elements presente
     The first four component have a high level of importance and as a result they are the first components that needs to be implemented. 
     The best order of implementation is: student account manager, student research manager, tournament subscription manager, and battle subscription manager. 
     The student profile manager can be implemented later since it has a lower importance. 
-    The student notification manager should be implemented before the battle and tournament managers of the educator to test those component correctly. 
+    Student notification manager will interact with Educator's battle and tournament managers. 
 
     \paragraph*{Educator}
     The components to be developed for the educators are: 
@@ -1089,11 +1091,12 @@ were presented and in this section those will be mapped to the elements presente
         \item \textit{Educator Account Manager}: this component is used to let the educator log in and register to the website. 
         \item \textit{Educator Research Manager}: this component is used to retrieve all the pages completed with the relative data. 
         \item \textit{Tournament Manager}: this component is used to let the educator create and manage a tournament.  
-        \item \textit{Battle Manager}: this component is used to let the educator create and manage a battle.  
+        \item \textit{Battle Manager}: this component is used to let the educator create and manage a battle.
+        \item \textit{Testing Managr}: this component is used to pull latest commits and evaluate their code.  
         \item \textit{Educator Profile Manager}: this component is used to let the educator view and edit the personal profile.
     \end{enumerate}
-    The first four component have a high level of importance and as a result they are the first components that needs to be implemented. 
-    The best order of implementation is: educator account manager, educator research manager, tournament manager, and battle manager. 
+    The first five component have a high level of importance and as a result they are the first components that needs to be implemented. 
+    The best order of implementation is: educator account manager, educator research manager, tournament manager, battle manager and Testing Manager. 
     The eductor profile manager can be implemented later since it has a lower importance. 
 
     \section{Integration plan}
@@ -1110,7 +1113,7 @@ were presented and in this section those will be mapped to the elements presente
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.5\linewidth]{images/notifications.png}
-        \caption{Representation of the components that interact to notify the students}
+        \caption{Components that interact to notify the students}
     \end{figure}
     The next component to be developed is the student account manager. 
     The subsequent components to be implemented will be the student research manager with the battle subscription manager and tournament subscription manager. 
@@ -1148,11 +1151,17 @@ were presented and in this section those will be mapped to the elements presente
     Dates where the same amount of time was dedicated by all members usually indicates collaborative efforts.
     \begin{table}[H]
         \centering
-        \begin{tabular}{cccc}
+        \begin{tabular}{cccl}
             \textbf{Date}   & \textbf{Rossi}            & \textbf{Sharoubim}            & \textbf{Description}                          \\ \hline
-            xx-xx-xxxx      & -                         & -                             &                                               \\ 
-            xx-xx-xxxx      & -                         & -                             &                                               \\ \hline
-            \textbf{Total}  & -                         & -                             & DD                                            \\  
+            20-12-2023      & 2                         & 3                             & First Chapter                                 \\ 
+            21-12-2023      & 1                         & 1                             & Overview and component view                   \\ 
+            23-12-2023      & 0                         & 3                             & UI Flowcharts                                 \\ 
+            27-12-2023      & 4                         & 0                             & Diagrams Component and Deployment View        \\ 
+            01-01-2024      & 6                         & 3                             & Runtime View and Architectural Decisions      \\ 
+            02-01-2024      & 5                         & 1                             & Interfaces and Testing                        \\ 
+            03-01-2024      & 0                         & 2                             & Chapter four                                  \\ 
+            04-01-2024      & 2                         & 2                             & Final Revision                                \\ \hline
+            \textbf{Total}  & 20                        & 15                            & DD                                            \\  
         \end{tabular}
     \end{table}
 
