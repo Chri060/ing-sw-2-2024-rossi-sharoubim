@@ -108,9 +108,11 @@
 }
 \geometry{a4paper, left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 \newcounter{useCase}
+\stepcounter{useCase}
 \newcounter{Requirements}
 \stepcounter{Requirements}
-\stepcounter{useCase}
+\newcounter{goals}
+\stepcounter{goals}
 \newcommand{\usecase}[9]{
     \def\arraystretch{1.5} 
     \subsubsection*{Use case [U#2]: #3}
@@ -162,50 +164,37 @@
     \end{center}
 \end{titlingpage}
 
-\newpage
-
 \tableofcontents
-
-\newpage
 
 \chapter{Introduction}
     \section{Purpose}
-    CodeKataBattle is a platform employed by educators to challenge students on code Katas, problems meant to be tackled using a programming language selected by 
-    the organizers of the challenge.
-    
-    Specifically, educators have the capability to establish a code Kata within a particular tournament by defining the following parameters: the problem to be solved 
-    (with some test cases), the minimum and maximum number of students per group, and the deadlines for code Kata registration and solution submission.
-    
-    After the creation of the tournament, students can form groups and start their work on the solution, employing a test-first approach. When the ultimate deadline 
-    approaches, the system autonomously calculates the final rankings and unveils the winners.
+    CodeKataBattle is a platform employed by educators to challenge students on code Katas, problems meant to be tackled using a programming language selected by the organizers of the challenge.
+    Specifically, educators have the capability to establish a code Kata within a particular tournament by defining the following parameters: the problem to be solved (with some test case), the minimum and maximum number of students per group, and the deadlines for code Kata registration and solution submission.
+    After the creation of the tournament, students can form groups and start their work on the solution, employing a test-first approach. 
+    When the ultimate deadline approaches, the system autonomously calculates the final rankings and unveils the winners.
 
     \subsection{Goals}
-    The goals, wich are the objectives to accomplish are the following
+    The goals, which are the objectives to accomplish are the following: 
     \begin{enumerate}
-        \item The system should allow students to join tournaments.
-        \item The system should allow students to join battles as groups or individually in a specific tournament.
-        \item The system should allow educators to manage a tournament.
-        \item The system should allow educators to manage a battle in a specific tournament.
-        \item The system should allow students and educators to see battles and tournaments rankings.
-        \item The system should be able to assign automated ranks for battles.
+        \item [G\arabic{goals}\stepcounter{goals}] The system should allow students to join tournaments.
+        \item [G\arabic{goals}\stepcounter{goals}] The system should allow students to join battles as groups or individually in a specific tournament.
+        \item [G\arabic{goals}\stepcounter{goals}] The system should allow educators to manage a tournament.
+        \item [G\arabic{goals}\stepcounter{goals}] The system should allow educators to manage a battle in a specific tournament.
+        \item [G\arabic{goals}\stepcounter{goals}] The system should allow students and educators to see battles and tournaments rankings.
+        \item [G\arabic{goals}\stepcounter{goals}] The system should be able to assign automated ranks for battles.
     \end{enumerate}
-
 
     \section{Scope}
     To ensure the proper development of this application, it is crucial to examine all imaginable phenomena linked to the system.
-    
-    These phenomena can be categorized into three distinct categories: world phenomena (occurring in the external environment beyond the machine's control), machine 
-    phenomena (taking place within the machine and beyond the influence of the external world), and shared phenomena (interactions and events involving both the system
-    and the external world).
-
-    Regarding CodeKataBattle, we encounter the following external phenomena: 
+    These phenomena can be categorized into three distinct categories: world phenomena (occurring in the external environment beyond the machine's control), machine phenomena (taking place within the machine and beyond the influence of the external world), and shared phenomena (interactions and events involving both the system and the external world).
+    Regarding CodeKataBattle, we encounter the following world phenomena: 
     \begin{enumerate}
         \item The educator generates a code Kata problem description.
         \item The educator formulates a series of test cases for the code Kata problem.
         \item The students develop a program to solve the code Kata.
         \item The educator assigns a personal score based on code quality.
     \end{enumerate}
-    Additionally, the following internal phenomena arise within the system: 
+    Additionally, the following machine phenomena arise within the system: 
     \begin{enumerate}
         \item The system creates a GitHub repository.
         \item The system establishes an automated workflow through GitHub Actions to notify CKB about new commits.
@@ -217,7 +206,7 @@
                 \item Static code analysis for security, reliability, and maintainability.
             \end{enumerate}
     \end{enumerate}    
-    Lastly, the following shared interactions and events emerge:
+    Finally, the following shared phenomena emerge:
     \begin{enumerate}
         \item The educator initiates a battle on the platform, including the following steps:
             \begin{enumerate}
@@ -236,33 +225,24 @@
         \item The educator concludes the tournament, and the system notifies the students.
     \end{enumerate}
 
-    
     \section{Definitions, acronyms and abbreviations}
+
     \subsection{Definitions}
-    \textbf{Code Kata}: adaptation of the concept of karate katas, where you repetitively refine a form, to the realm of software development, 
-        fostering iterative practice and improvement. 
-    \\
-    \textbf{Test-first approach}:  software development process relies on the transformation of software requirements into test cases before 
-        the software is completely developed, and it involves monitoring the entire software development by iteratively testing the software 
-        against all these test cases.
-    \subsection{Acronyms}
-    \textbf{CKB}: CodeKataBattle 
-    \\
-    \textbf{CK}: Code Kata
-    \subsection{Abbreviations}
+    \textbf{CodeKata}: adaptation of the concept of karate katas, where you repetitively refine a form, to the realm of software development, fostering iterative practice and improvement. \\
+    \textbf{Test-first approach}: software development process relies on the transformation of software requirements into test cases before the software is completely developed, and it involves monitoring the entire software development by iteratively testing the software against all these test cases.
     
-
+    \subsection{Acronyms}
+    \textbf{CKB}: CodeKataBattle \\
+    \textbf{CK}: CodeKata
+    
     \section{Revision history}
-    \textbf{Version 1.0} - Release - 22/12/2023
+    \textbf{Version 1.0} - Release - 22/12/2023 \\
+    \textbf{Version 2.0} - Release - 04/01/2024
 
-
-    \section{Reference documents}
-    \textbf{Document 1} - Presentation about RASD structure
-    \\
-    \textbf{Website 1} - http://codekata.com
-    \\
+    \section{Reference documents and websites}
+    \textbf{Document 1} - Presentation about RASD structure \\
+    \textbf{Website 1} - http://codekata.com \\
     \textbf{Website 2} - https://en.wikipedia.org
-
 
     \section{Document structure}
     This document contains the following elements: 
@@ -276,51 +256,53 @@
     \end{enumerate}
 
 \chapter{Overall description}
+
     \section{Product perspective}
+
     \subsection{Scenarios}
     \begin{enumerate}
         \item \textit{New user joins the platform}\\
-            Maria is a Computer science student. Maria wrote a simple program in Java for a school project a month ago, and realised she really enjoys it. 
+            Maria is a Computer science student. Maria wrote a simple program in Java for a school project a month ago, and realized she really enjoys it. 
             Thus, she is looking for a chance to improve her Java skills as she didn't feel always confident about all the code she wrote.
-            While searching online, Maria finds the CodeKataBattle platform and, as some challenges were exactly what she was looking for, she signs up: she inserts her email and a password and procedes as a student.
+            While searching online, Maria finds the CKB platform and, as some challenges were exactly what she was looking for, she signs up: she inserts her email and a password and proceeds as a student.
             A verification email is sent and, once the mail is verified by clicking the link in the verification email, she can start browsing the available tournaments looking for an interesting battle.
-        
         \item \textit{Educator creates a new tournament} \\
             Anne is a professor in an engineering university.
             She teaches a course about optimization of problems' solution.
-            One day she hears from a colleague of her, who's a computer science professor, about a platform called CodeKataBattle, which allows students to compete solving programming problems.
+            One day she hears from a colleague of her, who's a computer science professor, about a platform called CKB, which allows students to compete solving programming problems.
             Anne enjoys writing some python scripts to solve simple problems of everyday life and, while writing the scripts, she noticed that they required a deeper understanding of the solution.
-            Since she knows that her students enjoy programming, as herself, Anne decides to create a tournament on CodeKataBattle, with the objective to make her students implement algorithms for the methods of problem-solving taught in the course.
+            Since she knows that her students enjoy programming, as herself, Anne decides to create a tournament on CKB, with the objective to make her students implement algorithms for the methods of problem-solving taught in the course.
             At first, she was not sure that she could make something so complex but the fact that the platform could assign automatically the ranking needing only some test cases and that multiple programming languages were supported made Anne change her mind.
-            Thus, Anne creates a new tournament by setting a name and a deadline. All the students subscribed to CodeKataBattle are notified by the platform and can now subscribe.
+            Thus, Anne creates a new tournament by setting a name and a deadline. 
+            All the students subscribed to CKB are notified by the platform and can now subscribe.
         \item \textit{Educator adds a CK to a specific tournament} \\
             Jamie is a high school programming teacher; he is a Python and JavaScript expert but also knows Java.
-            Jamie has been using CodeKataBattle for a while, since it helps his students to challenge themselves and provides an interactive programming exercise.\\
-            Every year a CodeKataBattle tournament is held by the professor and based on the final ranking the students get some extra points in the exam grade.\\ 
+            Jamie has been using CKB for a while, since it helps his students to challenge themselves and provides an interactive programming exercise.\\
+            Every year a CKB tournament is held by the professor and based on the final ranking the students get some extra points in the exam grade.\\ 
             For this year, Jamie just found out an interesting problem that can be solved in various ways, each of them exploiting different proprieties of python.
             Thus, he decides to upload the problem in the tournament, not allowing students to join in groups since he wants to test each student individually.\\
-            Therefore, Jamie creates five test cases, sets the deadline date and proceeds to upload the CodeKata, the registration deadline, the submission deadline and an additional scoring criteria on cleanliness of the code.
+            Therefore, Jamie creates five test cases, sets the deadline date and proceeds to upload the CK, the registration deadline, the submission deadline and an additional scoring criteria on cleanliness of the code.
         \item \textit{Student joins a group for a specific CK in a tournament}\\
             Donald is a car wash employee, even if things are going great his dream was to become a web developer.
             Donald already learned a lot JavaScript and is always in search of new challenges.
             Donald knows that in programming environment team working is a must.
-            Since he always studied and exercised alone on CodeKataBattle, he now wants to practice some team work.
-            So Donald opens CodeKataBattle and looks for some tournaments were battles in numerous groups are allowed.
+            Since he always studied and exercised alone on CKB, he now wants to practice some team work.
+            So Donald opens CKB and looks for some tournaments were battles in numerous groups are allowed.
             Once he found some battles about topics he's interested in, where groups are allowed, he creates a group and waits for other students to join.
         \item \textit{Student does a commit} \\
             Charlotte and Matt are working on the solution of a battle in their teacher tournament.
-            They thought every test was passed, but then, they realised there might be a particular case in which their algorithm fails.
+            They thought every test was passed, but then, they realized there might be a particular case in which their algorithm fails.
             Thus, they fix the bug and, once they think the algorithm is done, the changes are committed and pushed.
-            At this point the CodeKataBattle platform performs the tests, the static analysis and the time ranking, giving the two students a new higher rank, confirming that there was a bug in their code.
+            At this point the CKB platform performs the tests, the static analysis and the time ranking, giving the two students a new higher rank, confirming that there was a bug in their code.
         \item \textit{Educator closes the tournament} \\
-            Jeremiah is an Educator on CodeKataBattle, each month he creates a tournament about a simple problem, with a couple battles,
+            Jeremiah is an Educator on CKB, each month he creates a tournament about a simple problem, with a couple battles,
             one is usually a simple exercise, while the second is a more complex variation of the first one.
-            As the month is coming to its end Jeremiah opens CodeKataBattle platform and checks how the participants are doing and decides to close the tournament.
+            As the month is coming to its end Jeremiah opens CKB platform and checks how the participants are doing and decides to close the tournament.
             The platform then proceeds to assign the final ranking and score of each student subscribed to the tournament and makes them available for everyone to consult. 
     \end{enumerate}
 
     \subsection{Domain class diagrams}
-    The domain class diagram for CodeKataBattle is presented below, covering all the elements within the system's operational environment and illustrating their interactions.
+    The domain class diagram for CKB is presented below, covering all the elements within the system's operational environment and illustrating their interactions.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.9\linewidth]{images/class.png}
@@ -332,25 +314,25 @@
             The \textit{Educator} is able to manage multiple \textit{Tournament}. 
         \item \textit{Student}: every \textit{Student} has a name, surname, username, email, and telephone. 
             The username must be unique. 
-            The \textit{Student} is able to partecipate in multiple \textit{Tournament}. 
+            The \textit{Student} is able to participate in multiple \textit{Tournament}. 
             The \textit{Student} is part of a \textit{Group} for a given \textit{Battle}.     
-        \item \textit{Group}: every \textit{Student} that partecipate in a \textit{Battle} must set up a group with the maximum number of \textit{Student} fixed by the rules. 
+        \item \textit{Group}: every \textit{Student} that participate in a \textit{Battle} must set up a group with the maximum number of \textit{Student} fixed by the rules. 
             Each group is created for a specific \textit{Battle} within a \textit{Tournament}. 
             Different \textit{Battle} within the same \textit{Tournament} may have different \textit{Group}. 
             The \textit{Student} that creates a group have to set up a groupName. 
-            It has also a repositoryUrl attribute that specifies the url of the repository linked to the selected battle. 
+            It has also a repositoryUrl attribute that specifies the URL of the repository linked to the selected battle. 
             The system automatically set the membersNum based on the \textit{Battle}'s rule. 
             The attribute points consider the points associated to a group in a specific \textit{Battle}. 
             It has a relation with \textit{Student} and \textit{Battle}, since it is formed by one or more \textit{Student} and is created in the context of a specific \textit{Battle}. 
-            If one \textit{Student} wants to partecipate alone the systems creates automatically a \textit{Group} with the single \textit{Student}. 
+            If one \textit{Student} wants to participate alone the systems creates automatically a \textit{Group} with the single \textit{Student}. 
         \item \textit{Battle}: this class contains a single \textit{Battle} within a \textit{Tournament}.
             The \textit{Battle} has a registration and submission deadline, the requested programming language, and the URL of the main repository from which users have to fork their own.
             The \textit{Battle} is created by a single \textit{Educator}, so it specifies who created it with the creator attribute. 
             Each \textit{Battle} may have multiple \textit{Group}.
-            Each battle is part of a specific \textit{Tournament} and has a \textit{CodeKata} that describes the problem. 
-        \item \textit{CodeKata}: is the description of a problem within a \textit{Battle}. 
+            Each battle is part of a specific \textit{Tournament} and has a \textit{CK} that describes the problem. 
+        \item \textit{CK}: is the description of a problem within a \textit{Battle}. 
             It contains the name of the problem and a textual description of it. 
-            Each \textit{Battle} has exactly one \textit{CodeKata}. 
+            Each \textit{Battle} has exactly one \textit{CK}. 
         \item \textit{Tournament}: each \textit{Tournament} is created by an \textit{Educator} that becomes the owner of it. 
             It has a textual description on the general topic and the name. 
             It also has a registration deadline. 
@@ -378,10 +360,10 @@
 
     \paragraph*{Description}
     After the creation of a battle, the students enrolled in the battle's tournament can join alone or in groups (\textit{Joinable}). 
-    At registratione deadline there are two possibilities: there are at least one student enrolled or there are none. 
+    At registration deadline there are two possibilities: there are at least one student enrolled or there are none. 
     In the former scenario the battle starts (\textit{Started}), while in the latter the battle ends immediately without final ranking (\textit{Battle canceled0} and \textit{Final state}). 
     When the battle starts each student or group can create commits and gain points for the battle (\textit{Disputed}).
-    However, when the deadline occours the battle is closed and both groups and student with and without commits are evaluated (\textit{End battle}). 
+    However, when the deadline occurs the battle is closed and both groups and student with and without commits are evaluated (\textit{End battle}). 
     Obviously, the groups without commits will gain zero points. 
     The solutions undergo the automated evaluation (\textit{Automated evaluation}) and then the educator's evaluation (\textit{Rankings}). 
     After all this process the final rankings are shown and the winner is revealed. 
@@ -397,18 +379,18 @@
     After the creation of a tournament, the educator can invite other educator to manage it together (\textit{Definition}). 
     While doing this the educator has also to set up the rules for the tournament and the termination date (\textit{Joinable}).
     Note that the educators can create battles also after the creation of the tournament.
-    When the registration deadline occours the tournament starts and students not enrolled cannot join the tournament anymore (\textit{Tournament start}). 
+    When the registration deadline occurs the tournament starts and students not enrolled cannot join the tournament anymore (\textit{Tournament start}). 
     After the tournament starts, the battles can also commence. 
     When the first battle starts (\textit{Battle phase}) the students can compete in the open battles and have to wait the opening date for the ones not yet stared. 
-    When the last battle ends (the deadline must be anterior to the tournament ending) (\textit{Battle phase end}), it is possible to compute the scores for all the students. 
-    WHen the tournament's deadline occours, the educator close the tournament itself and can finally reveal the final winner. 
+    Once the last battle ends (the deadline must be anterior to the tournament ending) (\textit{Battle phase end}), it is possible to compute the scores for all the students. 
+    When the tournament's deadline occurs, the educator close the tournament itself and can finally reveal the final winner. 
 
     \section{Product functions}
-    The functionality offered by CodeKataBattle differs based on the user that is going to interact with it. 
-    Thus, the functionalities are spresented based on the user. 
+    The functionality offered by CKB differs based on the user that is going to interact with it. 
+    Thus, the functionalities are presented based on the user. 
     
     \subsection{Student's functionalities}
-    The educator is the user that partecipates to the tournaments and the battles. 
+    The educator is the user that participates in the tournaments and the battles. 
     After the login the system must redirect the student to the page that offers the following functionalities: 
     \begin{itemize}
         \item \textit{Join tournaments}: the user must be able to access a list of opened tournament that can be joined. 
@@ -418,7 +400,7 @@
             It can see the status of all battles and the relative rankings. 
         \item \textit{Battles details}: the user can view the details of each battle. 
             The details consist, if the battle is open, in the problem description and test files. 
-            It can check the catual ranking, the points it has received, and the details about commits it has done. 
+            It can check the actual ranking, the points it has received, and the details about commits it has done. 
             If the battle is closed it can see the final ranking.
             If the battle is not yet open he can view only the topics and the other user enrolled, but not the problem itself. 
     \end{itemize}
@@ -481,14 +463,14 @@
     \subsection{Domain assumptions}
     The domain assumptions that we have to make are: 
     \begin{itemize}
-        \item All the users must regiter with an email associated with a GitHub account. 
+        \item All the users must register with an email associated with a GitHub account. 
         \item The educators must not commit on student's repositories. 
         \item The students do not share their code with students of other groups. 
         \item A student submits a code that is not malicious. 
         \item Every user register itself to the website with the right role (student or educator).
         \item GitHub and the API always works correctly. 
         \item The test cases uploaded by the educators are correct. 
-        \item The CodeKata problem proposed has a solution. 
+        \item The CK problem proposed has a solution. 
         \item The students fork the repository and set up an automated workflow GitHub Actions. 
     \end{itemize}
 
@@ -502,668 +484,664 @@
 
     \subsection{Constraints}
     The system shall be compliant to local laws and regulations, in particular users data should be treated according to the GDPR. 
-    The user must be able to retrive the personal data given to the site ache time he needs them. 
+    The user must be able to retrieve the personal data given to the site ache time he needs them. 
     The data collected in the registration phase must be the strictly necessary ones. \\
     All information given from the user must be encrypted to protect them from malicious users. \\
-    The APIs used by the application must be choosen based on security and reliability.
+    The APIs used by the application must be chosen based on security and reliability.
 
 \chapter{Specific requirements}
     \section{External interface requirements}
-        In this section are presented all the interfaces required by the system to work as intended. 
+    In this section are presented all the interfaces required by the system to work as intended. 
 
-        \subsection{User interfaces}
-        The platform will be implemented via a website that present a different interface based on the user type. \\
-        The website interface will be modified based on the type of hardware used (mobile or personal computer). 
+    \subsection{User interfaces}
+    The platform will be implemented via a website that present a different interface based on the user type. \\
+    The website interface will be modified based on the type of hardware used (mobile or personal computer). 
 
-        \subsubsection{Welcome page} 
-        This is the page that is shown when the user is not registered or logged in. 
-        There is a brief description of the website and two buttons to let the user enter in the system. 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/welcome.png}
-        \end{figure}
+    \subsubsection{Welcome page} 
+    This is the page that is shown when the user is not registered or logged in. 
+    There is a brief description of the website and two buttons to let the user enter in the system. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/welcome.png}
+    \end{figure}
 
-        \subsubsection{Sign in page} 
-        In this page the user can select the corresponding role on the left and add the information required to register.
-        After completing all the information the user must click on the sign-in button to finally register.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/sign_in.png}
-        \end{figure}
+    \subsubsection{Sign in page} 
+    In this page the user can select the corresponding role on the left and add the information required to register.
+    After completing all the information the user must click on the sign-in button to finally register.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/sign_in.png}
+    \end{figure}
 
-        \subsubsection{Login page} 
-        In this page the user must select the role, and insert the credentials if already registered in the system. 
-        If the credentials are correct the user can access the functionalities associated with him. 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/log_in.png}
-        \end{figure}
+    \subsubsection{Login page} 
+    In this page the user must select the role, and insert the credentials if already registered in the system. 
+    If the credentials are correct the user can access the functionalities associated with him. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/log_in.png}
+    \end{figure}
 
-        \subsubsection{Home page} 
-        The home page shows all active tournament and the tournament checked before by the current user. 
-        If the home page is accessed by the Educator the buttons are for viewing details instead of joining the tournament. 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/home.png}
-        \end{figure}
+    \subsubsection{Home page} 
+    The home page shows all active tournament and the tournament checked before by the current user. 
+    If the home page is accessed by the Educator the buttons are for viewing details instead of joining the tournament. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/home.png}
+    \end{figure}
 
-        \subsubsection{Profile page} 
-        In the profile page the users can modify the personal description and the image related to the account. 
-        Other functionalities for the Student are: check active tournaments, check personal statistics and view the details of ended tournament in which the student partecipated.
-        The Educator has the same page (without statistics) and the tournament listed are the one who he is managing. 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/profilepage.png}
-        \end{figure}
+    \subsubsection{Profile page} 
+    In the profile page the users can modify the personal description and the image related to the account. 
+    Other functionalities for the Student are: check active tournaments, check personal statistics and view the details of ended tournament in which the student participated.
+    The Educator has the same page (without statistics) and the tournament listed are the one who he is managing. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/profilepage.png}
+    \end{figure}
 
-        \subsubsection{Search page} 
-        In this page the user can filter by choosing the desired language or by name. 
-        The first action can be done by selecting one of the button below "Languages", while the second is done with the bar at the top of the page. 
-        Also in this page the join buttone becomes a details button for the Educator. 
-        Finally, at the bottom of the page there is a section with recommendend battles based on the previous researches.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/search.png}
-        \end{figure}
+    \subsubsection{Search page} 
+    In this page the user can filter by choosing the desired language or by name. 
+    The first action can be done by selecting one of the button below "Languages", while the second is done with the bar at the top of the page. 
+    Also in this page the join button becomes a details button for the Educator. 
+    Finally, at the bottom of the page there is a section with recommended battles based on the previous researches.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/search.png}
+    \end{figure}
 
-        \subsubsection{Enrolled page} 
-        This page is only for Students. 
-        Here they can view the active tournaments where they are enrolled, and check the details (the battles within a tournament) and the current leaderboard.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/enrolled.png}
-        \end{figure}
+    \subsubsection{Enrolled page} 
+    This page is only for Students. 
+    Here they can view the active tournaments where they are enrolled, and check the details (the battles within a tournament) and the current leaderboard.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/enrolled.png}
+    \end{figure}
 
-        \subsubsection{Tournament details page} 
-        This page is for the Student and shows all the battles within a tournament. 
-        Here the student can join the single battles with a group made of one or more people. 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/tournament_details.png}
-        \end{figure}
+    \subsubsection{Tournament details page} 
+    This page is for the Student and shows all the battles within a tournament. 
+    Here the student can join the single battles with a group made of one or more people. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/tournament_details.png}
+    \end{figure}
 
-        \subsubsection{Leaderboard page} 
-        The leaderboard page shows the current ranking of the tournament selected with the details button in other pages. 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/leaderboard.png}
-        \end{figure}
+    \subsubsection{Leaderboard page} 
+    The leaderboard page shows the current ranking of the tournament selected with the details button in other pages. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/leaderboard.png}
+    \end{figure}
 
-        \subsubsection{Create tournament page} 
-        In this page the Educator can set all the items needed to create a new tournament. 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/create_tournament.png}
-        \end{figure}
+    \subsubsection{Create tournament page} 
+    In this page the Educator can set all the items needed to create a new tournament. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/create_tournament.png}
+    \end{figure}
 
-        \subsubsection{Create battle page} 
-        In this page the Educator can set all the items needed to create a new battle within a tournament. 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.75\linewidth]{images/create_battle.png}
-        \end{figure}
+    \subsubsection{Create battle page} 
+    In this page the Educator can set all the items needed to create a new battle within a tournament. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\linewidth]{images/create_battle.png}
+    \end{figure}
 
-        \subsubsection{Manage tournament page} 
-        In the manage tournament page the Educator can select the tournament that he manages and modify them by addin a battle, invite collaborators or close. 
-        It can also check the shared tournaments (where he is not the owner, but a collaborator). 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/manage_tournament.png}
-        \end{figure}
+    \subsubsection{Manage tournament page} 
+    In the manage tournament page the Educator can select the tournament that he manages and modify them by add in a battle, invite collaborators or close. 
+    It can also check the shared tournaments (where he is not the owner, but a collaborator). 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/manage_tournament.png}
+    \end{figure}
 
-        \subsubsection{Manage battle page} 
-        In this page the Educator can check the status of the battles within a specific tournament. 
-        Here, he can check the final rankings and add the manual evaluation when needed.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\linewidth]{images/manage_battle.png}
-        \end{figure}
+    \subsubsection{Manage battle page} 
+    In this page the Educator can check the status of the battles within a specific tournament. 
+    Here, he can check the final rankings and add the manual evaluation when needed.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/manage_battle.png}
+    \end{figure}
 
-        \subsection{Hardware interfaces}
-        Both user must have a mobile device or a personal computer. 
-        Since the system will be implemented as a website the personal computer will be a better device for visualize better all the information. \\
-        Additionaly, the challenge is to solve some problems using programming language, so the personal computer is necessary to compete (it is possible also with mobile devices but certainly more difficult). 
+    \subsection{Hardware interfaces}
+    Both user must have a mobile device or a personal computer. 
+    Since the system will be implemented as a website the personal computer will be a better device for visualize better all the information. \\
+    Additionally, the challenge is to solve some problems using programming language, so the personal computer is necessary to compete (it is possible also with mobile devices but certainly more difficult). 
 
-        \subsection{Software interfaces}
-        The system is a web application. 
-        Thus, the only software needed for both users is a modern web browser. 
+    \subsection{Software interfaces}
+    The system is a web application. 
+    Thus, the only software needed for both users is a modern web browser. 
 
-        \subsection{Communication interfaces}
-        To work as intendend the system requires a reliable internet connection. 
-        The backend of the application will expose a unified RESTful API. 
-        This API is used to communicate with all users using HTTPS and TCP/IP protocols. \\
-        Furthermore, the system uses other two application program interfaces to ensure all its functionalities: 
-        \begin{itemize}
-            \item Create a repository: CodeKataBattle needs to interact with GitHub in order to create a repository for each group partecipating to starting battles. 
-            \item Check repositories commits: CodeKataBattle needs to interact with the repositories linked to active battles in order to check all the new commits. 
-            \item Notification: CodeKataBattle needs to be able to send notification to the user to alert the users about important facts (e.g., the start or the end of a battle). 
-        \end{itemize}
+    \subsection{Communication interfaces}
+    To work as intended the system requires a reliable internet connection. 
+    The backend of the application will expose a unified RESTful API. 
+    This API is used to communicate with all users using HTTPS and TCP/IP protocols. \\
+    Furthermore, the system uses other two application program interfaces to ensure all its functionalities: 
+    \begin{itemize}
+        \item Create a repository: CKB needs to interact with GitHub in order to create a repository for each group participating to starting battles. 
+        \item Check repositories commits: CKB needs to interact with the repositories linked to active battles in order to check all the new commits. 
+        \item Notification: CKB needs to be able to send notification to the user to alert the users about important facts (e.g., the start or the end of a battle). 
+    \end{itemize}
 
     \section{Functional Requirements}
-        Initially we show the possible use cases for the interaction between the user and the application with the relative description and use case diagram. 
-        In the second part we list all the functional requirements as a mapping between the goals and the defined use cases. 
+    Initially we show the possible use cases for the interaction between the user and the application with the relative description and use case diagram. 
+    In the second part we list all the functional requirements as a mapping between the goals and the defined use cases. 
 
-        \subsection{Use case diagrams}
-        An unregistered user must be able to sign up. 
-        The registration phase is different according to the role of the user. 
-        If it is a student it has to get the corresponding functionalities (i.e., partecipate in tournaments). 
-        If it is an educator it has to get the corresponding functionalities (i.e., create and manage tournaments). 
-        The corresponding Use Case Diagrams are shown below: 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.5\linewidth]{images/unregisteredstud.png}
-            \caption{Use Case diagram for unregistered student}
-        \end{figure}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.5\linewidth]{images/unregistereded.png}
-            \caption{Use Case diagram for unregistered educator}
-        \end{figure}
-        Now, we analyze all the functionalities needed for both the students and the educators after the registration in the fllowing two Use Case diagrams: 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.65\linewidth]{images/stud.png}
-            \caption{Use Case diagram for unregistered educator}
-        \end{figure}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.65\linewidth]{images/ed.png}
-            \caption{Use Case diagram for unregistered educator}
-        \end{figure}
+    \subsection{Use case diagrams}
+    An unregistered user must be able to sign up. 
+    The registration phase is different according to the role of the user. 
+    If it is a student it has to get the corresponding functionalities (i.e., participate in tournaments). 
+    If it is an educator it has to get the corresponding functionalities (i.e., create and manage tournaments). 
+    The corresponding Use Case Diagrams are shown below: 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/unregisteredstud.png}
+        \caption{Use case diagram for unregistered student}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/unregistereded.png}
+        \caption{Use case diagram for unregistered educator}
+    \end{figure}
+    Now, we analyze all the functionalities needed for both the students and the educators after the registration in the following two Use Case diagrams: 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.65\linewidth]{images/stud.png}
+        \caption{Use case diagram for unregistered educator}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.65\linewidth]{images/ed.png}
+        \caption{Use case diagram for unregistered educator}
+    \end{figure}
 
-        \subsection{Use cases}
-        % usecase for the registration of educators
-        \usecase 
-        {\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/signup.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {User registration}
-        {Unregistered educator, Unresgistered student}
-        {The actor clicks on the sign-in button}
-        {
-        \begin{enumerate}
-            \item The actor requires the sign-in page by clicking the join now button in the welcome page
-            \item The system shows the sign-in page to the actor
-            \item The actor inserts required personal information and sends it to the system
-            \item The system processes the information and shows a success message redirecting the user to the login page
-        \end{enumerate}
-        }
-        {The actor is registered correctly, and the login page is displayed}
-        {
-        \begin{itemize}
-            \item An already existing username, email or phone number are submitted
-            \item A required registration field is missing or invalid when the form is submitted
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message; the system cannot check if the right role is select during registration}
+    \subsection{Use cases}
+    % usecase for the registration of educators
+    \usecase 
+    {\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/signup.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {User registration}
+    {Unregistered educator, Unregistered student}
+    {The actor clicks on the sign-in button}
+    {
+    \begin{enumerate}
+        \item The actor requires the sign-in page by clicking the join now button in the welcome page
+        \item The system shows the sign-in page to the actor
+        \item The actor inserts required personal information and sends it to the system
+        \item The system processes the information and shows a success message redirecting the user to the login page
+    \end{enumerate}
+    }
+    {The actor is registered correctly, and the login page is displayed}
+    {
+    \begin{itemize}
+        \item An already existing username, email or phone number are submitted
+        \item A required registration field is missing or invalid when the form is submitted
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message; the system cannot check if the right role is select during registration}
 
-        % usecase (Student, Educator) for the login of both students and educators 
-        \usecase
-        {\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/login.png}\end{figure}}
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Login}
-        {Student, educator}
-        {The actor clicks on the login button}
-        {
-        \begin{enumerate}
-            \item The actor requires the login page by clicking the log-in button in the welcome page
-            \item The system shows the login page to the actor
-            \item The actor inserts credentials and send it to the system
-            \item The system processes the information and shows a success message redirecting the user to the home page
-        \end{enumerate}
-        }
-        {The actor is logged, and the homepage is displayed}
-        {
-        \begin{itemize}
-            \item A wrong username or password is submitted
-            \item A student tries to log in as educator and viceversa
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Student, Educator) for the login of both students and educators 
+    \usecase
+    {\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/login.png}\end{figure}}
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Login}
+    {Student, educator}
+    {The actor clicks on the login button}
+    {
+    \begin{enumerate}
+        \item The actor requires the login page by clicking the log-in button in the welcome page
+        \item The system shows the login page to the actor
+        \item The actor inserts credentials and send it to the system
+        \item The system processes the information and shows a success message redirecting the user to the home page
+    \end{enumerate}
+    }
+    {The actor is logged, and the homepage is displayed}
+    {
+    \begin{itemize}
+        \item A wrong username or password is submitted
+        \item A student tries to log in as educator and vice versa
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student, Educator) for checking the profile
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/profile.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Checking the profile}
-        {Educator, Student}
-        {The actor clicks on profile button}
-        {
-        \begin{enumerate}
-            \item The actor clicks on profile button
-            \item The system shows the profile page
-            \item The actor can check his profile and eventually change personal information with edit button
-        \end{enumerate}
-        }
-        {The actor is in the profile page}
-        {
-        \begin{itemize}
-            \item The actor is not signed-in
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Student, Educator) for checking the profile
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/profile.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Checking the profile}
+    {Educator, Student}
+    {The actor clicks on profile button}
+    {
+    \begin{enumerate}
+        \item The actor clicks on profile button
+        \item The system shows the profile page
+        \item The actor can check his profile and eventually change personal information with edit button
+    \end{enumerate}
+    }
+    {The actor is in the profile page}
+    {
+    \begin{itemize}
+        \item The actor is not signed-in
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student) for visualizing all tournaments
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/accesstournaments.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Access to available tournaments}
-        {Student}
-        {The actor just logged in or clicked on the home button}
-        {
-        \begin{enumerate}
-            \item The actor requires the home page
-            \item The system shows the home page to the actor
-            \item The actor can now check all the available tournaments
-        \end{enumerate}
-        }
-        {The actor is on the home page}
-        {
-        \begin{itemize}
-            \item There are no active tournaments 
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message; the system cannot check if the right role is select during registration}
+    % usecase (Student) for visualizing all tournaments
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/accesstournaments.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Access to available tournaments}
+    {Student}
+    {The actor just logged in or clicked on the home button}
+    {
+    \begin{enumerate}
+        \item The actor requires the home page
+        \item The system shows the home page to the actor
+        \item The actor can now check all the available tournaments
+    \end{enumerate}
+    }
+    {The actor is on the home page}
+    {
+    \begin{itemize}
+        \item There are no active tournaments 
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message; the system cannot check if the right role is select during registration}
 
-        % usecase (Student) for joining a specific tournament
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/jointournaments.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Join a specific tournament}
-        {Student}
-        {The actor clicks on the join tournament button}
-        {
-        \begin{enumerate}
-            \item The actor enters the home page
-            \item The system shows the home page to the actor
-            \item The actor clicks on the join button of the desired tournament
-            \item The system shows the enrolled page with the new tournament
-        \end{enumerate}
-        }
-        {The actor is on the enrolled page}
-        {
-        \begin{itemize}
-            \item The tournament selected by the actor is closed 
-            \item The actor cannot join the selected tournament
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Student) for joining a specific tournament
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/jointournaments.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Join a specific tournament}
+    {Student}
+    {The actor clicks on the join tournament button}
+    {
+    \begin{enumerate}
+        \item The actor enters the home page
+        \item The system shows the home page to the actor
+        \item The actor clicks on the join button of the desired tournament
+        \item The system shows the enrolled page with the new tournament
+    \end{enumerate}
+    }
+    {The actor is on the enrolled page}
+    {
+    \begin{itemize}
+        \item The tournament selected by the actor is closed 
+        \item The actor cannot join the selected tournament
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student, Educator) for the research of a tournament by the name
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/searchtournament.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Search a specific tournament}
-        {Student, Educator}
-        {The actor goes to tournament details page}
-        {
-        \begin{enumerate}
-            \item The actor clicks the search tab on the left of any page
-            \item The system shows the search page to the actor
-            \item The actor fills the form with the name of the searched tournament
-            \item The system shows the matching tournaments
-        \end{enumerate}
-        }
-        {The actor is in the search page}
-        {
-        \begin{itemize}
-            \item The actor searches a wrong string (null or invalid characters)
-            \item There are no matching active tournaments
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Student, Educator) for the research of a tournament by the name
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/searchtournament.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Search a specific tournament}
+    {Student, Educator}
+    {The actor goes to tournament details page}
+    {
+    \begin{enumerate}
+        \item The actor clicks the search tab on the left of any page
+        \item The system shows the search page to the actor
+        \item The actor fills the form with the name of the searched tournament
+        \item The system shows the matching tournaments
+    \end{enumerate}
+    }
+    {The actor is in the search page}
+    {
+    \begin{itemize}
+        \item The actor searches a wrong string (null or invalid characters)
+        \item There are no matching active tournaments
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student) for joining a specific battle with the creation of a group
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/joinbattle.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Join a specific battle creating a new group}
-        {Student}
-        {The actor clicks on create and join battle button}
-        {
-        \begin{enumerate}
-            \item The actor enters the tournament details page
-            \item The system shows the tournament details page to the actor
-            \item The actor clicks on the desired battle in the selected tournament
-            \item The actor clicks on the create and join battle button
-            \item The system shows the tournament details page with the new group
-        \end{enumerate}
-        }
-        {The actor is in the tournament details page}
-        {
-        \begin{itemize}
-            \item The selected battle is in a tournament where the actor is not enrolled
-            \item The battle is already closed
-            \item The educators that manages the battle does not accept the new group
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Student) for joining a specific battle with the creation of a group
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/joinbattle.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Join a specific battle creating a new group}
+    {Student}
+    {The actor clicks on create and join battle button}
+    {
+    \begin{enumerate}
+        \item The actor enters the tournament details page
+        \item The system shows the tournament details page to the actor
+        \item The actor clicks on the desired battle in the selected tournament
+        \item The actor clicks on the create and join battle button
+        \item The system shows the tournament details page with the new group
+    \end{enumerate}
+    }
+    {The actor is in the tournament details page}
+    {
+    \begin{itemize}
+        \item The selected battle is in a tournament where the actor is not enrolled
+        \item The battle is already closed
+        \item The educators that manages the battle does not accept the new group
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student) for joining a specific group in a battle
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/joinbattle1.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Join a specific battle with an already exisisting group}
-        {Student}
-        {The actor clicks the join button}
-        {
-        \begin{enumerate}
-            \item The actor enters the tournament details page
-            \item The system shows the tournament details page to the actor
-            \item The actor clicks on the desired battle in the selected tournament
-            \item The actor clicks on an already existing group
-            \item The actor requires the access to the selected group by clicking on join
-            \item The system shows the tournament details page with a message
-        \end{enumerate}
-        }
-        {The actor is in the tournament details page}
-        {
-        \begin{itemize}
-            \item The selected battle is in a tournament where the actor is not enrolled
-            \item The battle is already closed
-            \item The group does not accept the new student
-            \item The group is already at maximum capacity
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Student) for joining a specific group in a battle
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/joinbattle1.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Join a specific battle with an already existing group}
+    {Student}
+    {The actor clicks the join button}
+    {
+    \begin{enumerate}
+        \item The actor enters the tournament details page
+        \item The system shows the tournament details page to the actor
+        \item The actor clicks on the desired battle in the selected tournament
+        \item The actor clicks on an already existing group
+        \item The actor requires the access to the selected group by clicking on join
+        \item The system shows the tournament details page with a message
+    \end{enumerate}
+    }
+    {The actor is in the tournament details page}
+    {
+    \begin{itemize}
+        \item The selected battle is in a tournament where the actor is not enrolled
+        \item The battle is already closed
+        \item The group does not accept the new student
+        \item The group is already at maximum capacity
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student) for accessing the battle repository
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checkrepo.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Check a repository linked to a battle}
-        {Student}
-        {The actor goes to tournament details page}
-        {
-        \begin{enumerate}
-            \item The actor enters the tournament details page
-            \item The system shows the tournament details page to the actor
-            \item The actor clicks on the repository button linked to the repository of a specific battle
-            \item The actor is redirected to the GitHub repository linked to the battle selected
-        \end{enumerate}
-        }
-        {The actor is in the tournament details page and has another tab with the requestet repository}
-        {
-        \begin{itemize}
-            \item The selected battle is in a tournament where the actor is not enrolled
-            \item The battle is already closed
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Student) for accessing the battle repository
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checkrepo.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Check a repository linked to a battle}
+    {Student}
+    {The actor goes to tournament details page}
+    {
+    \begin{enumerate}
+        \item The actor enters the tournament details page
+        \item The system shows the tournament details page to the actor
+        \item The actor clicks on the repository button linked to the repository of a specific battle
+        \item The actor is redirected to the GitHub repository linked to the battle selected
+    \end{enumerate}
+    }
+    {The actor is in the tournament details page and has another tab with the requested repository}
+    {
+    \begin{itemize}
+        \item The selected battle is in a tournament where the actor is not enrolled
+        \item The battle is already closed
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student, Educator) for accessing all tournament rankings
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checktournamentranking.png}\end{figure}}
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Check the ranking of a specific tournament}
-        {Student, Educator}
-        {The actor goes to tournament details page}
-        {
-        \begin{enumerate}
-            \item The actor requires the enrolled page 
-            \item The system shows the enrolled page
-            \item The actor clicks on details of a tournament
-            \item The system shows the details of the tournament 
-            \item The actor clicks on leaderbord button
-            \item The system shows the leaderboard page
-            \item The actor can check the ranking of the selected tournament
-        \end{enumerate}
-        }
-        {The actor is in the tournament details page}
-        {
-        \begin{itemize}
-            \item There are no partecipants
-        \end{itemize}   
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Student, Educator) for accessing all tournament rankings
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checkbattleranking.png}\end{figure}}
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Check the ranking of a specific tournament}
+    {Student, Educator}
+    {The actor goes to tournament details page}
+    {
+    \begin{enumerate}
+        \item The actor requires the enrolled page 
+        \item The system shows the enrolled page
+        \item The actor clicks on details of a tournament
+        \item The system shows the details of the tournament 
+        \item The actor clicks on leaderboard button
+        \item The system shows the leaderboard page
+        \item The actor can check the ranking of the selected tournament
+    \end{enumerate}
+    }
+    {The actor is in the tournament details page}
+    {
+    \begin{itemize}
+        \item There are no participants
+    \end{itemize}   
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Student) for accessing all battle rankings
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checkbattleranking.png}\end{figure}} 
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Check the ranking of a specific battle}
-        {Student}
-        {The actor clicks leaderboard button}
-        {
-        \begin{enumerate}
-            \item The actor requires the enrolled page 
-            \item The system shows the enrolled page
-            \item The actor clicks on details of a tournament
-            \item The system shows the details of the tournament 
-            \item The actor clicks on leaderbord button
-            \item The system shows the leaderboard page
-            \item The actor can check the ranking of the selected battle
-        \end{enumerate}
-        }
-        {The actor is in the leaderbord page of the selected tournament}
-        {
-        \begin{itemize}
-            \item There are no partecipants
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Student) for accessing all battle rankings
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checktournamentranking.png}\end{figure}} 
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Check the ranking of a specific battle}
+    {Student}
+    {The actor clicks leaderboard button}
+    {
+    \begin{enumerate}
+        \item The actor requires the enrolled page 
+        \item The system shows the enrolled page
+        \item The actor clicks on details of a tournament
+        \item The system shows the details of the tournament 
+        \item The actor clicks on leaderboard button
+        \item The system shows the leaderboard page
+        \item The actor can check the ranking of the selected battle
+    \end{enumerate}
+    }
+    {The actor is in the leaderboard page of the selected tournament}
+    {
+    \begin{itemize}
+        \item There are no participants
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Educator) for accessing all tournaments rankings
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checktournamentranking1.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {User checks the ranking of a specific searched tournament}
-        {Educator, Student}
-        {The actor clicks leaderboard button}
-        {
-        \begin{enumerate}
-            \item The actor search a tournament
-            \item The system shows the corresponding tournament in the search page
-            \item The actor clicks on detail on the desired tournament
-            \item The system shows the details of the tournament 
-            \item The actor clicks on leaderbord button
-            \item The system shows the leaderboard page
-            \item The actor can check the ranking of the selected tournament
-        \end{enumerate}
-        }
-        {The actor is in the leaderbord page of the selected tournament}
-        {
-        \begin{itemize}
-            \item There are no partecipants
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Educator) for accessing all tournaments rankings
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/checktournamentranking1.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {User checks the ranking of a specific searched tournament}
+    {Educator, Student}
+    {The actor clicks leaderboard button}
+    {
+    \begin{enumerate}
+        \item The actor search a tournament
+        \item The system shows the corresponding tournament in the search page
+        \item The actor clicks on detail on the desired tournament
+        \item The system shows the details of the tournament 
+        \item The actor clicks on leaderboard button
+        \item The system shows the leaderboard page
+        \item The actor can check the ranking of the selected tournament
+    \end{enumerate}
+    }
+    {The actor is in the leaderboard page of the selected tournament}
+    {
+    \begin{itemize}
+        \item There are no participants
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Educator) for creating a new tournament
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/createtournament.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Create a tournament}
-        {Educator}
-        {The actor clicks on create button on create tournament page}
-        {
-        \begin{enumerate}
-            \item The actor enters the create tournament page
-            \item The system shows the create tournament page to the actor
-            \item The actor compile the form
-            \item The actor clicks the create button to submit the form
-            \item The system shows the manage tournament page to the actor with the new tournament
-        \end{enumerate}
-        }
-        {The actor is in the manage tournament page}
-        {
-        \begin{itemize}
-            \item The actor tries to create a tournament with invalid data
-            \item The actor tries to create a tournament with invalid battles
-            \item The actor tries to create a tournament with invalid collaborator invintations
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
-        
-        % usecase (Educator) for accessing all managed tournaments
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/managetournament.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Manage a tournament}
-        {Educator}
-        {The actor goes to manage tournament page}
-        {
-        \begin{enumerate}
-            \item The actor enters the manage tournament page
-            \item The system shows the manage tournament page to the actor
-            \item The actor selects the desired tournament
-            \item The system shows the possible action for the selected tournament
-        \end{enumerate}
-        }
-        {The actor is in the manage tournament page}
-        {
-        \begin{itemize}
-            \item The actor tries to access an unmanaged tournament
-            \item The actor tries to access a closed tournament
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Educator) for creating a new tournament
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/createtournament.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Create a tournament}
+    {Educator}
+    {The actor clicks on create button on create tournament page}
+    {
+    \begin{enumerate}
+        \item The actor enters the create tournament page
+        \item The system shows the create tournament page to the actor
+        \item The actor compile the form
+        \item The actor clicks the create button to submit the form
+        \item The system shows the manage tournament page to the actor with the new tournament
+    \end{enumerate}
+    }
+    {The actor is in the manage tournament page}
+    {
+    \begin{itemize}
+        \item The actor tries to create a tournament with invalid data
+        \item The actor tries to create a tournament with invalid battles
+        \item The actor tries to create a tournament with invalid collaborator invitations
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
+    
+    % usecase (Educator) for accessing all managed tournaments
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/managetournament.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Manage a tournament}
+    {Educator}
+    {The actor goes to manage tournament page}
+    {
+    \begin{enumerate}
+        \item The actor enters the manage tournament page
+        \item The system shows the manage tournament page to the actor
+        \item The actor selects the desired tournament
+        \item The system shows the possible action for the selected tournament
+    \end{enumerate}
+    }
+    {The actor is in the manage tournament page}
+    {
+    \begin{itemize}
+        \item The actor tries to access an unmanaged tournament
+        \item The actor tries to access a closed tournament
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Educator) for creating a new battle
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/addbattle.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Add a battle to a tournament}
-        {Educator}
-        {The actor clicks on add battle in the managed tournament page}
-        {
-        \begin{enumerate}
-            \item The system shows the create battle page
-            \item The actor compiles all the elements required by the form 
-            \item The actor submits the form 
-            \item The system show the managed tournament page with the modified tournament
-        \end{enumerate}
-        }
-        {The actor is in the manage tournament page on the modified tournament with the new battle}
-        {
-        \begin{itemize}
-            \item The form is not compiled correctly 
-            \item The tournament selected is already closed 
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Educator) for creating a new battle
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/addbattle.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Add a battle to a tournament}
+    {Educator}
+    {The actor clicks on add battle in the managed tournament page}
+    {
+    \begin{enumerate}
+        \item The system shows the create battle page
+        \item The actor compiles all the elements required by the form 
+        \item The actor submits the form 
+        \item The system show the managed tournament page with the modified tournament
+    \end{enumerate}
+    }
+    {The actor is in the manage tournament page on the modified tournament with the new battle}
+    {
+    \begin{itemize}
+        \item The form is not compiled correctly 
+        \item The tournament selected is already closed 
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Educator) for adding a new educator to a tournament
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/addcollaborator.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Add a new educator to a tournament}
-        {Educator}
-        {The actor clicks on add collaborator in the managed tournament page}
-        {
-        \begin{enumerate}
-            \item The system shows the managed tournament page with the possibility to add collaborators
-            \item The actor insert the email in the corresponding form
-            \item The actor clicks on invite
-            \item The system show the managed tournament page with the modified tournament
-        \end{enumerate}
-        }
-        {The actor is in the manage tournament page on the modified tournament with the pending invitation}
-        {
-        \begin{itemize}
-            \item The email does not correpond to another educator 
-            \item The tournament selected is already closed 
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Educator) for adding a new educator to a tournament
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/addcollaborator.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Add a new educator to a tournament}
+    {Educator}
+    {The actor clicks on add collaborator in the managed tournament page}
+    {
+    \begin{enumerate}
+        \item The system shows the managed tournament page with the possibility to add collaborators
+        \item The actor insert the email in the corresponding form
+        \item The actor clicks on invite
+        \item The system show the managed tournament page with the modified tournament
+    \end{enumerate}
+    }
+    {The actor is in the manage tournament page on the modified tournament with the pending invitation}
+    {
+    \begin{itemize}
+        \item The email does not correspond to another educator 
+        \item The tournament selected is already closed 
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Educator) for closing a tournament 
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/closetournament.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Close a tournament}
-        {Educator}
-        {The actor clicks on close button on a specific tournament in manage tournament page}
-        {
-        \begin{enumerate}
-            \item The actor enters the manage tournament page
-            \item The system shows the manage tournament page
-            \item The actor select the desired tournament 
-            \item The actor clicks on close button in the selected tournament
-            \item The system shows the manage tournament page and the tournament is closed
-        \end{enumerate}
-        }
-        {The actor is in the manage tournament page on the modified tournament with the closed tournament}
-        {
-        \begin{itemize}
-            \item The tournament is already closed
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Educator) for closing a tournament 
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/closetournament.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Close a tournament}
+    {Educator}
+    {The actor clicks on close button on a specific tournament in manage tournament page}
+    {
+    \begin{enumerate}
+        \item The actor enters the manage tournament page
+        \item The system shows the manage tournament page
+        \item The actor select the desired tournament 
+        \item The actor clicks on close button in the selected tournament
+        \item The system shows the manage tournament page and the tournament is closed
+    \end{enumerate}
+    }
+    {The actor is in the manage tournament page on the modified tournament with the closed tournament}
+    {
+    \begin{itemize}
+        \item The tournament is already closed
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        % usecase (Educator) for evaluating a battle manually
-        \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/evaluatebattle.png}\end{figure}}        
-        {\arabic{useCase}\stepcounter{useCase}}
-        {Evaluate a battle}
-        {Educator}
-        {The actor enters the manage battle page}
-        {
-        \begin{enumerate}
-            \item The actor enters the manage battle page
-            \item The system shows the manage battle page
-            \item The actor clicks on selected battle
-            \item The actor fill the form with the manual evaluation grades
-            \item The actor clicks publish button
-            \item The system shows the manage battle page and the manual evaluation is complete
-        \end{enumerate}
-        }
-        {The actor is in the manage battle page}
-        {
-        \begin{itemize}
-            \item The battle is not yet closed
-            \item The form is not compiled correctly
-        \end{itemize}
-        }
-        {In case of exception the system will notify user with a human-readable message}
+    % usecase (Educator) for evaluating a battle manually
+    \usecase{\begin{figure}[H]\centering\includegraphics[width=0.9\linewidth]{images/evaluatebattle.png}\end{figure}}        
+    {\arabic{useCase}\stepcounter{useCase}}
+    {Evaluate a battle}
+    {Educator}
+    {The actor enters the manage battle page}
+    {
+    \begin{enumerate}
+        \item The actor enters the manage battle page
+        \item The system shows the manage battle page
+        \item The actor clicks on selected battle
+        \item The actor fill the form with the manual evaluation grades
+        \item The actor clicks publish button
+        \item The system shows the manage battle page and the manual evaluation is complete
+    \end{enumerate}
+    }
+    {The actor is in the manage battle page}
+    {
+    \begin{itemize}
+        \item The battle is not yet closed
+        \item The form is not compiled correctly
+    \end{itemize}
+    }
+    {In case of exception the system will notify user with a human-readable message}
 
-        \subsection{Requirements}
-        The system requirements are as follows:
-        \subsection{System Functional Requirement for students}
+    \newpage
+    \subsection{Requirements}
+    The system requirements are as follows:
 
-        \begin{table}[H]
-            \begin{tabularx}{\textwidth}{cXc}
-                \textbf{Rx}  & Description                                                                                                                                                  & Relevance     \\
-                \hline                                                                                                                                            
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows unregistered students to register.                                                          & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows registered students to login.                                                               & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to search the tournaments.                                                         & Must Have   \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to enroll in a tournament.                                                         & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the creation of a new tournament.                                 & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the creation of a new battle in a tournament they're enrolled in. & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the rank pubblication of a tournament they're enrolled in.        & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the rank pubblication of battle they joined.                      & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to access the personal profile.                                                    & Should Have   \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to edit their profile.                                                             & Should Have   \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all battles' leaderboards.                                                & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all tournaments' leaderboards.                                            & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all the details of a certain tournament.                                  & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all the details of a certain battle.                                      & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to join a group for a specific battle of a tournament they are enrolled in.        & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to join a specific battle of a tournament they are enrolled in on their own.       & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to create a group for a specific battle of a tournament they are enrolled in.      & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allow the Student to reach the repository linked to a specific battle.                             & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to access GitHub repositories                                                              & Must Have     \\    
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to pull updated files from a commit of a repository                                        & Must Have     \\    
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to execute the code pulled from students' repositories                                     & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to assign a ranking based on tests passed, time passed, and code static analisys           & Must Have     \\                   
-                \hline
-            \end{tabularx}
-        \end{table}
+    \subsection{System Functional Requirement for students}
+    \begin{table}[H]
+        \begin{tabularx}{\textwidth}{cXc}
+            \textbf{Rx}  & Description                                                                                                                                                  & Relevance     \\
+            \hline                                                                                                                                            
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows unregistered students to register.                                                          & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows registered students to login.                                                               & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to search the tournaments.                                                         & Must Have   \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to enroll in a tournament.                                                         & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the creation of a new tournament.                                 & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the creation of a new battle in a tournament they're enrolled in. & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the rank publication of a tournament they're enrolled in.         & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to notify students about the rank publication of battle they joined.                       & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to access the personal profile.                                                    & Should Have   \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to edit their profile.                                                             & Should Have   \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all battles' leaderboards.                                                & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all tournaments' leaderboards.                                            & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all the details of a certain tournament.                                  & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to check all the details of a certain battle.                                      & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to join a group for a specific battle of a tournament they are enrolled in.        & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to join a specific battle of a tournament they are enrolled in on their own.       & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows students to create a group for a specific battle of a tournament they are enrolled in.      & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allow the Student to reach the repository linked to a specific battle.                             & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to access GitHub repositories                                                              & Must Have     \\    
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to pull updated files from a commit of a repository                                        & Must Have     \\    
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to execute the code pulled from students' repositories                                     & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system is able to assign a ranking based on tests passed, time passed, and code static analysis           & Must Have     \\                   
+            \hline
+        \end{tabularx}
+    \end{table}
 
-        \subsection{System Functional Requirement for Educators}
-        \begin{table}[H]
-            \begin{tabularx}{\textwidth}{cXc}
-                \textbf{Rx}  & Description                                                                                                                                                  & Relevance     \\
-                \hline                                                                                                                                            
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows unregistered educators to register.                                                         & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows registered educators to login.                                                              & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to search the tournaments.                                                        & Must Have   \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to access the personal profile.                                                   & Should Have   \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to edit their profile.                                                            & Should Have   \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all battles' leaderboards.                                               & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all tournaments' leaderboards.                                           & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all the details of a certain tournament.                                 & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all the details of a certain battle.                                     & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to create a tournament.                                                           & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to create a battle in a tournament
-                                                                              they previously created or have been invited to collaborate in.                                               & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to invite collaborators in a specific tournament.                                 & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows owner educator to close the tournament.                                                     & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educator who created the battle, to give points based on personal evaluation of the code.   & Must Have     \\
-                \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system should be able to set up a GitHub repository for each battle created.                              & Must Have     \\
-                \hline
-            \end{tabularx}
-        \end{table}
-
-    These requirements are necessary to fullfill the goals presented previousily, a more exaustive mapping from goals to requirements 
-    is now presented, where the non-mandatory requirements are omitted just because not expected by the committent. 
+    \subsection{System Functional Requirement for Educators}
+    \begin{table}[H]
+        \begin{tabularx}{\textwidth}{cXc}
+            \textbf{Rx}  & Description                                                                                                                                                                      & Relevance     \\\hline                                                                                                                                            
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows unregistered educators to register.                                                                             & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows registered educators to login.                                                                                  & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to search the tournaments.                                                                            & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to access the personal profile.                                                                       & Should Have   \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to edit their profile.                                                                                & Should Have   \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all battles' leaderboards.                                                                   & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all tournaments' leaderboards.                                                               & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all the details of a certain tournament.                                                     & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to check all the details of a certain battle.                                                         & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to create a tournament.                                                                               & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to create a battle in a tournament they previously created or have been invited to collaborate in.    & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educators to invite collaborators in a specific tournament.                                                     & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows owner educator to close the tournament.                                                                         & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system allows educator who created the battle, to give points based on personal evaluation of the code.                       & Must Have     \\
+            \textbf{R\arabic{Requirements}\stepcounter{Requirements}}   & The system should be able to set up a GitHub repository for each battle created.                                                  & Must Have     \\
+            \hline
+        \end{tabularx}
+    \end{table}
+    These requirements are necessary to fulfill the goals presented previously, a more exhaustive mapping from goals to requirements is now presented, where the non-mandatory requirements are omitted just because not expected by the client. 
 
     \subsection{Requirements mapping}
-
     \begin{table}[H]
         \begin{tabularx}{\textwidth}{cX}
         \textbf{G1}  & The system should allow students to join tournaments.                            \\ \hline
@@ -1242,8 +1220,8 @@
         \textbf{R1}   & The system allows unregistered students to register.                                                                            \\
         \textbf{R2}   & The system allows registered students to login.                                                                                 \\
         \textbf{R3}   & The system allows students to search the tournaments.                                                                           \\
-        \textbf{R7}   & The system is able to notify students about the rank pubblication of a tournament they're enrolled in.                          \\
-        \textbf{R8}   & The system is able to notify students about the rank pubblication of battle they joined.                                        \\
+        \textbf{R7}   & The system is able to notify students about the rank publication of a tournament they're enrolled in.                          \\
+        \textbf{R8}   & The system is able to notify students about the rank publication of battle they joined.                                        \\
         \textbf{R11}  & The system allows students to check all battles' leaderboards.                                                                  \\
         \textbf{R12}  & The system allows students to check all tournaments' leaderboards.                                                              \\
         \textbf{R13}  & The system allows students to check all the details of a certain tournament.                                                    \\
@@ -1251,7 +1229,7 @@
         \textbf{R19}  & The system is able to access GitHub repositories.                                                                               \\
         \textbf{R20}  & The system is able to pull updated files from a commit of a repository.                                                         \\
         \textbf{R21}  & The system is able to execute the code pulled from students' repositories.                                                      \\
-        \textbf{R22}  & The system is able to assign a ranking based on tests passed, time passed, and code static analisys.                            \\
+        \textbf{R22}  & The system is able to assign a ranking based on tests passed, time passed, and code static analysis.                            \\
         \textbf{R23}  & The system allows unregistered educators to register.                                                                           \\
         \textbf{R24}  & The system allows registered educators to login.                                                                                \\
         \textbf{R25}  & The system allows educators to search the tournaments.                                                                          \\
@@ -1277,8 +1255,8 @@
         \textbf{R4}  & The system allows students to enroll in a tournament.                                                                            \\
         \textbf{R5}  & The system is able to notify students about the creation of a new tournament.                                                    \\
         \textbf{R6}  & The system is able to notify students about the creation of a new battle in a tournament they're enrolled in.                    \\
-        \textbf{R7}  & The system is able to notify students about the rank pubblication of a tournament they're enrolled in.                           \\
-        \textbf{R8}  & The system is able to notify students about the rank pubblication of battle they joined.                                         \\
+        \textbf{R7}  & The system is able to notify students about the rank publication of a tournament they're enrolled in.                           \\
+        \textbf{R8}  & The system is able to notify students about the rank publication of battle they joined.                                         \\
         \textbf{R11} & The system allows students to check all battles' leaderboards.                                                                   \\
         \textbf{R12} & The system allows students to check all tournaments' leaderboards.                                                               \\
         \textbf{R15} & The system allows students to join a group for a specific battle of a tournament they are enrolled in.                           \\
@@ -1288,7 +1266,7 @@
         \textbf{R19} & The system is able to access GitHub repositories.                                                                                \\
         \textbf{R20} & The system is able to pull updated files from a commit of a repository.                                                          \\
         \textbf{R21} & The system is able to execute the code pulled from students' repositories.                                                       \\
-        \textbf{R22} & The system is able to assign a ranking based on tests passed, time passed, and code static analisys.                             \\
+        \textbf{R22} & The system is able to assign a ranking based on tests passed, time passed, and code static analysis.                             \\
         \textbf{R23} & The system allows unregistered educators to register.                                                                            \\
         \textbf{R24} & The system allows registered educators to login.                                                                                 \\
         \textbf{R32} & The system allows educators to create a tournament.                                                                              \\
@@ -1314,202 +1292,203 @@
 
 
     \section{Performance requirements}
-        The performance requirements needed to ensure the reliability and the availability of the system are: 
-        \begin{itemize}
-            \item The backend must be scalable based on the number of active user, reactive. 
-                It must be able to magae a proper load-balancing to ensure performance also when numeorus users are conneccted togehter to the platform. 
-            \item The frontend must be modeled to be user-friendly, so that also educators and students that does not work often with technology can use the platform. 
-                The interface must also be fluid and handle asynchronous interaction to ensure a certain level of usability even when the connection is not too stable. 
-            \item The system must have a security level that ensure availability and protect the system and users' data from malicious pepole. 
-            \item Since the notifications are used to alert the unser mainly on deadlines, they must be delivered in a short time (in the order of some minutes). 
-            \item The system must also adapt when the number of user increase suddently (e.g., when the final rankings are published multiple users login into a single tournament page). 
-        \end{itemize}
+    The performance requirements needed to ensure the reliability and the availability of the system are: 
+    \begin{itemize}
+        \item The backend must be scalable based on the number of active user, reactive. 
+            It must be able to manage a proper load-balancing to ensure performance also when numerous users are connected together to the platform. 
+        \item The frontend must be modeled to be user-friendly, so that also educators and students that does not work often with technology can use the platform. 
+            The interface must also be fluid and handle asynchronous interaction to ensure a certain level of usability even when the connection is not too stable. 
+        \item The system must have a security level that ensure availability and protect the system and users' data from malicious people. 
+        \item Since the notifications are used to alert the user mainly on deadlines, they must be delivered in a short time (in the order of some minutes). 
+        \item The system must also adapt when the number of user increase suddenly (e.g., when the final rankings are published multiple users login into a single tournament page). 
+    \end{itemize}
 
     \section{Design constraints}
-        \subsection{Standards compliance}
-        The specifications described in this document must be followed during all the development process and the final product must adhere to these. \\
-        The source code of the system must be commented to ensure that all the specifications are met. \\
-        The data used by the application must be treated accordingly to the GDPR. 
 
-        \subsection{Hardware limitations}
-        The application requires a device that can be a mobile one or a personal computer. \\
-        In both cases the device needs an internet connection to retrieve data from the server. 
+    \subsection{Standards compliance}
+    The specifications described in this document must be followed during all the development process and the final product must adhere to these. \\
+    The source code of the system must be commented to ensure that all the specifications are met. \\
+    The data used by the application must be treated accordingly to the GDPR. 
 
-        \section{Software system attributes}
-        \subsection{Reliability}
-        To ensure enhanced reliability performance, conduct all scheduled system maintenance during nighttime. 
-        Additionally, be aware that certain system functionalities depend on external APIs; however, a failure in one of them should not result in a complete system failure. 
-        Prioritize the prevention of data loss by employing redundant storage methods.
+    \subsection{Hardware limitations}
+    The application requires a device that can be a mobile one or a personal computer. \\
+    In both cases the device needs an internet connection to retrieve data from the server. 
 
-        \subsection{Availability}
-        The system must deliver its functionalities with an availability of 99.5\% or higher, meaning it should be inaccessible for less than two days each year.
-        To meet this objective, ensure high redundancy for the most crucial components of the system.
+    \section{Software system attributes}
 
-        \subsection{Security}
-        To safeguard sensitive user data, the system should gather only essential information, storing it in an encrypted database. 
-        The connection between the application must adhere to contemporary standard protocols like HTTPS.
-        We must encrypt email and passwords. 
-        The latter one also needs salt. 
+    \subsection{Reliability}
+    To ensure enhanced reliability performance, conduct all scheduled system maintenance during nighttime. 
+    Additionally, be aware that certain system functionalities depend on external APIs; however, a failure in one of them should not result in a complete system failure. 
+    Prioritize the prevention of data loss by employing redundant storage methods.
 
-        \subsection{Maintainability}
-        Source code and related documentation should have comprehensive comments and be consistently updated. 
-        Emphasize modularity, low coupling, and high cohesion between components during the design and development phases. 
-        Specifically, ensure that the modularity of the frontend and backend allows developers to update the backend seamlessly without users experiencing any disruptions.
+    \subsection{Availability}
+    The system must deliver its functionalities with an availability of 99.5\% or higher, meaning it should be inaccessible for less than two days each year.
+    To meet this objective, ensure high redundancy for the most crucial components of the system.
 
-        \subsection{Portability}
-        The application should be accessible on prominent mobile operating systems, targeting at least the latest releases. 
-        The web application must be compatible with the most recent browsers. 
-        Optimal efficiency can be achieved by judiciously reusing a significant portion of the codebase across both mobile and web platforms through the use of cross-platform tools.
+    \subsection{Security}
+    To safeguard sensitive user data, the system should gather only essential information, storing it in an encrypted database. 
+    The connection between the application must adhere to contemporary standard protocols like HTTPS.
+    We must encrypt email and passwords. 
+    The latter one also needs salt. 
 
+    \subsection{Maintainability}
+    Source code and related documentation should have comprehensive comments and be consistently updated. 
+    Emphasize modularity, low coupling, and high cohesion between components during the design and development phases. 
+    Specifically, ensure that the modularity of the frontend and backend allows developers to update the backend seamlessly without users experiencing any disruptions.
+
+    \subsection{Portability}
+    The application should be accessible on prominent mobile operating systems, targeting at least the latest releases. 
+    The web application must be compatible with the most recent browsers. 
+    Optimal efficiency can be achieved by judiciously reusing a significant portion of the codebase across both mobile and web platforms through the use of cross-platform tools.
 
 \chapter{Formal analysis with Alloy}
-Alloy serves as a specification language utilized to articulate, devise, and authenticate the functionality of intricate systems. 
-Grounded in first-order logic, this language possesses a mathematical underpinning that facilitates automated validation of design accuracy.
-After formulating a model, it undergoes analysis through a tool compatible with Alloy, like AlloyAnalyzer.
-This tool systematically examines if the model adheres to stipulated constraints and properties.
-Additionally, it enables the exploration of potential behaviors to identify designs that align with specified criteria.
+    Alloy serves as a specification language utilized to articulate, devise, and authenticate the functionality of intricate systems. 
+    Grounded in first-order logic, this language possesses a mathematical underpinning that facilitates automated validation of design accuracy.
+    After formulating a model, it undergoes analysis through a tool compatible with Alloy, like AlloyAnalyzer.
+    This tool systematically examines if the model adheres to stipulated constraints and properties.
+    Additionally, it enables the exploration of potential behaviors to identify designs that align with specified criteria.
 
-The primary objective of formal analysis is to precisely articulate the domain and characteristics of the intended system.
-In the following section a model of the system is presented.
+    The primary objective of formal analysis is to precisely articulate the domain and characteristics of the intended system.
+    In the following section a model of the system is presented.
 
-\begin{lstlisting}[language=alloy]
-    //SIGNATURES
+    \begin{lstlisting}[language=alloy]
+//SIGNATURES
 
-    //Signatures used to define user's attributes
-    sig Username {}
-    sig Email {}
-    sig Telephone {}
-    
-    //Signature used to define a generic User
-    abstract sig User {
-        username : disj one Username,
-        email : disj one Email,
-        telephone : disj one Telephone
-    }
-    
-    //Signature used to define an Educator and a Students, that are specific users
-    sig Educator extends User {}
-    sig Student extends User {}
-    
-    //Signature used to define a Battle, with the contraints on the dates
-    sig Battle {
-        registrationDate : one Int,
-        submissionDate : one Int,
-        creator : Educator,
-        tournament : one Tournament,
-        about : one CodeKata
-    } {registrationDate > 0 and 
-        submissionDate > registrationDate}
-    
-    //Signature used to define a Group, with a constraint on the number of points
-    sig Group {
-        students : some Student,
-        battle : one Battle,	
-        points : one Int
-    } {points > 0}
-    
-    //Signature used to define a Group, with a constraint on the owner
-    sig Tournament {
-        registrationDate : Int,
-        owner : one Educator,
-        managedBy : set Educator,
-        partecipants : set Student
-    } {owner not in managedBy}
-    
-    //Signature used to define a Rank for a Tournament, based on a Student
-    sig Ranking {
-        student : one Student,
-        tournament : one Tournament,
-        points : one Int
-    } {points >= 0}
-    
-    //Signature used to represent a CodeKata
-    sig CodeKata {}
-    
-    //FUNCTIONS
+//Signatures used to define user's attributes
+sig Username {}
+sig Email {}
+sig Telephone {}
 
-    //Returns the Groups associated with a Student in a specific Tournament
-    fun getStudentGroupsPerTournament [s : Student, t : Tournament] : Group {
-        {g : Group | s in g.students and t = (g.battle).tournament}
-    }
-    
-    //Returns the Ranks associated with a Student in a specific Tournament
-    fun getStudentRankPerTournament[s : Student, t : Tournament] : Int {
-        {i : sum[getStudentGroupsPerTournament[s, t].points]}
-    }
-    
-    
-    // FACTS
-    
-    //Every battle in a tournament is made by an educator that created it or manages it
-    fact onlyAutorazedCanCreateBattles {
-        all b : Battle | b.creator in ((b.tournament).owner + (b.tournament).managedBy)
-    }
-    
-    //Only students that partecipate in a tournament have a rank in it
-    fact onlyPartecipantsRanked {
-        all r : Ranking | r.student in (r.tournament).partecipants
-    }
-    
-    //Every partecipant in tournament gets a ranking in it
-    fact everyPartecipantIsRanked {
-        all t : Tournament | all s : t.partecipants |
-            one r : Ranking | r.student = s and r.tournament = t
-    }
-    
-    //Only partecipants in a tournament can also join its battles
-    fact onlyEnrolledCanBattle {
-        all g : Group | all s : g.students | s in ((g.battle).tournament).partecipants
-    }
-    
-    //No group referred to the same battle can contain the same student
-    fact noOverlappingStudents {
-        all disj g1, g2 : Group | g1.battle = g2.battle implies no (g1.students & g2.students)}
-    
-    //Ranking of a tournament are given by the sum of the points in each battle 
-    fact rankingIsPointsSum {
-        all r : Ranking | r.points = getStudentRankPerTournament[r.student, r.tournament]
-    }
-    
-    //ASSERTIONS 
-    //Every student subscribed to a tournament that haven't partecipated in any battle 
-    //has a ranking of 0
-    assert noBattleNoPoints {
-        all r : Ranking | no getStudentGroupsPerTournament[r.student, r.tournament] 
-            implies r.points = 0
-    }
-    
-    run {
-        #Battle > 0
-        #Group > 2
-        some g : Group | #g.students > 1
-    } for 30
-    check noBattleNoPoints for 20
-\end{lstlisting}
-\newpage
-Here, there are two examples of the generated universe.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{images/AlloyGen2.png}
-    \caption{This universe is simple and composed by two students competing in only one battle of a tournament togehter}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{images/alloyGen1.png}
-    \caption{This generation is more complex and features two tournaments with a battle each}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/marta.png}
-    \caption{Output of the assertion check}
-\end{figure}
+//Signature used to define a generic User
+abstract sig User {
+    username : disj one Username,
+    email : disj one Email,
+    telephone : disj one Telephone
+}
+
+//Signature used to define an Educator and a Students, that are specific users
+sig Educator extends User {}
+sig Student extends User {}
+
+//Signature used to define a Battle, with the contraints on the dates
+sig Battle {
+    registrationDate : one Int,
+    submissionDate : one Int,
+    creator : Educator,
+    tournament : one Tournament,
+    about : one CK
+} {registrationDate > 0 and 
+    submissionDate > registrationDate}
+
+//Signature used to define a Group, with a constraint on the number of points
+sig Group {
+    students : some Student,
+    battle : one Battle,	
+    points : one Int
+} {points > 0}
+
+//Signature used to define a Group, with a constraint on the owner
+sig Tournament {
+    registrationDate : Int,
+    owner : one Educator,
+    managedBy : set Educator,
+    partecipants : set Student
+} {owner not in managedBy}
+
+//Signature used to define a Rank for a Tournament, based on a Student
+sig Ranking {
+    student : one Student,
+    tournament : one Tournament,
+    points : one Int
+} {points >= 0}
+
+//Signature used to represent a CK
+sig CK {}
+
+//FUNCTIONS
+
+//Returns the Groups associated with a Student in a specific Tournament
+fun getStudentGroupsPerTournament [s : Student, t : Tournament] : Group {
+    {g : Group | s in g.students and t = (g.battle).tournament}
+}
+
+//Returns the Ranks associated with a Student in a specific Tournament
+fun getStudentRankPerTournament[s : Student, t : Tournament] : Int {
+    {i : sum[getStudentGroupsPerTournament[s, t].points]}
+}
+
+
+// FACTS
+
+//Every battle in a tournament is made by an educator that created it or manages it
+fact onlyAutorazedCanCreateBattles {
+    all b : Battle | b.creator in ((b.tournament).owner + (b.tournament).managedBy)
+}
+
+//Only students that partecipate in a tournament have a rank in it
+fact onlyPartecipantsRanked {
+    all r : Ranking | r.student in (r.tournament).partecipants
+}
+
+//Every partecipant in tournament gets a ranking in it
+fact everyPartecipantIsRanked {
+    all t : Tournament | all s : t.partecipants |
+        one r : Ranking | r.student = s and r.tournament = t
+}
+
+//Only partecipants in a tournament can also join its battles
+fact onlyEnrolledCanBattle {
+    all g : Group | all s : g.students | s in ((g.battle).tournament).partecipants
+}
+
+//No group referred to the same battle can contain the same student
+fact noOverlappingStudents {
+    all disj g1, g2 : Group | g1.battle = g2.battle implies no (g1.students & g2.students)}
+
+//Ranking of a tournament are given by the sum of the points in each battle 
+fact rankingIsPointsSum {
+    all r : Ranking | r.points = getStudentRankPerTournament[r.student, r.tournament]
+}
+
+//ASSERTIONS 
+//Every student subscribed to a tournament that haven't partecipated in any battle 
+//has a ranking of 0
+assert noBattleNoPoints {
+    all r : Ranking | no getStudentGroupsPerTournament[r.student, r.tournament] 
+        implies r.points = 0
+}
+
+run {
+    #Battle > 0
+    #Group > 2
+    some g : Group | #g.students > 1
+} for 30
+check noBattleNoPoints for 20
+    \end{lstlisting}
+    \newpage
+    Here, there are two examples of the generated universe.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/AlloyGen2.png}
+        \caption{This universe is simple and composed by two students competing in only one battle of a tournament together}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\linewidth]{images/alloyGen1.png}
+        \caption{This generation is more complex and features two tournaments with a battle each}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/marta.png}
+        \caption{Output of the assertion check}
+    \end{figure}
 
 \chapter{Effort spent}
     The table below offers a concise overview of the hours invested by each group member, along with a brief description of their contributions. 
     Dates where the same amount of time was dedicated by all members usually indicates collaborative efforts.
     \begin{table}[H]
         \centering
-        \begin{tabular}{cccc}
+        \begin{tabular}{cccl}
             \textbf{Date}   & \textbf{Rossi}            & \textbf{Sharoubim}            & \textbf{Description}                          \\ \hline
             22-10-2023      & 1                         & 0                             & Repository setup and file structure           \\ 
             28-10-2023      & 3                         & 1                             & First chapter initial content                 \\ 
@@ -1521,19 +1500,19 @@ Here, there are two examples of the generated universe.
             09-12-2023      & 1                         & 1                             & Use case diagrams                             \\
             10-12-2023      & 2                         & 2                             & Use case diagrams                             \\
             12-12-2023      & 2                         & 4                             & Alloy                                         \\
-            14-12-2023      & 1                         & 3                             & alloy                                         \\
+            14-12-2023      & 1                         & 3                             & Alloy                                         \\
             16-12-2023      & 3                         & 0                             & Use case diagrams                             \\
             17-12-2023      & 3                         & 1                             & Use case diagrams                             \\
             18-12-2023      & 2                         & 2                             & Requirement Analysis                          \\
-            19-12-2023      & 3                         & 3                             & Final Revision                                \\ \hline
-            \textbf{Total}  & 34                        & 34                            & RASD                                          \\  
+            19-12-2023      & 3                         & 3                             & Final Revision                                \\ 
+            04-01-2024      & 1                         & 1                             & Fixed some typos                              \\ \hline
+            \textbf{Total}  & 35                        & 35                            & RASD                                          \\  
         \end{tabular}
     \end{table}
 
 \chapter{References}
-    \textbf{Diagrams} - https://app.diagrams.net
-    \\
-    \textbf{UI Mockup} - https://app.uizard.io/
-    \\
+    \textbf{Diagrams} - https://app.diagrams.net \\
+    \textbf{UI Mockup} - https://app.uizard.io/ \\
     \textbf{Alloy documentation} - https://alloy.readthedocs.io/en/latest/index.html
+
 \end{document}
