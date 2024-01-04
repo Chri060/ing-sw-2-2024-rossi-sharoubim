@@ -41,7 +41,7 @@
     Geared towards developers, testers, and project managers, this document serves as a valuable reference for the system's implementation phase.
 
     \section{Scope}
-    CodeKataBattle serves as a platform utilized by educators to engage students in coding Katas - challenges designed to be addressed using a programming language specified by the challenge organizers. 
+    CodeKataBattle serves as a platform utilized by educators to engage students in coding Kata - challenges designed to be addressed using a programming language specified by the challenge organizers. 
     Educators possess the capability to establish a code Kata within a particular tournament, defining essential parameters such as the problem statement (inclusive of test cases), 
     the minimum and maximum number of students allowed per group, and the deadlines for both code Kata registration and solution submission.
     Following the tournament creation, students are empowered to create groups and commence their collaborative efforts on the solution, following a test-first approach. 
@@ -57,27 +57,19 @@
 
     \section{Definitions, acronyms and abbreviations}
     \subsection{Definitions}
-    \textbf{Code Kata}: adaptation of the concept of karate katas, where you repetitively refine a form, to the realm of software development, 
-        fostering iterative practice and improvement. 
-    \\
-    \textbf{Test-first approach}:  software development process relies on the transformation of software requirements into test cases before 
-        the software is completely developed, and it involves monitoring the entire software development by iteratively testing the software 
-        against all these test cases.
-    \subsection{Acronyms}
-    \textbf{CKB}: CodeKataBattle 
-    \\
-    \textbf{CK}: Code Kata
+    \textbf{Code Kata}: adaptation of the concept of karate katas, where you repetitively refine a form, to the realm of software development, fostering iterative practice and improvement. \\
+    \textbf{Test-first approach}:  software development process relies on the transformation of software requirements into test cases before the software is completely developed, and it involves monitoring the entire software development by iteratively testing the software against all these test cases.
     
-
+    \subsection{Acronyms}
+    \textbf{CKB}: CodeKataBattle \\
+    \textbf{CK}: CodeKata
+    
     \section{Revision history}
     \textbf{Version 1.0} - Release - 04-01-2024
 
-
     \section{Reference documents}
-    \textbf{Document 1} - Presentation about DD structure
-    \\
-    \textbf{Website 1} - http://codekata.com
-    \\
+    \textbf{Document 1} - Presentation about DD structure\\
+    \textbf{Website 1} - http://codekata.com \\
     \textbf{Website 2} - https://en.wikipedia.org
 
     \section{Document structure}
@@ -93,9 +85,8 @@
         \item \textit{References}: this section encompasses a list of references cited within the Design Document, providing a foundation for further exploration and understanding.
     \end{enumerate}   
 
-\newpage 
 
-\chapter{Architectural design}
+    \chapter{Architectural design}
     The purpose of this section is to systematically present and assess the architecture of the S2B system in a top-down approach. 
     We first introduce the comprehensive architecture and then provide a diagram illustrating the system's components, with a specific emphasis on the Educators and students subcomponents. 
     Subsequently, we employ an Entity-Relationship (ER) diagram to articulate the system's logical data and present the system's deployment view, encompassing layers and tiers. 
@@ -116,7 +107,7 @@
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{images/component_view.png}
-        \caption{Component diagram of the CodeKataBattle system}
+        \caption{Component diagram of the CKB system}
     \end{figure}
     The component diagram contains all the interfaces used by the educators and the students. 
     These components will be better explained and analyzed in the following pages. 
@@ -598,7 +589,7 @@
     This component comprises the following interfaces: 
     \begin{itemize}
         \item getTournaments(): returns a list of active tournament that the educator can view. 
-        \item getTournamentDetails(eduatorID): returns a list of tournament managed by the educator with the given educatorID. 
+        \item getTournamentDetails(educatorID): returns a list of tournament managed by the educator with the given educatorID. 
         \item getTournamentDetails(tournamentID): returns all the details of the given tournament. 
         \item getBattles(tournamentID): returns all battles within a given tournament. 
         \item getBattleDetails(battleID): returns all the details of the given battle. 
@@ -616,7 +607,7 @@
         \item testPass(repositoryCode): computes how many test cases are passed and returns a certain amount of points. 
         \item searchGroup(repositoryURL): returns the groupID related to the give repository URL. 
         \item addEvaluation(groupID, points): adds the points to the group specified. 
-        \item notifiesCommit(repositoryUrl): is called by GitHub, through an automated workflow, in order to trigger the CKB platform,
+        \item notifiesCommit(repositoryURL): is called by GitHub, through an automated workflow, in order to trigger the CKB platform,
               pull the latest committed code and evaluate it. 
         \end{itemize}
 
@@ -674,7 +665,7 @@
             The choice of implementing an adapter pattern alloys to keep the application logic independent of the DBMS provider, hiding un necessary and complex parts. 
             The pattern, lastly, also grants a higher level of security since only a preset of operations is available. 
         \item \textit{Separation between Educators and Students}: Educators and Students have completely separated modules, this choice allows for a better modularization,
-            enhances the system maintainability and, for future updates, allows to implement features more easily. 
+            enhances the system maintainability and, for future updates, allows implementing features more easily. 
     \end{itemize}
 
     \section{Other design decisions}
@@ -1092,7 +1083,7 @@ As the Query Manager is needed for every operation it will be not reported in th
         \item \textit{Educator Research Manager}: this component is used to retrieve all the pages completed with the relative data. 
         \item \textit{Tournament Manager}: this component is used to let the educator create and manage a tournament.  
         \item \textit{Battle Manager}: this component is used to let the educator create and manage a battle.
-        \item \textit{Testing Managr}: this component is used to pull latest commits and evaluate their code.  
+        \item \textit{Testing Manager}: this component is used to pull the latest commits and evaluate their code.  
         \item \textit{Educator Profile Manager}: this component is used to let the educator view and edit the personal profile.
     \end{enumerate}
     The first five component have a high level of importance and as a result they are the first components that needs to be implemented. 
@@ -1133,14 +1124,12 @@ As the Query Manager is needed for every operation it will be not reported in th
         \caption{Implementation order for student manager subcomponents}
     \end{figure}
 
-
-
     \section{System testing}
     After performing the unit testing on each component the system can be finally integrated. 
     After the integration the testing of the whole system must take place. 
     The objective of this final testing is to check whether the functional and non-functional requirements are met. 
     This testing must be done in a testing environment that is as close as possible to the production environment.
-    The CodeKataBattle system needs to undergo the following tests: 
+    The CKB system needs to undergo the following tests: 
     \begin{itemize}
         \item \textit{Functional testing}: this involves testing the system against the functional requirements and specifications outlined in the Requirements and Specifications Document (RASD).
         \item \textit{Performance testing}: this aims to verify whether a software application remains functional under increased demand and various environmental conditions.
@@ -1166,8 +1155,5 @@ As the Query Manager is needed for every operation it will be not reported in th
     \end{table}
 
 \chapter{References}
-
-
-
-
+    \textbf{Diagrams} - https://app.diagrams.net 
 \end{document}
