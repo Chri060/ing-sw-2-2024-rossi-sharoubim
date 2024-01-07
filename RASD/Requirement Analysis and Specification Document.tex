@@ -191,13 +191,12 @@
     \begin{enumerate}
         \item The educator generates a code Kata problem description.
         \item The educator formulates a series of test cases for the code Kata problem.
+        \item The students establish an automated workflow through GitHub Actions to notify CKB about new commits.
         \item The students develop a program to solve the code Kata.
-        \item The educator assigns a personal score based on code quality.
     \end{enumerate}
     Additionally, the following machine phenomena arise within the system: 
     \begin{enumerate}
         \item The system creates a GitHub repository.
-        \item The system establishes an automated workflow through GitHub Actions to notify CKB about new commits.
         \item The system analyzes the repositories at every commit.
         \item The system conducts automated evaluation and updates the score according to the following criteria:
             \begin{enumerate}
@@ -223,6 +222,7 @@
         \item The student joins an already existing group.
         \item The student forms a new group and extends invitations to other students.
         \item The educator concludes the tournament, and the system notifies the students.
+        \item The educator assigns a personal score based on code quality.
     \end{enumerate}
 
     \section{Definitions, acronyms and abbreviations}
@@ -237,7 +237,8 @@
     
     \section{Revision history}
     \textbf{Version 1.0} - Release - 22/12/2023 \\
-    \textbf{Version 2.0} - Release - 04/01/2024
+    \textbf{Version 2.0} - Release - 04/01/2024 \\
+    \textbf{Version 2.1} - Release - 07/01/2024
 
     \section{Reference documents and websites}
     \textbf{Document 1} - Presentation about RASD structure \\
@@ -463,8 +464,7 @@
     \subsection{Domain assumptions}
     The domain assumptions that we have to make are: 
     \begin{itemize}
-        \item All the users must register with an email associated with a GitHub account. 
-        \item The educators must not commit on student's repositories. 
+        \item All the users must register with an email associated with a GitHub account.
         \item The students do not share their code with students of other groups. 
         \item A student submits a code that is not malicious. 
         \item Every user register itself to the website with the right role (student or educator).
